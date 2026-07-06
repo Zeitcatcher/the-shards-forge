@@ -14,6 +14,19 @@ const loadVendor = (type, slug) => {
 };
 const strip = (d) => { delete d.folder; delete d.sort; delete d.ownership; delete d._stats; return d; };
 
+// LevelDB keys, mirroring foundryvtt-cli: primary "!<collection>!<id>", embedded
+// "!<parent>.<child>!<parentId>.<childId>". The CLI skips any doc lacking _key.
+const HIERARCHY = { actors: ["items", "effects"], items: ["effects"], journal: ["pages"] };
+const keyJoin = (...a) => a.filter(Boolean).join(".");
+function keyify(doc, collection, subPrefix, idPrefix) {
+  const sub = keyJoin(subPrefix, collection);
+  const id = keyJoin(idPrefix, doc._id);
+  doc._key = `!${sub}!${id}`;
+  for (const emb of (HIERARCHY[collection] || [])) {
+    if (Array.isArray(doc[emb])) for (const e of doc[emb]) keyify(e, emb, sub, id);
+  }
+}
+
 const AIMG = {
   passive: "systems/pf2e/icons/actions/Passive.webp", reaction: "systems/pf2e/icons/actions/Reaction.webp",
   free: "systems/pf2e/icons/actions/FreeAction.webp", a1: "systems/pf2e/icons/actions/OneAction.webp",
@@ -110,24 +123,31 @@ rmSync("packs", { recursive: true, force: true });
 rmSync(".build", { recursive: true, force: true });
 mkdirSync("packs", { recursive: true });
 
-if (existsSync("src/actors") && readdirSync("src/actors").some((f) => f.endsWith(".json"))) {
-  mkdirSync(".build/actors", { recursive: true });
+// The Foundry CLI SKIPS any doc without a LevelDB `_key` ("!<collection>!<id>"), so every
+// primary doc is staged with its key before compiling. Actors are resolved from recipes first.
+const PACKS = [
+  { name: "shards-actors", src: "src/actors", collection: "actors", resolve: true },
+  { name: "shards-items", src: "src/items", collection: "items" },
+  { name: "shards-spells", src: "src/spells", collection: "items" },
+  { name: "shards-abilities", src: "src/abilities", collection: "items" },
+];
+
+for (const p of PACKS) {
+  if (!existsSync(p.src) || !readdirSync(p.src).some((f) => f.endsWith(".json"))) { console.log(`· skip ${p.name} (no source)`); continue; }
+  const stage = `.build/${p.name}`;
+  mkdirSync(stage, { recursive: true });
   let n = 0;
-  for (const f of readdirSync("src/actors")) {
+  for (const f of readdirSync(p.src)) {
     if (!f.endsWith(".json")) continue;
-    const actor = resolveActor(JSON.parse(readFileSync(`src/actors/${f}`, "utf8")));
-    writeFileSync(`.build/actors/${f}`, JSON.stringify(actor, null, 2));
+    let doc = JSON.parse(readFileSync(`${p.src}/${f}`, "utf8"));
+    if (p.resolve) doc = resolveActor(doc);
+    if (!doc._id) { warnings.push(`${p.name}/${f}: missing _id`); continue; }
+    keyify(doc, p.collection);
+    writeFileSync(`${stage}/${f}`, JSON.stringify(doc, null, 2));
     n++;
   }
-  await compilePack(".build/actors", "packs/shards-actors", { log: true });
-  console.log(`✓ built shards-actors (${n} champion(s) resolved)`);
-}
-
-for (const [pack, dir] of Object.entries({ "shards-items": "items", "shards-spells": "spells", "shards-abilities": "abilities" })) {
-  const src = `src/${dir}`;
-  if (!existsSync(src) || !readdirSync(src).some((f) => f.endsWith(".json"))) { console.log(`· skip ${pack} (no source)`); continue; }
-  await compilePack(src, `packs/${pack}`, { log: true });
-  console.log(`✓ built ${pack}`);
+  await compilePack(stage, `packs/${p.name}`, {});
+  console.log(`✓ built ${p.name} (${n} doc(s))`);
 }
 
 if (warnings.length) { console.error("\nRESOLVER WARNINGS:\n" + warnings.join("\n")); process.exit(1); }
