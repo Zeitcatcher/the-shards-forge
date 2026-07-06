@@ -21,7 +21,7 @@ const GROUPS = {
 };
 
 // Collect the slugs the recipes actually reference.
-const need = { equipment: new Set(), spells: new Set(), abilities: new Set() };
+const need = { equipment: new Set(), spells: new Set(), abilities: new Set(), actions: new Set(), effects: new Set() };
 if (existsSync("src/actors")) {
   for (const f of readdirSync("src/actors")) {
     if (!f.endsWith(".json")) continue;

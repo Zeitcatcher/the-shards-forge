@@ -147,6 +147,14 @@
     },
     {
       "slug": "shield-block"
+    },
+    {
+      "group": "actions",
+      "slug": "raise-a-shield",
+      "selfEffect": {
+        "name": "Effect: Raise Guard",
+        "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Raise Guard"
+      }
     }
   ]
 }

@@ -10,7 +10,8 @@
     "abilities/grab": "packs/pf2e/bestiary-ability-glossary-srd/grab.json",
     "abilities/ferocity": "packs/pf2e/bestiary-ability-glossary-srd/ferocity.json",
     "abilities/nimble-dodge": "packs/pf2e/bestiary-ability-glossary-srd/nimble-dodge.json",
-    "abilities/sneak-attack": "packs/pf2e/bestiary-ability-glossary-srd/sneak-attack.json"
+    "abilities/sneak-attack": "packs/pf2e/bestiary-ability-glossary-srd/sneak-attack.json",
+    "actions/raise-a-shield": "packs/pf2e/actions/basic/raise-a-shield.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",
