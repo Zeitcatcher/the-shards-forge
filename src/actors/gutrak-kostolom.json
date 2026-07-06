@@ -6,30 +6,117 @@
   "level": 7,
   "rarity": "unique",
   "size": "med",
-  "traits": ["humanoid", "orc"],
-  "abilities": { "str": 7, "dex": 2, "con": 6, "int": 0, "wis": 2, "cha": 2 },
+  "traits": [
+    "humanoid",
+    "orc"
+  ],
+  "abilities": {
+    "str": 7,
+    "dex": 2,
+    "con": 6,
+    "int": 0,
+    "wis": 2,
+    "cha": 2
+  },
   "ac": 24,
   "hp": 148,
   "perception": 15,
-  "senses": ["darkvision"],
-  "languages": ["common", "orcish"],
-  "saves": { "fort": 20, "ref": 12, "will": 12 },
-  "speeds": { "land": 25 },
-  "skills": { "athletics": 20, "intimidation": 17, "survival": 11 },
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "orcish"
+  ],
+  "saves": {
+    "fort": 20,
+    "ref": 12,
+    "will": 12
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "athletics": 20,
+    "intimidation": 17,
+    "survival": 11
+  },
   "strikes": [
-    { "name": "greataxe", "bonus": 18, "traits": ["sweep"], "damage": [{ "dice": "2d12+7", "type": "slashing" }] },
-    { "name": "grabbing fist", "bonus": 18, "traits": ["agile"], "damage": [{ "dice": "1d8+9", "type": "bludgeoning" }] }
+    {
+      "name": "greataxe",
+      "bonus": 18,
+      "traits": [
+        "sweep"
+      ],
+      "damage": [
+        {
+          "dice": "2d12+7",
+          "type": "slashing"
+        }
+      ],
+      "effects": [
+        "knockdown"
+      ]
+    },
+    {
+      "name": "grabbing fist",
+      "bonus": 18,
+      "traits": [
+        "agile"
+      ],
+      "damage": [
+        {
+          "dice": "1d8+9",
+          "type": "bludgeoning"
+        }
+      ],
+      "effects": [
+        "grab"
+      ]
+    }
   ],
   "actions": [
-    { "name": "Grab", "type": "action", "actions": 1, "text": "<p><strong>Requirements</strong> Gutrak hit with a grabbing fist this turn. The target is grabbed until the end of his next turn (Escape versus DC 27).</p>" },
-    { "name": "Bone-Crushing Squeeze", "type": "action", "actions": 1, "text": "<p><strong>Requirements</strong> Gutrak has a grabbed target. It takes @Damage[(2d8+7)[bludgeoning]] damage; @Check[type:fortitude|dc:25|basic:true]. Nonlethal.</p>" },
-    { "name": "Knockdown", "type": "action", "actions": 2, "text": "<p>Gutrak makes a greataxe Strike. On a hit he attempts a free Trip with Athletics +20.</p>" },
-    { "name": "Orc Ferocity", "type": "reaction", "text": "<p><strong>Frequency</strong> once per day. <strong>Trigger</strong> Gutrak drops to 0 Hit Points. <strong>Effect</strong> he stays at 1 Hit Point instead.</p>" }
+    {
+      "name": "Bone-Crushing Squeeze",
+      "type": "action",
+      "actions": 1,
+      "text": "<p><strong>Requirements</strong> A creature is @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by Gutrak.</p><hr /><p><strong>Effect</strong> Gutrak crushes the creature in a submission hold. It takes @Damage[(2d8+7)[bludgeoning]] damage with a basic @Check[type:fortitude|dc:25|basic:true] save. This damage is nonlethal.</p>"
+    }
   ],
   "gear": [
-    { "slug": "hide-armor", "equip": "worn", "runes": { "potency": 1 } },
-    { "slug": "greataxe", "equip": "held2", "runes": { "potency": 1, "striking": 1 } },
-    { "slug": "bestial-mutagen-moderate", "qty": 1 },
-    { "slug": "healing-potion-moderate", "qty": 1 }
+    {
+      "slug": "hide-armor",
+      "equip": "worn",
+      "runes": {
+        "potency": 1
+      }
+    },
+    {
+      "slug": "greataxe",
+      "equip": "held2",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "bestial-mutagen-moderate",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-moderate",
+      "qty": 1
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "grab"
+    },
+    {
+      "slug": "knockdown"
+    },
+    {
+      "slug": "ferocity"
+    }
   ]
 }

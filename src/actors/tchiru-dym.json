@@ -6,38 +6,347 @@
   "level": 6,
   "rarity": "unique",
   "size": "sm",
-  "traits": ["humanoid", "goblin"],
-  "abilities": { "str": 2, "dex": 5, "con": 2, "int": 5, "wis": 4, "cha": 2 },
+  "traits": [
+    "humanoid",
+    "goblin"
+  ],
+  "abilities": {
+    "str": 2,
+    "dex": 5,
+    "con": 2,
+    "int": 5,
+    "wis": 4,
+    "cha": 2
+  },
   "ac": 23,
   "hp": 70,
   "perception": 17,
-  "senses": ["darkvision"],
-  "languages": ["common", "goblin"],
-  "saves": { "fort": 14, "ref": 17, "will": 11 },
-  "speeds": { "land": 25 },
-  "skills": { "crafting": 15, "acrobatics": 13, "thievery": 13, "stealth": 13 },
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "goblin"
+  ],
+  "saves": {
+    "fort": 14,
+    "ref": 17,
+    "will": 11
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "crafting": 15,
+    "acrobatics": 13,
+    "thievery": 13,
+    "stealth": 13
+  },
   "strikes": [
-    { "name": "alchemical bomb", "bonus": 17, "range": 20, "traits": ["thrown", "splash"], "damage": [{ "dice": "2d6", "type": "bludgeoning" }] },
-    { "name": "hooked knife", "bonus": 13, "traits": ["agile", "finesse"], "damage": [{ "dice": "1d6+4", "type": "slashing" }] }
+    {
+      "name": "concussion bomb",
+      "bonus": 17,
+      "range": 20,
+      "traits": [
+        "alchemical",
+        "bomb",
+        "thrown",
+        "splash",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d6",
+          "type": "bludgeoning"
+        },
+        {
+          "dice": "2",
+          "type": "bludgeoning",
+          "category": "splash"
+        }
+      ],
+      "text": "<p>On a hit, the target attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 round and @UUID[Compendium.pf2e.conditionitems.Item.Clumsy] 1 for 1 round. Spends one Concussion Bomb.</p>"
+    },
+    {
+      "name": "flash bomb",
+      "bonus": 17,
+      "range": 20,
+      "traits": [
+        "alchemical",
+        "bomb",
+        "thrown",
+        "splash",
+        "light",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "1d4",
+          "type": "bludgeoning"
+        },
+        {
+          "dice": "1",
+          "type": "bludgeoning",
+          "category": "splash"
+        }
+      ],
+      "text": "<p>On a hit, the target attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 minute, and on a critical failure it is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round instead. Spends one Flash Bomb.</p>"
+    },
+    {
+      "name": "tanglefoot bomb",
+      "bonus": 17,
+      "range": 20,
+      "traits": [
+        "alchemical",
+        "bomb",
+        "thrown",
+        "nonlethal"
+      ],
+      "damage": [],
+      "text": "<p>On a hit, the target attempts a @Check[type:reflex|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] for 1 round or until it @UUID[Compendium.pf2e.actionspf2e.Item.Escape]s (DC 24) or Forces Open the goo (DC 22). Spends one Tanglefoot Bomb.</p>"
+    },
+    {
+      "name": "hooked knife",
+      "bonus": 13,
+      "traits": [
+        "agile",
+        "finesse"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+4",
+          "type": "slashing"
+        }
+      ]
+    }
   ],
   "actions": [
-    { "name": "Quick Bomber", "type": "action", "actions": 1, "text": "<p>Tchiru draws a bomb and throws it as a single action, so she can loose two or three bombs in a turn.</p>" },
-    { "name": "Concussion Bomb", "type": "action", "actions": 1, "text": "<p>Thrown 20 feet: @Damage[(2d6)[bludgeoning]] plus 2 splash. On a hit: @Check[type:fortitude|dc:24]; on a failure the target is deafened 1 and clumsy 1 for 1 round. Spends one Concussion Bomb.</p>" },
-    { "name": "Flash Bomb", "type": "action", "actions": 1, "text": "<p>Thrown 20 feet: @Damage[(1d4)[bludgeoning]] plus 1 splash. On a hit: @Check[type:fortitude|dc:24]; on a failure the target is dazzled for 1 minute, or blinded for 1 round on a critical failure. Spends one Flash Bomb.</p>" },
-    { "name": "Tanglefoot Bomb", "type": "action", "actions": 1, "text": "<p>Thrown 20 feet. On a hit: @Check[type:reflex|dc:24]; on a failure the target is immobilized for 1 round and must Escape or Force Open to break free. Spends one Tanglefoot Bomb.</p>" },
-    { "name": "Smoke Bomb", "type": "action", "actions": 1, "text": "<p>Thrown 20 feet. A cloud of smoke with a 10-foot radius lasts 1 minute and makes creatures inside or behind it concealed. Spends one Smoke Bomb.</p>" },
-    { "name": "Choking Cloud", "type": "action", "actions": 2, "text": "<p><strong>Frequency</strong> once per fight. @Template[type:cone|distance:15] of caustic smoke. Each creature in the area attempts @Check[type:fortitude|dc:24]; on a failure it is sickened 1 and cannot use Concentrate actions for 1 round. Spends the Choking Cloud Canister.</p>" },
-    { "name": "Debilitating Bomb", "type": "passive", "text": "<p>Every bomb Tchiru throws carries a condition, so her value is control and debuffs rather than raw damage.</p>" }
+    {
+      "name": "Quick Bomber",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Tchiru Interacts to draw a bomb, then Strikes with it.</p>"
+    },
+    {
+      "name": "Choking Cloud",
+      "type": "action",
+      "actions": 2,
+      "text": "<p><strong>Frequency</strong> once per fight.</p><hr /><p>Tchiru vents her canister in a @Template[type:cone|distance:15] of caustic smoke. Each creature in the area attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Sickened] 1 and cannot use Concentrate actions for 1 round. Spends the Choking Cloud Canister.</p>"
+    },
+    {
+      "name": "Debilitating Bomb",
+      "type": "passive",
+      "text": "<p>Every bomb Tchiru throws carries a condition, so her value is control and debuffs rather than raw damage.</p>"
+    }
   ],
   "gear": [
-    { "slug": "leather-armor", "equip": "worn", "runes": { "potency": 1 } },
-    { "slug": "kukri", "equip": "held1", "runes": { "potency": 1, "striking": 1 } },
-    { "slug": "quicksilver-mutagen-lesser", "qty": 1 },
-    { "slug": "elixir-of-life-lesser", "qty": 1 },
-    { "qty": 4, "item": { "name": "Concussion Bomb", "type": "consumable", "system": { "slug": "concussion-bomb", "level": { "value": 6 }, "price": { "value": { "gp": 40 } }, "bulk": { "value": 0.1 }, "traits": { "value": ["alchemical", "consumable", "nonlethal"], "rarity": "uncommon", "otherTags": [] }, "usage": { "value": "held-in-one-hand" }, "category": "other", "uses": { "value": 1, "max": 1 }, "equipped": { "carryType": "worn" }, "description": { "value": "<p>Nonlethal concussive bomb. Thrown 20 feet for 2d6 bludgeoning plus 2 splash; on a hit, DC 24 Fortitude or deafened 1 and clumsy 1 for 1 round.</p>" }, "rules": [] } } },
-    { "qty": 3, "item": { "name": "Flash Bomb", "type": "consumable", "system": { "slug": "flash-bomb", "level": { "value": 6 }, "price": { "value": { "gp": 35 } }, "bulk": { "value": 0.1 }, "traits": { "value": ["alchemical", "consumable", "light", "nonlethal"], "rarity": "uncommon", "otherTags": [] }, "usage": { "value": "held-in-one-hand" }, "category": "other", "uses": { "value": 1, "max": 1 }, "equipped": { "carryType": "worn" }, "description": { "value": "<p>Blinding flash. Thrown 20 feet; on a hit, DC 24 Fortitude or dazzled for 1 minute, or blinded for 1 round on a critical failure.</p>" }, "rules": [] } } },
-    { "qty": 3, "item": { "name": "Tanglefoot Bomb", "type": "consumable", "system": { "slug": "tanglefoot-bomb", "level": { "value": 6 }, "price": { "value": { "gp": 35 } }, "bulk": { "value": 0.1 }, "traits": { "value": ["alchemical", "consumable", "nonlethal"], "rarity": "uncommon", "otherTags": [] }, "usage": { "value": "held-in-one-hand" }, "category": "other", "uses": { "value": 1, "max": 1 }, "equipped": { "carryType": "worn" }, "description": { "value": "<p>Sticky alchemical goo. Thrown 20 feet; on a hit, DC 24 Reflex or immobilized for 1 round (Escape or Force Open to break free).</p>" }, "rules": [] } } },
-    { "qty": 3, "item": { "name": "Smoke Bomb", "type": "consumable", "system": { "slug": "smoke-bomb", "level": { "value": 6 }, "price": { "value": { "gp": 30 } }, "bulk": { "value": 0.1 }, "traits": { "value": ["alchemical", "consumable", "nonlethal"], "rarity": "uncommon", "otherTags": [] }, "usage": { "value": "held-in-one-hand" }, "category": "other", "uses": { "value": 1, "max": 1 }, "equipped": { "carryType": "worn" }, "description": { "value": "<p>Thrown 20 feet. A 10-foot-radius cloud of smoke lasts 1 minute and makes creatures inside or behind it concealed.</p>" }, "rules": [] } } },
-    { "qty": 1, "item": { "name": "Choking Cloud Canister", "type": "consumable", "system": { "slug": "choking-cloud-canister", "level": { "value": 6 }, "price": { "value": { "gp": 50 } }, "bulk": { "value": 0.1 }, "traits": { "value": ["alchemical", "consumable", "nonlethal"], "rarity": "uncommon", "otherTags": [] }, "usage": { "value": "held-in-one-hand" }, "category": "other", "uses": { "value": 1, "max": 1 }, "equipped": { "carryType": "worn" }, "description": { "value": "<p>A single burst of caustic smoke that fills a 15-foot cone. Each creature there attempts a DC 24 Fortitude save or is sickened 1 and cannot use Concentrate actions for 1 round.</p>" }, "rules": [] } } }
+    {
+      "slug": "leather-armor",
+      "equip": "worn",
+      "runes": {
+        "potency": 1
+      }
+    },
+    {
+      "slug": "kukri",
+      "equip": "held1",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "quicksilver-mutagen-lesser",
+      "qty": 1
+    },
+    {
+      "slug": "elixir-of-life-lesser",
+      "qty": 1
+    },
+    {
+      "qty": 4,
+      "item": {
+        "name": "Concussion Bomb",
+        "type": "consumable",
+        "system": {
+          "slug": "concussion-bomb",
+          "level": {
+            "value": 6
+          },
+          "price": {
+            "value": {
+              "gp": 40
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "traits": {
+            "value": [
+              "alchemical",
+              "consumable",
+              "nonlethal"
+            ],
+            "rarity": "uncommon",
+            "otherTags": []
+          },
+          "usage": {
+            "value": "held-in-one-hand"
+          },
+          "category": "other",
+          "uses": {
+            "value": 1,
+            "max": 1
+          },
+          "equipped": {
+            "carryType": "worn"
+          },
+          "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p><hr /><p>A nonlethal concussive charge, thrown up to 20 feet. It deals @Damage[(2d6)[bludgeoning]] damage and 2 bludgeoning splash damage. On a hit, the target attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 round and @UUID[Compendium.pf2e.conditionitems.Item.Clumsy] 1 for 1 round.</p>"
+          },
+          "rules": []
+        }
+      }
+    },
+    {
+      "qty": 3,
+      "item": {
+        "name": "Flash Bomb",
+        "type": "consumable",
+        "system": {
+          "slug": "flash-bomb",
+          "level": {
+            "value": 6
+          },
+          "price": {
+            "value": {
+              "gp": 35
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "traits": {
+            "value": [
+              "alchemical",
+              "consumable",
+              "light",
+              "nonlethal"
+            ],
+            "rarity": "uncommon",
+            "otherTags": []
+          },
+          "usage": {
+            "value": "held-in-one-hand"
+          },
+          "category": "other",
+          "uses": {
+            "value": 1,
+            "max": 1
+          },
+          "equipped": {
+            "carryType": "worn"
+          },
+          "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p><hr /><p>A blinding flash charge, thrown up to 20 feet. It deals @Damage[(1d4)[bludgeoning]] damage and 1 bludgeoning splash damage. On a hit, the target attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 minute, and on a critical failure it is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round instead.</p>"
+          },
+          "rules": []
+        }
+      }
+    },
+    {
+      "qty": 3,
+      "item": {
+        "name": "Tanglefoot Bomb",
+        "type": "consumable",
+        "system": {
+          "slug": "tanglefoot-bomb",
+          "level": {
+            "value": 6
+          },
+          "price": {
+            "value": {
+              "gp": 35
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "traits": {
+            "value": [
+              "alchemical",
+              "consumable",
+              "nonlethal"
+            ],
+            "rarity": "uncommon",
+            "otherTags": []
+          },
+          "usage": {
+            "value": "held-in-one-hand"
+          },
+          "category": "other",
+          "uses": {
+            "value": 1,
+            "max": 1
+          },
+          "equipped": {
+            "carryType": "worn"
+          },
+          "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p><hr /><p>A shell of sticky alchemical goo, thrown up to 20 feet. On a hit, the target attempts a @Check[type:reflex|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] for 1 round or until it @UUID[Compendium.pf2e.actionspf2e.Item.Escape]s (DC 24) or Forces Open the goo (DC 22).</p>"
+          },
+          "rules": []
+        }
+      }
+    },
+    {
+      "slug": "smoke-ball-greater",
+      "qty": 3
+    },
+    {
+      "qty": 1,
+      "item": {
+        "name": "Choking Cloud Canister",
+        "type": "consumable",
+        "system": {
+          "slug": "choking-cloud-canister",
+          "level": {
+            "value": 6
+          },
+          "price": {
+            "value": {
+              "gp": 50
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "traits": {
+            "value": [
+              "alchemical",
+              "consumable",
+              "nonlethal"
+            ],
+            "rarity": "uncommon",
+            "otherTags": []
+          },
+          "usage": {
+            "value": "held-in-one-hand"
+          },
+          "category": "other",
+          "uses": {
+            "value": 1,
+            "max": 1
+          },
+          "equipped": {
+            "carryType": "worn"
+          },
+          "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">2</span> (manipulate)</p><hr /><p>A single burst of caustic smoke that fills a @Template[type:cone|distance:15]. Each creature in the area attempts a @Check[type:fortitude|dc:24] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Sickened] 1 and cannot use Concentrate actions for 1 round.</p>"
+          },
+          "rules": []
+        }
+      }
+    }
   ]
 }

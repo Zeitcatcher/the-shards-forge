@@ -1,40 +1,75 @@
-// Pulls the standard pf2e documents that the champion recipes reference (gear + spells)
-// straight from the pinned pf2e-8.2.0 tag into a local, gitignored vendor cache.
-// The resolver in build.mjs then embeds them into each actor.
+// Pulls the standard pf2e documents the recipes reference (gear, spells, glossary abilities)
+// into the gitignored vendor/ cache. Mirror-first: on the dev machine docs are copied from the
+// local pf2e-catalog mirror and their network paths are recorded into tools/pf2e-refs.json so
+// CI (no mirror) can fetch the same docs from the pinned tag over HTTP.
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { hasMirror, findBySlug, loadDoc } from "./catalog.mjs";
 
-const refs = JSON.parse(readFileSync("tools/pf2e-refs.json", "utf8"));
+const REFS_PATH = "tools/pf2e-refs.json";
+const refs = JSON.parse(readFileSync(REFS_PATH, "utf8"));
+refs.paths ||= {};
 const base = `${refs.raw}/${refs.ref}`;
+let refsDirty = false;
+
+// vendor group -> mirror pack folder
+const GROUPS = {
+  equipment: "equipment",
+  spells: "spells",
+  abilities: "bestiary-ability-glossary-srd",
+  actions: "actions",
+  effects: "feat-effects",
+};
 
 // Collect the slugs the recipes actually reference.
-const need = { equipment: new Set(), spells: new Set() };
+const need = { equipment: new Set(), spells: new Set(), abilities: new Set() };
 if (existsSync("src/actors")) {
   for (const f of readdirSync("src/actors")) {
     if (!f.endsWith(".json")) continue;
     const r = JSON.parse(readFileSync(`src/actors/${f}`, "utf8"));
     for (const g of (r.gear || [])) if (g.slug) need.equipment.add(g.slug);
     if (r.spellcasting?.spells) for (const arr of Object.values(r.spellcasting.spells)) for (const s of arr) need.spells.add(s);
+    for (const a of (r.standardItems || [])) need[a.group || "abilities"]?.add(a.slug);
   }
 }
 
-async function pull(type, slug, path) {
-  const out = `vendor/pf2e/${type}/${slug}.json`;
-  if (existsSync(out)) { console.log(`  cached  ${type}/${slug}`); return true; }
+async function pull(group, slug) {
+  const out = `vendor/pf2e/${group}/${slug}.json`;
+  if (existsSync(out)) { console.log(`  cached  ${group}/${slug}`); return true; }
+  mkdirSync(`vendor/pf2e/${group}`, { recursive: true });
+
+  // 1) local mirror (dev machine): copy + record the network path for CI
+  if (hasMirror()) {
+    const row = findBySlug(GROUPS[group], slug);
+    if (row) {
+      writeFileSync(out, JSON.stringify(loadDoc(row), null, 2));
+      const netPath = row.f.replace(/^raw\//, "");
+      if (refs.paths[`${group}/${slug}`] !== netPath) { refs.paths[`${group}/${slug}`] = netPath; refsDirty = true; }
+      console.log(`  mirror  ${group}/${slug}`);
+      return true;
+    }
+    console.error(`  NOT IN CATALOG  ${group}/${slug} (check the slug against the index)`);
+    return false;
+  }
+
+  // 2) network fallback (CI): recorded path, legacy spell map, or flat-guess
+  const path = refs.paths[`${group}/${slug}`]
+    || (group === "spells" ? refs.spells?.[slug] : null)
+    || `packs/pf2e/${GROUPS[group]}/${slug}.json`;
   const res = await fetch(`${base}/${path}`);
-  if (!res.ok) { console.error(`  FAIL ${res.status}  ${type}/${slug}  (${path})`); return false; }
-  mkdirSync(`vendor/pf2e/${type}`, { recursive: true });
+  if (!res.ok) { console.error(`  FAIL ${res.status}  ${group}/${slug}  (${path})`); return false; }
   writeFileSync(out, await res.text());
-  console.log(`  pulled  ${type}/${slug}`);
+  console.log(`  pulled  ${group}/${slug}`);
   return true;
 }
 
 let failed = 0;
-console.log(`fetching pf2e docs from ${refs.ref} ...`);
-for (const slug of need.equipment) if (!(await pull("equipment", slug, `${refs.dirs.equipment}/${slug}.json`))) failed++;
-for (const slug of need.spells) {
-  const path = refs.spells[slug];
-  if (!path) { console.error(`  MISSING PATH  spells/${slug}  (add it to tools/pf2e-refs.json)`); failed++; continue; }
-  if (!(await pull("spells", slug, path))) failed++;
+console.log(`resolving pf2e docs (${hasMirror() ? "local mirror" : "network, " + refs.ref}) ...`);
+for (const [group, slugs] of Object.entries(need)) {
+  for (const slug of slugs) if (!(await pull(group, slug))) failed++;
 }
-if (failed) { console.error(`\nfetch FAILED: ${failed} document(s) could not be pulled.`); process.exit(1); }
+if (refsDirty) {
+  writeFileSync(REFS_PATH, JSON.stringify(refs, null, 2) + "\n");
+  console.log("updated tools/pf2e-refs.json with recorded fetch paths");
+}
+if (failed) { console.error(`\nfetch FAILED: ${failed} document(s) could not be resolved.`); process.exit(1); }
 console.log("fetch done.");

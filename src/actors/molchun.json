@@ -6,34 +6,148 @@
   "level": 7,
   "rarity": "unique",
   "size": "med",
-  "traits": ["humanoid", "human"],
-  "abilities": { "str": 2, "dex": 7, "con": 2, "int": 2, "wis": 4, "cha": 0 },
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": 2,
+    "dex": 7,
+    "con": 2,
+    "int": 2,
+    "wis": 4,
+    "cha": 0
+  },
   "ac": 25,
   "hp": 90,
   "perception": 18,
-  "senses": ["low-light-vision"],
-  "languages": ["common"],
-  "saves": { "fort": 15, "ref": 20, "will": 12 },
-  "speeds": { "land": 30 },
-  "skills": { "acrobatics": 20, "stealth": 17, "deception": 15, "athletics": 13, "intimidation": 13 },
+  "senses": [
+    "low-light-vision"
+  ],
+  "languages": [
+    "common"
+  ],
+  "saves": {
+    "fort": 15,
+    "ref": 20,
+    "will": 12
+  },
+  "speeds": {
+    "land": 30
+  },
+  "skills": {
+    "acrobatics": 20,
+    "stealth": 17,
+    "deception": 15,
+    "athletics": 13,
+    "intimidation": 13
+  },
   "strikes": [
-    { "name": "twin kukri", "bonus": 20, "traits": ["agile", "finesse"], "damage": [{ "dice": "2d6+6", "type": "slashing" }] },
-    { "name": "throwing dagger", "bonus": 20, "range": 10, "traits": ["agile", "thrown"], "damage": [{ "dice": "2d4+6", "type": "piercing" }] }
+    {
+      "name": "twin kukri",
+      "bonus": 20,
+      "traits": [
+        "agile",
+        "finesse"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "throwing dagger",
+      "bonus": 20,
+      "range": 10,
+      "traits": [
+        "agile",
+        "thrown"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+6",
+          "type": "piercing"
+        }
+      ]
+    }
   ],
   "actions": [
-    { "name": "Shadow Slip", "type": "action", "actions": 1, "text": "<p>Molchun Strides up to half his Speed. If he ends in dim light or at least 10 feet from every enemy, he is concealed until the start of his next turn.</p>" },
-    { "name": "Nimble Dodge", "type": "reaction", "text": "<p><strong>Trigger</strong> Molchun is targeted by an attack he can see. <strong>Effect</strong> he gains a +2 circumstance bonus to AC against that attack.</p>" },
-    { "name": "Sneak Attack", "type": "passive", "text": "<p>Molchun's Strikes deal an extra 2d6 precision damage against off-guard targets. It applies on its own.</p>", "rules": [
-      { "key": "DamageDice", "selector": "strike-damage", "diceNumber": 2, "dieSize": "d6", "category": "precision", "predicate": ["target:condition:off-guard"], "label": "Sneak Attack" }
-    ] },
-    { "name": "Deny Advantage", "type": "passive", "text": "<p>Molchun is not off-guard to hidden, undetected, or flanking creatures of his level or lower.</p>" }
+    {
+      "name": "Shadow Slip",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Molchun Strides up to half his Speed. If he ends the movement in dim light or at least 10 feet away from every enemy, he is @UUID[Compendium.pf2e.conditionitems.Item.Concealed] until the start of his next turn (apply the condition from this link).</p>"
+    },
+    {
+      "name": "Deny Advantage",
+      "type": "passive",
+      "text": "<p>Molchun isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to hidden, undetected, or flanking creatures of his level or lower.</p>"
+    }
   ],
   "gear": [
-    { "slug": "studded-leather-armor", "equip": "worn", "runes": { "potency": 1 } },
-    { "slug": "kukri", "equip": "held1", "runes": { "potency": 1, "striking": 1 } },
-    { "slug": "kukri", "equip": "held1", "runes": { "potency": 1, "striking": 1 } },
-    { "slug": "dagger", "qty": 4 },
-    { "slug": "cheetahs-elixir-lesser", "qty": 1 },
-    { "slug": "healing-potion-lesser", "qty": 1 }
+    {
+      "slug": "studded-leather-armor",
+      "equip": "worn",
+      "runes": {
+        "potency": 1
+      }
+    },
+    {
+      "slug": "kukri",
+      "equip": "held1",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "kukri",
+      "equip": "held1",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "dagger",
+      "qty": 4
+    },
+    {
+      "slug": "cheetahs-elixir-lesser",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "nimble-dodge"
+    },
+    {
+      "slug": "sneak-attack",
+      "text": "<p>Molchun deals an extra 2d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    }
   ]
 }

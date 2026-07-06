@@ -6,6 +6,7 @@
 import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { readdirSync, existsSync, rmSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
+import { hasMirror, findByName, idExists } from "./catalog.mjs";
 
 const mkid = (seed) => createHash("md5").update(seed).digest("hex").slice(0, 16);
 const loadVendor = (type, slug) => {
@@ -13,6 +14,56 @@ const loadVendor = (type, slug) => {
   return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null;
 };
 const strip = (d) => { delete d.folder; delete d.sort; delete d.ownership; delete d._stats; return d; };
+
+// ---- UUID remap: name-based pf2e compendium links -> IDs (same as the official pipeline) ----
+// Source docs and our own texts may say Compendium.pf2e.<pack>.Item.<Name>. Foundry v14 only
+// resolves IDs, so every such link is remapped here. Resolution order: committed uuid-map.json
+// (works in CI), then the local catalog mirror (dev machine; new hits are saved back to the map).
+const UUID_MAP_PATH = "tools/uuid-map.json";
+const uuidMap = existsSync(UUID_MAP_PATH) ? JSON.parse(readFileSync(UUID_MAP_PATH, "utf8")) : {};
+let uuidMapDirty = false;
+const unresolved = new Set();
+const badIds = new Set();
+const ID_RE = /^[a-zA-Z0-9]{16}$/;
+const REF_RE = /Compendium\.pf2e\.([A-Za-z0-9-]+)\.(Item|Actor)\.([^\]"{}\r\n]+)/g;
+
+function remapString(s, ctx) {
+  return s.replace(REF_RE, (m, pack, type, tail) => {
+    if (ID_RE.test(tail)) {
+      if (hasMirror() && idExists(pack, tail) === false) badIds.add(`${ctx}: ${m}`);
+      return m;
+    }
+    const key = `Compendium.pf2e.${pack}.${type}.${tail}`;
+    let id = uuidMap[key];
+    if (!id && hasMirror()) {
+      const row = findByName(pack, tail);
+      if (row) { id = row.id; uuidMap[key] = id; uuidMapDirty = true; }
+    }
+    if (!id) { unresolved.add(`${ctx}: ${key}`); return m; }
+    return `Compendium.pf2e.${pack}.${type}.${id}`;
+  });
+}
+
+function remapDoc(node, ctx) {
+  for (const k of Object.keys(node)) {
+    const v = node[k];
+    if (typeof v === "string" && v.includes("Compendium.pf2e.")) node[k] = remapString(v, ctx);
+    else if (v && typeof v === "object") remapDoc(v, ctx);
+  }
+}
+
+// Self-references (Compendium.the-shards-forge.*) are verified after staging, against the
+// set of _ids this build actually produced.
+const SELF_RE = /Compendium\.the-shards-forge\.([A-Za-z0-9-]+)\.(Item|Actor)\.([a-zA-Z0-9]{16})/g;
+const stagedIds = new Set();
+const selfRefs = [];
+function collectSelfRefs(node, ctx) {
+  for (const v of Object.values(node)) {
+    if (typeof v === "string" && v.includes("Compendium.the-shards-forge.")) {
+      for (const m of v.matchAll(SELF_RE)) selfRefs.push({ ref: m[0], id: m[3], ctx });
+    } else if (v && typeof v === "object") collectSelfRefs(v, ctx);
+  }
+}
 
 // LevelDB keys, mirroring foundryvtt-cli: primary "!<collection>!<id>", embedded
 // "!<parent>.<child>!<parentId>.<childId>". The CLI skips any doc lacking _key.
@@ -40,8 +91,24 @@ function resolveActor(A) {
   for (const s of (A.strikes || [])) {
     const dmg = {}; (s.damage || []).forEach((x, i) => (dmg["d" + i] = { damage: x.dice, damageType: x.type, category: x.category || null }));
     items.push({ _id: mkid(A._id + ":strike:" + s.name), name: s.name, type: "melee", img: "systems/pf2e/icons/default-icons/melee.svg",
-      system: { bonus: { value: s.bonus || 0 }, damageRolls: dmg, traits: { value: s.traits || [], otherTags: [] }, attackEffects: { value: [] },
+      // attackEffects wires the Strike's chat card to follow-up abilities (Grab, Knockdown...):
+      // list the ability slugs in the recipe as effects: ["grab"].
+      system: { bonus: { value: s.bonus || 0 }, damageRolls: dmg, traits: { value: s.traits || [], otherTags: [] }, attackEffects: { value: s.effects || [] },
         description: { value: s.text || "", gm: "" }, rules: s.rules || [], slug: null, action: "strike", subjectToMAP: true, range: s.range ? { value: s.range } : null, area: null } });
+  }
+
+  // Standard pf2e docs embedded as-is (bestiary glossary abilities, standard actions...).
+  // Recipe: standardItems: [{slug, group?: "abilities"|"actions"|"effects", name?, text?, rules?}]
+  // name/text/rules override the standard doc (e.g. Sneak Attack dice scaled to level).
+  for (const st of (A.standardItems || [])) {
+    const doc = loadVendor(st.group || "abilities", st.slug);
+    if (!doc) { warnings.push(`${A.name}: standard item not vendored: ${st.slug}`); continue; }
+    strip(doc);
+    doc._id = mkid(A._id + ":std:" + st.slug);
+    if (st.name) doc.name = st.name;
+    if (st.text) doc.system.description = { value: st.text, gm: "" };
+    if (st.rules) doc.system.rules = st.rules;
+    items.push(doc);
   }
 
   for (const a of (A.actions || [])) {
@@ -142,6 +209,10 @@ for (const p of PACKS) {
     let doc = JSON.parse(readFileSync(`${p.src}/${f}`, "utf8"));
     if (p.resolve) doc = resolveActor(doc);
     if (!doc._id) { warnings.push(`${p.name}/${f}: missing _id`); continue; }
+    remapDoc(doc, `${p.name}/${f}`);
+    collectSelfRefs(doc, `${p.name}/${f}`);
+    stagedIds.add(doc._id);
+    for (const it of (doc.items || [])) stagedIds.add(it._id);
     keyify(doc, p.collection);
     writeFileSync(`${stage}/${f}`, JSON.stringify(doc, null, 2));
     n++;
@@ -150,5 +221,15 @@ for (const p of PACKS) {
   console.log(`✓ built ${p.name} (${n} doc(s))`);
 }
 
-if (warnings.length) { console.error("\nRESOLVER WARNINGS:\n" + warnings.join("\n")); process.exit(1); }
+if (uuidMapDirty) {
+  const sorted = Object.fromEntries(Object.entries(uuidMap).sort(([a], [b]) => a.localeCompare(b)));
+  writeFileSync(UUID_MAP_PATH, JSON.stringify(sorted, null, 2) + "\n");
+  console.log(`updated ${UUID_MAP_PATH} (commit it: CI resolves links from it)`);
+}
+const danglingSelf = selfRefs.filter((r) => !stagedIds.has(r.id));
+if (unresolved.size) console.error("\nUNRESOLVED pf2e LINKS (name not found in pack):\n" + [...unresolved].join("\n"));
+if (badIds.size) console.error("\nBAD pf2e IDs (not present in the catalog index):\n" + [...badIds].join("\n"));
+if (danglingSelf.length) console.error("\nDANGLING self-references (no such _id in this build):\n" + danglingSelf.map((r) => `${r.ctx}: ${r.ref}`).join("\n"));
+if (warnings.length) console.error("\nRESOLVER WARNINGS:\n" + warnings.join("\n"));
+if (warnings.length || unresolved.size || badIds.size || danglingSelf.length) process.exit(1);
 console.log("done.");

@@ -1,6 +1,17 @@
 {
   "ref": "pf2e-8.2.0",
   "raw": "https://raw.githubusercontent.com/foundryvtt/pf2e",
+  "localMirror": "D:/TTRPG/The Shards/pf2e-catalog",
+  "paths": {
+    "equipment/smoke-ball-greater": "packs/pf2e/equipment/smoke-ball-greater.json",
+    "abilities/knockdown": "packs/pf2e/bestiary-ability-glossary-srd/knockdown.json",
+    "abilities/reactive-strike": "packs/pf2e/bestiary-ability-glossary-srd/reactive-strike.json",
+    "abilities/shield-block": "packs/pf2e/bestiary-ability-glossary-srd/shield-block.json",
+    "abilities/grab": "packs/pf2e/bestiary-ability-glossary-srd/grab.json",
+    "abilities/ferocity": "packs/pf2e/bestiary-ability-glossary-srd/ferocity.json",
+    "abilities/nimble-dodge": "packs/pf2e/bestiary-ability-glossary-srd/nimble-dodge.json",
+    "abilities/sneak-attack": "packs/pf2e/bestiary-ability-glossary-srd/sneak-attack.json"
+  },
   "dirs": {
     "equipment": "packs/pf2e/equipment",
     "conditions": "packs/pf2e/conditions"
