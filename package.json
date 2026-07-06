@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "node tools/lint-prose.mjs",
     "fetch": "node tools/fetch-pf2e.mjs",
-    "build": "node tools/lint-prose.mjs && node tools/fetch-pf2e.mjs && node tools/build.mjs"
+    "build": "node tools/lint-prose.mjs && node tools/fetch-pf2e.mjs && node tools/build.mjs",
+    "release": "node tools/release.mjs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.4"
