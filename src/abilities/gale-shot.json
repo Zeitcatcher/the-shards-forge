@@ -1,0 +1,20 @@
+{
+  "_id": "shardsgaleshotac",
+  "name": "Gale Shot",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/TwoActions.webp",
+  "system": {
+    "slug": "gale-shot",
+    "actionType": { "value": "action" },
+    "actions": { "value": 2 },
+    "category": null,
+    "traits": { "value": ["evocation"], "otherTags": [] },
+    "frequency": { "max": 1, "per": "PT1M" },
+    "selfEffect": { "name": "Effect: Gale Shot", "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardsgaleshotef" },
+    "description": {
+      "value": "<p><strong>Frequency</strong> once per fight.</p><hr /><p>The bowstring sings a full gale. Use this action, then make one Strike with Whisper of the Wind: it gains a +2 circumstance bonus to the attack roll and deals an extra 3d6 force damage, and on a hit pushes the target 10 feet straight back (move the token by hand). Using this action applies Effect: Gale Shot to you.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "shardsgaleshotef",
+  "name": "Effect: Gale Shot",
+  "type": "effect",
+  "img": "systems/pf2e/icons/default-icons/effect.svg",
+  "system": {
+    "slug": "effect-gale-shot",
+    "level": { "value": 12 },
+    "traits": { "value": ["evocation"], "otherTags": [] },
+    "duration": { "value": 1, "unit": "rounds", "expiry": "turn-start", "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>Your next Strike with Whisper of the Wind gains a +2 circumstance bonus to the attack roll and deals an extra 3d6 force damage. On a hit, push the target 10 feet straight back (move the token by hand). Applied by using the Gale Shot action.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "whisper-of-the-wind-attack", "type": "circumstance", "value": 2, "label": "Gale Shot" },
+      { "key": "DamageDice", "selector": "whisper-of-the-wind-damage", "diceNumber": 3, "dieSize": "d6", "damageType": "force", "label": "Gale Shot" }
+    ]
+  }
+}
