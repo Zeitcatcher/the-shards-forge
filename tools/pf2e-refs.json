@@ -1,0 +1,25 @@
+{
+  "ref": "pf2e-8.2.0",
+  "raw": "https://raw.githubusercontent.com/foundryvtt/pf2e",
+  "dirs": {
+    "equipment": "packs/pf2e/equipment",
+    "conditions": "packs/pf2e/conditions"
+  },
+  "spells": {
+    "electric-arc": "packs/pf2e/spells/spells/cantrip/electric-arc.json",
+    "telekinetic-projectile": "packs/pf2e/spells/spells/cantrip/telekinetic-projectile.json",
+    "shield": "packs/pf2e/spells/spells/cantrip/shield.json",
+    "detect-magic": "packs/pf2e/spells/spells/cantrip/detect-magic.json",
+    "fear": "packs/pf2e/spells/spells/rank-1/fear.json",
+    "grease": "packs/pf2e/spells/spells/rank-1/grease.json",
+    "command": "packs/pf2e/spells/spells/rank-1/command.json",
+    "web": "packs/pf2e/spells/spells/rank-2/web.json",
+    "mist": "packs/pf2e/spells/spells/rank-2/mist.json",
+    "resist-energy": "packs/pf2e/spells/spells/rank-2/resist-energy.json",
+    "dispel-magic": "packs/pf2e/spells/spells/rank-2/dispel-magic.json",
+    "fireball": "packs/pf2e/spells/spells/rank-3/fireball.json",
+    "slow": "packs/pf2e/spells/spells/rank-3/slow.json",
+    "haste": "packs/pf2e/spells/spells/rank-3/haste.json",
+    "confusion": "packs/pf2e/spells/spells/rank-4/confusion.json"
+  }
+}

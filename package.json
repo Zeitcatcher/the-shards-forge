@@ -1,0 +1,15 @@
+{
+  "name": "the-shards-forge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Build scripts for the The Shards Forge Foundry VTT module (pulls referenced pf2e docs, resolves champion recipes, and compiles LevelDB compendium packs).",
+  "scripts": {
+    "lint": "node tools/lint-prose.mjs",
+    "fetch": "node tools/fetch-pf2e.mjs",
+    "build": "node tools/lint-prose.mjs && node tools/fetch-pf2e.mjs && node tools/build.mjs"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.4"
+  }
+}

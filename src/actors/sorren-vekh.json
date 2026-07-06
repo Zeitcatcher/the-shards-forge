@@ -1,0 +1,45 @@
+{
+  "_id": "shardssorrenvek0",
+  "name": "Соррен Векх",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Sorren Vekh, a guild battle-mage of Kragmir who fights on the arena for coin, and one of its five champions. He stays at the back, shuts down enemy casters with counters and dispels, and drops area spells on a clustered party. His spells hit hard and his defenses are thin.</p>",
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["humanoid", "human"],
+  "abilities": { "str": 0, "dex": 4, "con": 2, "int": 7, "wis": 4, "cha": 2 },
+  "ac": 24,
+  "hp": 85,
+  "perception": 15,
+  "languages": ["common", "draconic", "dwarven"],
+  "saves": { "fort": 12, "ref": 15, "will": 18 },
+  "speeds": { "land": 25 },
+  "skills": { "arcana": 17, "occultism": 15, "society": 13, "crafting": 13 },
+  "strikes": [
+    { "name": "arcane staff", "bonus": 13, "traits": ["magical"], "damage": [{ "dice": "1d4+4", "type": "bludgeoning" }] }
+  ],
+  "actions": [
+    { "name": "Counterspell", "type": "reaction", "text": "<p><strong>Trigger</strong> a creature Sorren can see Casts a spell he has prepared. <strong>Effect</strong> he expends a matching prepared spell to counter it, with a counteract check at DC 25.</p>" }
+  ],
+  "spellcasting": {
+    "name": "Arcane Prepared Spells",
+    "tradition": "arcane",
+    "type": "prepared",
+    "ability": "int",
+    "dc": 25,
+    "attack": 17,
+    "spells": {
+      "0": ["electric-arc", "telekinetic-projectile", "shield", "detect-magic"],
+      "1": ["fear", "grease", "command"],
+      "2": ["web", "mist", "resist-energy"],
+      "3": ["fireball", "slow", "haste"],
+      "4": ["confusion", "dispel-magic"]
+    }
+  },
+  "gear": [
+    { "slug": "explorers-clothing", "equip": "worn", "runes": { "potency": 1 } },
+    { "slug": "staff", "equip": "held1", "runes": { "potency": 1, "striking": 1 } },
+    { "slug": "mistform-elixir-lesser", "qty": 1 },
+    { "slug": "healing-potion-lesser", "qty": 1 }
+  ]
+}

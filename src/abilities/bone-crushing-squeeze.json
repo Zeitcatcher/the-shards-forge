@@ -1,0 +1,17 @@
+{
+  "_id": "shardssqueezeact0",
+  "name": "Bone-Crushing Squeeze",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/OneAction.webp",
+  "system": {
+    "slug": "bone-crushing-squeeze",
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "traits": { "value": [], "otherTags": [] },
+    "description": {
+      "value": "<p><strong>Requirements</strong> You have a creature grabbed or restrained.</p><hr /><p>You crush the grabbed creature in a submission hold. It takes @Damage[(2d8+7)[bludgeoning]] damage; @Check[type:fortitude|dc:25|basic:true]. This is nonlethal.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

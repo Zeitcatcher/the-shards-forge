@@ -1,0 +1,38 @@
+{
+  "_id": "shardsbradgar001",
+  "name": "Брадгар Дур-Молок",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Bradgar the Anvil, a dwarf captain of the Kragmir fighting club and the leader of its five champions. He fights in mithras full plate behind a tower shield, anchors the front, and steadies his allies with a battle cadence. He is slow, and very hard to move or to drop.</p>",
+  "level": 8,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["humanoid", "dwarf"],
+  "abilities": { "str": 6, "dex": 1, "con": 6, "int": 0, "wis": 3, "cha": 4 },
+  "ac": 30,
+  "hp": 170,
+  "perception": 19,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": { "fort": 19, "ref": 13, "will": 19 },
+  "speeds": { "land": 20 },
+  "skills": { "athletics": 21, "intimidation": 18, "crafting": 14 },
+  "strikes": [
+    { "name": "warhammer", "bonus": 20, "traits": ["shove", "magical"], "damage": [{ "dice": "2d10+11", "type": "bludgeoning" }] },
+    { "name": "shield bash", "bonus": 18, "traits": ["agile"], "damage": [{ "dice": "1d6+9", "type": "bludgeoning" }] }
+  ],
+  "actions": [
+    { "name": "Commander's Cadence", "type": "action", "actions": 1, "text": "<p>An aura out to 30 feet. Allies within it, Bradgar included, gain a +1 status bonus to attack rolls and to saves against fear. It applies and clears on its own as tokens move.</p>", "rules": [
+      { "key": "Aura", "slug": "commanders-cadence", "radius": 30, "effects": [{ "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardscadenceeff0", "affects": "allies", "events": ["enter"], "includesSelf": true }], "appearance": { "border": { "color": "#b8860b" }, "fill": { "color": "#b8860b", "alpha": 0.08 } } }
+    ] },
+    { "name": "Knockdown", "type": "action", "actions": 2, "text": "<p>Bradgar makes a warhammer Strike. On a hit he attempts a free Trip with Athletics +21.</p>" },
+    { "name": "Reactive Strike", "type": "reaction", "text": "<p><strong>Trigger</strong> a creature within reach uses a manipulate or move action, or leaves a square. <strong>Effect</strong> Bradgar makes a melee Strike against it.</p>" },
+    { "name": "Shield Block", "type": "reaction", "text": "<p><strong>Trigger</strong> Bradgar is hit by a physical attack. <strong>Effect</strong> his tower shield reduces the damage by 10 (Hardness 10).</p>" },
+    { "name": "Rooted", "type": "passive", "text": "<p>Bradgar gains a +2 circumstance bonus to defenses against forced movement and to his Athletics DC against Shove, Trip, and Reposition.</p>" }
+  ],
+  "gear": [
+    { "slug": "full-plate", "equip": "worn", "runes": { "potency": 1, "resilient": 1 } },
+    { "slug": "warhammer", "equip": "held1", "runes": { "potency": 1, "striking": 1 } },
+    { "slug": "tower-shield", "equip": "held1" },
+    { "slug": "healing-potion-moderate", "qty": 2 }
+  ]
+}

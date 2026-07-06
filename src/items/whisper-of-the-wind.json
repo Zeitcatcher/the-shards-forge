@@ -1,0 +1,36 @@
+{
+  "_id": "shardswhisperbow",
+  "name": "Whisper of the Wind",
+  "type": "weapon",
+  "img": "modules/the-shards-forge/assets/items/whisper-of-the-wind.webp",
+  "system": {
+    "slug": "whisper-of-the-wind",
+    "level": { "value": 12 },
+    "price": { "value": { "gp": 2000 } },
+    "bulk": { "value": 2 },
+    "traits": { "value": ["magical", "evocation", "deadly-d10"], "rarity": "rare", "otherTags": [] },
+    "usage": { "value": "held-in-two-hands" },
+    "baseItem": "longbow",
+    "category": "martial",
+    "group": "bow",
+    "damage": { "dice": 1, "die": "d8", "damageType": "piercing", "persistent": null },
+    "range": 150,
+    "reload": { "value": "0" },
+    "runes": { "potency": 2, "striking": 1, "property": [] },
+    "hp": { "value": 0, "max": 0 },
+    "hardness": 0,
+    "equipped": { "carryType": "worn", "invested": null },
+    "description": {
+      "value": "<p><em>A dark bow of mountain yew, wound with threads of mithras. At full draw the string sings a note you can barely hear, as if the wind were whispering the arrow its path. The weapon has no patience for brute force, and yields only to a hand that prizes dexterity above all. In a worthy archer's grip the arrow bends around shields and finds its mark where others see nothing but cover.</em></p><hr /><p><strong>Dexterous String.</strong> Add your Dexterity modifier to this bow's damage instead of Strength. It applies on its own.</p><p><strong>Hunter's Whisper</strong> <span class=\"action-glyph\">1</span> Target a creature within 150 feet and turn on the \"Hunter's Whisper (quarry marked)\" toggle on the Actions tab while you wield the bow. Your Strikes with the bow then deal an extra 1d6 precision damage against that quarry, and the quarry cannot be Hidden or Undetected from you. To switch quarry, turn the toggle off and mark a new target.</p><p><strong>True Wind.</strong> The wind carries the arrow for you: this bow has no volley penalty, and its range increment is 150 feet.</p><p><strong>Gale Shot</strong> <span class=\"action-glyph\">2</span> <strong>Frequency</strong> once per fight; track it yourself. Turn on the \"Gale Shot (1/fight)\" toggle and make one Strike with the bow. That Strike gains a +2 circumstance bonus to the attack roll and deals an extra 3d6 force damage while the toggle is on. On a hit, the target is pushed 10 feet straight back, which you move by hand. Turn the toggle off after the shot.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "whisper-of-the-wind-damage", "label": "Dexterous String (Dex to damage)", "type": "untyped", "value": "@actor.abilities.dex.mod" },
+      { "key": "RollOption", "domain": "all", "option": "whisper-quarry", "toggleable": true, "label": "Hunter's Whisper (quarry marked)" },
+      { "key": "DamageDice", "selector": "whisper-of-the-wind-damage", "diceNumber": 1, "dieSize": "d6", "category": "precision", "predicate": ["whisper-quarry"], "label": "Hunter's Whisper (quarry)" },
+      { "key": "RollOption", "domain": "all", "option": "gale-shot", "toggleable": true, "label": "Gale Shot (1/fight)" },
+      { "key": "FlatModifier", "selector": "whisper-of-the-wind-attack", "label": "Gale Shot", "type": "circumstance", "value": 2, "predicate": ["gale-shot"] },
+      { "key": "DamageDice", "selector": "whisper-of-the-wind-damage", "diceNumber": 3, "dieSize": "d6", "damageType": "force", "predicate": ["gale-shot"], "label": "Gale Shot (gale)" }
+    ]
+  }
+}

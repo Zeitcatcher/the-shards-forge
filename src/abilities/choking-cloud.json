@@ -1,0 +1,17 @@
+{
+  "_id": "shardschokecloud0",
+  "name": "Choking Cloud",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/TwoActions.webp",
+  "system": {
+    "slug": "choking-cloud",
+    "actionType": { "value": "action" },
+    "actions": { "value": 2 },
+    "traits": { "value": [], "otherTags": [] },
+    "description": {
+      "value": "<p><strong>Frequency</strong> once per fight.</p><hr /><p>You hurl a canister that bursts into a @Template[type:cone|distance:15] of caustic smoke. Each creature in the area attempts @Check[type:fortitude|dc:24]. On a failure it is <strong>Sickened 1</strong> and can't use Concentrate actions for 1 round.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "shardscadenceeff0",
+  "name": "Effect: Commander's Cadence",
+  "type": "effect",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "slug": "effect-commanders-cadence",
+    "level": { "value": 8 },
+    "traits": { "value": [], "otherTags": [] },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>A commander's cadence steadies you: while within 30 feet of its source you gain a +1 status bonus to attack rolls and to saving throws against fear. Applied and removed automatically by the aura.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "attack", "type": "status", "value": 1, "label": "Commander's Cadence" },
+      { "key": "FlatModifier", "selector": "saving-throw", "type": "status", "value": 1, "predicate": ["item:trait:fear"], "label": "Commander's Cadence (vs. fear)" }
+    ]
+  }
+}
