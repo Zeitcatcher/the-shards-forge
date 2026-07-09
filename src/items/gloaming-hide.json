@@ -1,0 +1,35 @@
+{
+  "_id": "shardsgloaminghd",
+  "name": "Gloaming Hide",
+  "type": "armor",
+  "img": "modules/the-shards-forge/assets/items/gloaming-hide.webp",
+  "system": {
+    "slug": "gloaming-hide",
+    "level": { "value": 11 },
+    "price": { "value": { "gp": 1400 } },
+    "bulk": { "value": 1 },
+    "traits": { "value": ["magical", "invested", "comfort"], "rarity": "unique", "otherTags": [] },
+    "usage": { "value": "wornarmor" },
+    "baseItem": "leather-armor",
+    "category": "light",
+    "group": "leather",
+    "acBonus": 1,
+    "dexCap": 4,
+    "strength": 0,
+    "checkPenalty": -1,
+    "speedPenalty": 0,
+    "runes": { "potency": 2, "resilient": 1, "property": [] },
+    "hp": { "value": 0, "max": 0 },
+    "hardness": 0,
+    "equipped": { "carryType": "worn", "invested": null },
+    "description": {
+      "value": "<p><em>A suit of supple black leather, master-cut for the long road: a fitted jerkin over reinforced leggings, hand-stitched and oiled dark as a moonless field. A gift from Izudin, made by the hands his house keeps for its quiet work. Along the seams runs the faintest thread of sunlit gold, a small mark of the blood the wearer carries. It is light enough to sleep in and strong enough to trust when the weather turns.</em></p><hr /><p><strong>While worn and invested.</strong> You gain a +2 item bonus to Survival checks, and resistance 5 to cold and resistance 5 to fire. Its comfort lets you rest in it without trouble.</p><hr /><p><strong>Endure the Wilds</strong> <span class=\"action-glyph\">2</span> (concentrate)</p><p><strong>Frequency</strong> once per day</p><hr /><p>You breathe with the land and it stops fighting you. You cast @UUID[Compendium.pf2e.spells-srd.Item.Environmental Endurance]{Environmental Endurance} on yourself, ignoring the effects of severe cold or heat until your next daily preparations.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "survival", "type": "item", "value": 2, "label": "Gloaming Hide" },
+      { "key": "Resistance", "type": "cold", "value": 5 },
+      { "key": "Resistance", "type": "fire", "value": 5 }
+    ]
+  }
+}
