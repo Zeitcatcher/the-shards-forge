@@ -1,0 +1,18 @@
+{
+  "_id": "shardsvowveileff",
+  "name": "Effect: Veil of the Unnamed Vow",
+  "type": "effect",
+  "img": "systems/pf2e/icons/spells/blur.webp",
+  "system": {
+    "slug": "effect-veil-unnamed-vow",
+    "level": { "value": 8 },
+    "traits": { "value": ["illusion"], "otherTags": [] },
+    "duration": { "value": 1, "unit": "minutes", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>You are blurred for 1 minute and are @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealed} (apply the condition to yourself). Your location stays obvious, so you cannot use this concealment to Hide or Sneak. Applied by the Blur action of the Cloak of the Unnamed Vow.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

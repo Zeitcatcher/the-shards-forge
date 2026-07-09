@@ -1,0 +1,20 @@
+{
+  "_id": "shardsvowslipact",
+  "name": "Slip from Notice",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/OneAction.webp",
+  "system": {
+    "slug": "slip-from-notice",
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": null,
+    "traits": { "value": ["illusion"], "otherTags": [] },
+    "frequency": { "max": 1, "per": "PT10M" },
+    "selfEffect": { "name": "Effect: Overlooked", "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardsvowslipeff" },
+    "description": {
+      "value": "<p><strong>Frequency</strong> once every 10 minutes</p><hr /><p>You draw the cloak close and let the world look past you. Using this action applies <strong>Effect: Overlooked</strong> to you: your next @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hide} or @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneak} this turn gains a +2 circumstance bonus. If that Stealth check succeeds, you also gain a +1 circumstance bonus to your next @UUID[Compendium.pf2e.actionspf2e.Item.Create a Diversion]{Create a Diversion} before the end of your turn. Apply that +1 by hand, since it depends on the result.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

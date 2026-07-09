@@ -1,0 +1,19 @@
+{
+  "_id": "shardsvowseekrct",
+  "name": "Doubt the Seeker",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/Reaction.webp",
+  "system": {
+    "slug": "doubt-the-seeker",
+    "actionType": { "value": "reaction" },
+    "actions": { "value": null },
+    "category": null,
+    "traits": { "value": ["illusion", "mental"], "otherTags": [] },
+    "frequency": { "max": 1, "per": "day" },
+    "description": {
+      "value": "<p><strong>Trigger</strong> A creature attempts a Perception check to @UUID[Compendium.pf2e.actionspf2e.Item.Seek]{Seek} you.</p><p><strong>Frequency</strong> once per day</p><hr /><p>The cloak feeds the searcher a beat of doubt. The triggering check takes a misfortune effect: the creature rolls the Seek twice and uses the worse result. Roll the triggering Perception check that way.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

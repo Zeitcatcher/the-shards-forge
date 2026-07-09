@@ -1,0 +1,28 @@
+{
+  "_id": "shardsvowcloakit",
+  "name": "Cloak of the Unnamed Vow",
+  "type": "equipment",
+  "img": "modules/the-shards-forge/assets/items/cloak-of-the-unnamed-vow.webp",
+  "system": {
+    "slug": "cloak-of-the-unnamed-vow",
+    "level": { "value": 8 },
+    "price": { "value": { "gp": 450 } },
+    "bulk": { "value": 0.1 },
+    "traits": { "value": ["magical", "invested", "illusion", "mental"], "rarity": "unique", "otherTags": [] },
+    "usage": { "value": "worncloak" },
+    "baseItem": null,
+    "hp": { "value": 0, "max": 0 },
+    "hardness": 0,
+    "equipped": { "carryType": "worn", "invested": null },
+    "description": {
+      "value": "<p><em>Dark cloth deep as velvet, shot through and through with shimmering threads of mithras, so the whole mantle moves like water at night. A gift from Izudin. A vow was once worked into the weave, but the name that should sign it has been picked out thread by thread and left blank, so the oath stands unnamed. In Lumenhold they say mantles like this went to those who carried words meant to arrive without one witness remembering who brought them.</em></p><p><em>While the cloak is invested the weave pulls attention aside: footfalls fall quiet, the edges of your outline waver in torchlight, and your voice settles into its most forgettable register.</em></p><hr /><p><strong>While invested.</strong> You gain a +1 item bonus to Stealth checks. You also gain a +1 item bonus to Deception checks to @UUID[Compendium.pf2e.actionspf2e.Item.Lie]{Lie} or @UUID[Compendium.pf2e.actionspf2e.Item.Create a Diversion]{Create a Diversion}, and to Diplomacy checks to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression]{Make an Impression}. If you attempt one of those social checks while @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealed} or @UUID[Compendium.pf2e.conditionitems.Item.Hidden]{Hidden} from the target, that item bonus increases to +2. Tick the Unseen by the mark toggle on the Actions tab when it applies, or it comes on by itself while you hold either condition.</p><hr /><p><strong>Slip from Notice</strong> <span class=\"action-glyph\">1</span> command</p><p><strong>Frequency</strong> once every 10 minutes</p><hr /><p>You draw the cloak close and let the world look past you. Apply @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardsvowslipeff]{Effect: Overlooked}: your next @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hide} or @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneak} this turn gains a +2 circumstance bonus. If that Stealth check succeeds, you also gain a +1 circumstance bonus to your next @UUID[Compendium.pf2e.actionspf2e.Item.Create a Diversion]{Create a Diversion} before the end of your turn (apply that +1 by hand).</p><hr /><p><strong>Doubt the Seeker</strong> <span class=\"action-glyph\">R</span> envision</p><p><strong>Trigger</strong> A creature attempts a Perception check to @UUID[Compendium.pf2e.actionspf2e.Item.Seek]{Seek} you.</p><p><strong>Frequency</strong> once per day</p><hr /><p>The cloak feeds the searcher a beat of doubt. The triggering check takes a misfortune effect: the creature rolls the Seek twice and uses the worse result.</p><hr /><p><strong>Blur</strong> <span class=\"action-glyph\">2</span> command</p><p><strong>Frequency</strong> once per day</p><hr /><p>You pull the cloak across yourself and your outline comes apart into a soft blur. You gain the effects of @UUID[Compendium.pf2e.spells-srd.Item.Blur]{Blur} for 1 minute and become @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealed}; apply @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardsvowveileff]{Effect: Veil of the Unnamed Vow} to track the minute. Your location stays obvious, so you cannot use this concealment to Hide or Sneak.</p><hr /><p>For a tracked entry on the Actions tab (with the daily counters), drag any of these three powers from the Shards Abilities compendium onto your sheet while you wear the cloak.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "stealth", "type": "item", "value": 1, "label": "Cloak of the Unnamed Vow" },
+      { "key": "FlatModifier", "selector": ["deception", "diplomacy"], "type": "item", "value": 1, "predicate": [{ "or": ["action:lie", "action:create-a-diversion", "action:make-an-impression"] }], "label": "Cloak of the Unnamed Vow (quiet influence)" },
+      { "key": "FlatModifier", "selector": ["deception", "diplomacy"], "type": "item", "value": 2, "predicate": [{ "or": ["action:lie", "action:create-a-diversion", "action:make-an-impression"] }, { "or": ["cloak-unseen", "self:condition:concealed", "self:condition:hidden"] }], "label": "Cloak of the Unnamed Vow (unseen)" },
+      { "key": "RollOption", "domain": "all", "option": "cloak-unseen", "toggleable": true, "label": "Unseen by the mark (social +2)" }
+    ]
+  }
+}

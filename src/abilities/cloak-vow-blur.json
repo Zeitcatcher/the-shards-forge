@@ -1,0 +1,20 @@
+{
+  "_id": "shardsvowbluract",
+  "name": "Blur",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/TwoActions.webp",
+  "system": {
+    "slug": "cloak-vow-blur",
+    "actionType": { "value": "action" },
+    "actions": { "value": 2 },
+    "category": null,
+    "traits": { "value": ["illusion"], "otherTags": [] },
+    "frequency": { "max": 1, "per": "day" },
+    "selfEffect": { "name": "Effect: Veil of the Unnamed Vow", "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardsvowveileff" },
+    "description": {
+      "value": "<p><strong>Frequency</strong> once per day</p><hr /><p>You pull the cloak across yourself and your outline comes apart into a soft blur. You gain the effects of @UUID[Compendium.pf2e.spells-srd.Item.Blur]{Blur} for 1 minute and become @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealed}. Using this action applies Effect: Veil of the Unnamed Vow to track the minute; apply the Concealed condition to yourself. As with the spell, your location stays obvious, so you cannot use this concealment to Hide or Sneak.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

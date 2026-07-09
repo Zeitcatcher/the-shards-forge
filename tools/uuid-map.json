@@ -1,8 +1,12 @@
 {
   "Compendium.pf2e.actionspf2e.Item.Balance": "M76ycLAqHoAgbcej",
+  "Compendium.pf2e.actionspf2e.Item.Create a Diversion": "GkmbTGfg8KcgynOA",
   "Compendium.pf2e.actionspf2e.Item.Delay": "A72nHGUtNXgY5Ey9",
   "Compendium.pf2e.actionspf2e.Item.Escape": "SkZAQRkLLkmBQNB9",
   "Compendium.pf2e.actionspf2e.Item.Hide": "XMcnh4cSI32tljXa",
+  "Compendium.pf2e.actionspf2e.Item.Lie": "ewwCglB7XOPLUz72",
+  "Compendium.pf2e.actionspf2e.Item.Make an Impression": "OX4fy22hQgUHDr0q",
+  "Compendium.pf2e.actionspf2e.Item.Seek": "BlAOM2X92SI6HMtJ",
   "Compendium.pf2e.actionspf2e.Item.Sneak": "VMozDqMMuK5kpoX4",
   "Compendium.pf2e.actionspf2e.Item.Take Cover": "ust1jJSCZQUhBZIz",
   "Compendium.pf2e.bestiary-effects.Item.Effect: Raise Guard": "LohrnRXCQ0yVt8MK",
@@ -15,6 +19,7 @@
   "Compendium.pf2e.conditionitems.Item.Fleeing": "sDPxOjQ9kx2RZE8D",
   "Compendium.pf2e.conditionitems.Item.Frightened": "TBSHQspnbcqxsmjL",
   "Compendium.pf2e.conditionitems.Item.Grabbed": "kWc1fhmv9LBiTuei",
+  "Compendium.pf2e.conditionitems.Item.Hidden": "iU0fEDdBp3rXpTMC",
   "Compendium.pf2e.conditionitems.Item.Immobilized": "eIcWbB5o3pP6OIMe",
   "Compendium.pf2e.conditionitems.Item.Off-Guard": "AJh5ex99aV6VTggg",
   "Compendium.pf2e.conditionitems.Item.Prone": "j91X7x0XSomq8d60",
@@ -33,5 +38,6 @@
   "Compendium.pf2e.spell-effects.Item.Effect: Shield Immunity": "QF6RDlCoTvkVHRo4",
   "Compendium.pf2e.spell-effects.Item.Spell Effect: Haste": "ElkXovNrHB0Doi6O",
   "Compendium.pf2e.spell-effects.Item.Spell Effect: Resist Energy": "con2Hzt47JjpuUej",
-  "Compendium.pf2e.spell-effects.Item.Spell Effect: Shield": "Jemq5UknGdMO7b73"
+  "Compendium.pf2e.spell-effects.Item.Spell Effect: Shield": "Jemq5UknGdMO7b73",
+  "Compendium.pf2e.spells-srd.Item.Blur": "3JG1t3T4mWn6vTke"
 }

@@ -1,0 +1,20 @@
+{
+  "_id": "shardsvowslipeff",
+  "name": "Effect: Overlooked",
+  "type": "effect",
+  "img": "systems/pf2e/icons/default-icons/effect.svg",
+  "system": {
+    "slug": "effect-overlooked",
+    "level": { "value": 8 },
+    "traits": { "value": ["illusion"], "otherTags": [] },
+    "duration": { "value": 1, "unit": "rounds", "expiry": "turn-end", "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>Your next Hide or Sneak this turn gains a +2 circumstance bonus. If that Stealth check succeeds, you also gain a +1 circumstance bonus to your next Create a Diversion before the end of your turn (apply that +1 by hand). Applied by the Slip from Notice action of the Cloak of the Unnamed Vow.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "stealth", "type": "circumstance", "value": 2, "predicate": [{ "or": ["action:hide", "action:sneak"] }], "label": "Slip from Notice" }
+    ]
+  }
+}
