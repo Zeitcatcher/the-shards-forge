@@ -1,0 +1,33 @@
+{
+  "_id": "shardscoatpocket",
+  "name": "Coat of Many Pockets",
+  "type": "armor",
+  "img": "modules/the-shards-forge/assets/items/coat-of-many-pockets.webp",
+  "system": {
+    "slug": "coat-of-many-pockets",
+    "level": { "value": 9 },
+    "price": { "value": { "gp": 700 } },
+    "bulk": { "value": 2 },
+    "traits": { "value": ["magical", "invested", "extradimensional"], "rarity": "unique", "otherTags": [] },
+    "usage": { "value": "wornarmor" },
+    "baseItem": "hide-armor",
+    "category": "medium",
+    "group": "leather",
+    "acBonus": 3,
+    "dexCap": 2,
+    "strength": 2,
+    "checkPenalty": -2,
+    "speedPenalty": -5,
+    "runes": { "potency": 1, "resilient": 1, "property": [] },
+    "hp": { "value": 0, "max": 0 },
+    "hardness": 0,
+    "equipped": { "carryType": "worn", "invested": null },
+    "description": {
+      "value": "<p><em>A well-worn coat of dark oiled hide, its whole front a patchwork of little buckled pockets, loops and tool-straps. A gift from Izudin, cut small for a tengu's frame. One breast pocket is deeper than it has any right to be: reach in, and the coat hands you whatever you were about to need.</em></p><hr /><p><strong>The Bottomless Pocket.</strong> While you wear the coat you are never caught without a tool. You count as carrying any mundane tool or tool kit that an action requires, and you can draw one out with an Interact; a drawn tool lasts up to 1 hour, then dissolves into nothing. The pocket's tools are of expert make, so you gain a +1 item bonus to Crafting.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "crafting", "type": "item", "value": 1, "label": "Coat of Many Pockets" }
+    ]
+  }
+}
