@@ -2,7 +2,7 @@
   "_id": "shardsgutrakkost",
   "name": "Гутрак Костолом",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>Gutrak the Bonebreaker, an orc grappler of the Kragmir fighting club. He is one of five champions the party meets on the small arena. He wins by seizing an opponent and crushing them in a submission hold rather than by trading blows, and once a day he shrugs off a killing blow and keeps fighting.</p>",
+  "notes": "<p>Gutrak the Bonebreaker, an orc grappler of the Kragmir fighting club. He fights in the Fist of Kragmir, the champion five the party meets on the small arena. He wins by seizing an opponent and crushing them in a submission hold rather than by trading blows, and once a day he shrugs off a killing blow and keeps fighting.</p>",
   "level": 7,
   "rarity": "unique",
   "size": "med",
