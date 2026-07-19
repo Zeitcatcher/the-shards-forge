@@ -1,0 +1,50 @@
+{
+  "_id": "shardstorvain001",
+  "name": "Торвэйн Мерок Дур-Карраг",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Torvain Merok Dur-Karrag, seventh keeper of the hidden Council and the grey cardinal who rules Kragmir from inside. He stole the portal shard that fed the city's mithras and handed it to the spider-folk of Ssir-Ket, and he treats with the Mor'Kai, the shadow-things beyond the rifts. Their gift runs in him now: void resistance, and the right to tear rifts of his own. He fights like a chancellor who was a duelist first, a rune-etched mithras war pick in one hand and arcane shadow in the other, channeling spells through his strikes. Soft-spoken. Every threat arrives dressed as a courtesy.</p>",
+  "level": 11,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 2, "con": 4, "int": 7, "wis": 2, "cha": 5},
+  "ac": 31,
+  "hp": 245,
+  "perception": 21,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven", "sakvroth", "mor-kai"],
+  "saves": {"fort": 21, "ref": 18, "will": 24},
+  "resistances": [{"type": "void", "value": 10}],
+  "speeds": {"land": 20},
+  "skills": {"deception": 26, "arcana": 23, "diplomacy": 23, "society": 21, "intimidation": 21, "occultism": 21, "stealth": 19},
+  "strikes": [
+    {"name": "runic war pick", "bonus": 24, "traits": ["magical"], "damage": [{"dice": "2d8+15", "type": "piercing"}, {"dice": "1d6", "type": "void"}]},
+    {"name": "umbral grasp", "bonus": 22, "traits": ["magical", "reach-10"], "damage": [{"dice": "2d8+10", "type": "void"}], "effects": ["grab"]}
+  ],
+  "standardItems": [
+    {"slug": "grab"},
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Spellstrike", "type": "action", "actions": 2, "text": "<p><strong>Frequency</strong> until recharged</p><hr /><p><strong>Effect</strong> Torvain channels a spell that takes 1 or 2 actions to cast and requires a spell attack roll into a runic war pick or umbral grasp Strike. The effects of the spell do not occur immediately but are imbued into the attack instead. Torvain makes the Strike; the attack roll result determines the effects of both the Strike and the spell. This counts as two attacks for his multiple attack penalty, but the penalty applies only after the Spellstrike. Torvain recharges his Spellstrike by spending a single action (this action has the concentrate trait).</p>"},
+    {"name": "Call of the Mor'Kai", "type": "action", "actions": 2, "traits": ["arcane", "darkness", "shadow"], "text": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> Torvain tears open up to three rifts to the Lower Shadow Shard, each in an unoccupied square within 60 feet. Bright light within 20 feet of a rift becomes dim light (manual: adjust scene lighting). At the end of each of Torvain's turns, one Mor'Kai soldier steps out of each open rift and acts immediately after him in the initiative order (manual: place the tokens). After a rift has released its second soldier, it closes on its own.</p><p>A creature adjacent to a rift can spend 2 actions to force it shut with a successful @Check[arcana|dc:26], @Check[occultism|dc:26], or @Check[religion|dc:26] check, or destroy it with damage (AC 15, HP 20, immune to mental, poison, and void; manual: track rift HP). All rifts collapse instantly if Torvain is reduced to 0 Hit Points.</p>"}
+  ],
+  "spellcasting": {
+    "name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate",
+    "ability": "int", "dc": 30, "attack": 22,
+    "spells": {
+      "0": ["gouging-claw", "telekinetic-projectile", "shield", "detect-magic"],
+      "2": ["mirror-image"],
+      "3": ["darkness", "haste"],
+      "4": ["translocate", "vision-of-death", "dispel-magic"],
+      "5": ["shadow-siphon", "umbral-journey"],
+      "6": ["teleport", "mislead"]
+    }
+  },
+  "gear": [
+    {"slug": "pick", "equip": "held1", "runes": {"potency": 2, "striking": 1}},
+    {"slug": "chain-shirt", "equip": "worn", "runes": {"potency": 1, "resilient": 1}},
+    {"slug": "clan-dagger", "equip": "worn"},
+    {"slug": "healing-potion-moderate", "qty": 1}
+  ]
+}

@@ -21,6 +21,7 @@
   "Compendium.pf2e.conditionitems.Item.Grabbed": "kWc1fhmv9LBiTuei",
   "Compendium.pf2e.conditionitems.Item.Hidden": "iU0fEDdBp3rXpTMC",
   "Compendium.pf2e.conditionitems.Item.Immobilized": "eIcWbB5o3pP6OIMe",
+  "Compendium.pf2e.conditionitems.Item.Invisible": "zJxUflt9np0q4yML",
   "Compendium.pf2e.conditionitems.Item.Off-Guard": "AJh5ex99aV6VTggg",
   "Compendium.pf2e.conditionitems.Item.Prone": "j91X7x0XSomq8d60",
   "Compendium.pf2e.conditionitems.Item.Quickened": "nlCjDvLMf2EkV2dl",
@@ -32,13 +33,16 @@
   "Compendium.pf2e.equipment-effects.Item.Effect: Elixir of Life": "lPRuIRbu0rHBkoKY",
   "Compendium.pf2e.equipment-effects.Item.Effect: Quicksilver Mutagen (Lesser)": "6PNLBIdlqqWNCFMy",
   "Compendium.pf2e.equipment-srd.Item.Gauntlet": "Ix2vicchE79d6Cl3",
+  "Compendium.pf2e.equipment-srd.Item.Half Plate": "pRoikbRo5HFW6YUB",
   "Compendium.pf2e.equipment-srd.Item.Padded Armor": "zBYEU9E7034ENCmh",
   "Compendium.pf2e.equipment-srd.Item.Striking": "DxCuJKynlnMQZHgp",
   "Compendium.pf2e.feats-srd.Item.Shield Block": "jM72TjJ965jocBV8",
   "Compendium.pf2e.spell-effects.Item.Effect: Shield Immunity": "QF6RDlCoTvkVHRo4",
   "Compendium.pf2e.spell-effects.Item.Spell Effect: Haste": "ElkXovNrHB0Doi6O",
+  "Compendium.pf2e.spell-effects.Item.Spell Effect: Mirror Image": "0PO5mFRhh9HxGAtv",
   "Compendium.pf2e.spell-effects.Item.Spell Effect: Resist Energy": "con2Hzt47JjpuUej",
   "Compendium.pf2e.spell-effects.Item.Spell Effect: Shield": "Jemq5UknGdMO7b73",
   "Compendium.pf2e.spells-srd.Item.Blur": "3JG1t3T4mWn6vTke",
-  "Compendium.pf2e.spells-srd.Item.Environmental Endurance": "5esP2GVzvxWsMgaX"
+  "Compendium.pf2e.spells-srd.Item.Environmental Endurance": "5esP2GVzvxWsMgaX",
+  "Compendium.pf2e.spells-srd.Item.Invisibility": "XXqE1eY3w3z6xJCB"
 }

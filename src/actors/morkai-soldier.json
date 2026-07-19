@@ -1,0 +1,29 @@
+{
+  "_id": "shardsmorkai0001",
+  "name": "Мор'Кай (солдат)",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>A rank soldier of the Mor'Kai, the black humanoids that pour out of light-devouring portals from the Lower Shadow Shard. They speak an ancient tongue that belongs to no land on this shard, they do not retreat, and a captured one blows itself apart rather than talk. The slain crumble to ash and black smoke; even their blades are congealed shadow and disperse with the body, leaving no loot. This is the soldier type from the Kragmir ambush and the same troops Torvain calls through his rifts.</p>",
+  "level": 4,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["humanoid", "shadow"],
+  "abilities": {"str": 2, "dex": 4, "con": 2, "int": 0, "wis": 1, "cha": 0},
+  "ac": 20,
+  "hp": 50,
+  "perception": 11,
+  "senses": ["darkvision"],
+  "languages": ["mor-kai"],
+  "saves": {"fort": 11, "ref": 14, "will": 8},
+  "speeds": {"land": 30},
+  "skills": {"stealth": 12, "acrobatics": 10, "athletics": 8},
+  "strikes": [
+    {"name": "shadow blade", "bonus": 14, "traits": ["agile", "finesse", "magical"], "damage": [{"dice": "2d6+3", "type": "slashing"}, {"dice": "1d4", "type": "void"}]}
+  ],
+  "standardItems": [
+    {"slug": "sneak-attack", "text": "<p>The soldier deals an extra 1d6 precision damage to off-guard creatures.</p>", "rules": [{"key": "DamageDice", "selector": "strike-damage", "diceNumber": 1, "dieSize": "d6", "category": "precision", "predicate": ["target:condition:off-guard"]}]}
+  ],
+  "actions": [
+    {"name": "Ashen Collapse", "type": "passive", "text": "<p>When the soldier dies, its body crumbles into ash and black smoke, leaving nothing behind. Its blade is congealed shadow and disperses with it. (manual: remove the token, no loot)</p>"}
+  ],
+  "gear": []
+}

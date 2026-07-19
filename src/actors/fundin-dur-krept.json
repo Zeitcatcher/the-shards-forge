@@ -1,0 +1,39 @@
+{
+  "_id": "shardsfundin0001",
+  "name": "Фундин Дур-Крепт",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Fundin Dur-Krept, chief steward of every mine in Kragmir, the Depths included. A dwarf near three hundred from the clan that has kept the pass-runes for generations. Every rune activation happens in his presence: he has seen the blood of every living pass and remembers each holder's face. He climbed the whole ladder himself, from miner to overseer to mine manager to steward, and he cannot be bought. Since the incident below he keeps the deep levels sealed on orders he does not understand, and it eats at him: crews vanished down there on his watch, his nephew Keld among them. Gold does not move him. The truth about the missing crews might.</p>",
+  "level": 8,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 0, "con": 5, "int": 3, "wis": 4, "cha": 2},
+  "ac": 27,
+  "hp": 138,
+  "perception": 19,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 19, "ref": 12, "will": 17},
+  "speeds": {"land": 20},
+  "skills": {"crafting": 19, "society": 16, "athletics": 14, "intimidation": 14},
+  "strikes": [
+    {"name": "warhammer", "bonus": 18, "traits": ["magical", "shove"], "damage": [{"dice": "2d8+9", "type": "bludgeoning"}]},
+    {"name": "clan dagger", "bonus": 16, "traits": ["agile", "versatile-b"], "damage": [{"dice": "2d4+7", "type": "piercing"}]}
+  ],
+  "standardItems": [
+    {"slug": "shield-block"},
+    {"slug": "reactive-strike"},
+    {"group": "actions", "slug": "raise-a-shield", "selfEffect": {"name": "Effect: Raise Guard", "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Raise Guard"}}
+  ],
+  "actions": [
+    {"name": "Blood Ledger", "type": "passive", "text": "<p>Fundin oversees every pass-rune activation in Kragmir and remembers the face of every living pass holder. By touching an activated pass-rune he learns whose blood it answers to. A stolen activated rune betrays its thief the moment he handles it. (manual: narrative ability)</p>"}
+  ],
+  "gear": [
+    {"slug": "warhammer", "equip": "held1", "runes": {"potency": 1}},
+    {"slug": "breastplate", "equip": "worn", "runes": {"potency": 1}},
+    {"slug": "steel-shield", "equip": "held2"},
+    {"slug": "clan-dagger", "equip": "worn"},
+    {"slug": "healing-potion-moderate", "qty": 1},
+    {"qty": 2, "item": {"name": "Pass-Rune Blank", "type": "equipment", "img": "icons/commodities/stone/masonry-block-cube-tan.webp", "system": {"level": {"value": 3}, "traits": {"value": ["magical"], "rarity": "rare", "otherTags": []}, "description": {"value": "<p>An unactivated pass-rune for the deep mines of Kragmir: a palm-sized stone tile cut with a blood channel. Activation binds it to one bearer's blood forever and normally happens only before the chief steward. A blank in anyone else's hands is contraband. (manual: narrative item)</p>"}, "price": {"value": {"gp": 150}}, "bulk": {"value": 0.1}, "usage": {"value": "carried"}, "equipped": {"carryType": "stowed"}, "quantity": 1, "rules": []}}}
+  ]
+}

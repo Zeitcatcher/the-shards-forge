@@ -11,7 +11,21 @@
     "abilities/ferocity": "packs/pf2e/bestiary-ability-glossary-srd/ferocity.json",
     "abilities/nimble-dodge": "packs/pf2e/bestiary-ability-glossary-srd/nimble-dodge.json",
     "abilities/sneak-attack": "packs/pf2e/bestiary-ability-glossary-srd/sneak-attack.json",
-    "actions/raise-a-shield": "packs/pf2e/actions/basic/raise-a-shield.json"
+    "actions/raise-a-shield": "packs/pf2e/actions/basic/raise-a-shield.json",
+    "equipment/breastplate": "packs/pf2e/equipment/breastplate.json",
+    "equipment/steel-shield": "packs/pf2e/equipment/steel-shield.json",
+    "equipment/clan-dagger": "packs/pf2e/equipment/clan-dagger.json",
+    "equipment/pick": "packs/pf2e/equipment/pick.json",
+    "equipment/chain-shirt": "packs/pf2e/equipment/chain-shirt.json",
+    "spells/gouging-claw": "packs/pf2e/spells/spells/cantrip/gouging-claw.json",
+    "spells/mirror-image": "packs/pf2e/spells/spells/rank-2/mirror-image.json",
+    "spells/darkness": "packs/pf2e/spells/spells/rank-2/darkness.json",
+    "spells/translocate": "packs/pf2e/spells/spells/rank-4/translocate.json",
+    "spells/vision-of-death": "packs/pf2e/spells/spells/rank-4/vision-of-death.json",
+    "spells/shadow-siphon": "packs/pf2e/spells/spells/rank-5/shadow-siphon.json",
+    "spells/umbral-journey": "packs/pf2e/spells/spells/rank-5/umbral-journey.json",
+    "spells/teleport": "packs/pf2e/spells/spells/rank-6/teleport.json",
+    "spells/mislead": "packs/pf2e/spells/spells/rank-6/mislead.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",
