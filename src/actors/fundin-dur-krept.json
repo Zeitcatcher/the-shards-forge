@@ -32,9 +32,9 @@
   "gear": [
     {"slug": "warhammer", "equip": "held1", "runes": {"potency": 1}},
     {"slug": "breastplate", "equip": "worn", "runes": {"potency": 1}},
-    {"slug": "steel-shield", "equip": "held2"},
+    {"slug": "steel-shield", "equip": "held1"},
     {"slug": "clan-dagger", "equip": "worn"},
     {"slug": "healing-potion-moderate", "qty": 1},
-    {"qty": 2, "item": {"name": "Pass-Rune Blank", "type": "equipment", "img": "icons/commodities/stone/masonry-block-cube-tan.webp", "system": {"level": {"value": 3}, "traits": {"value": ["magical"], "rarity": "rare", "otherTags": []}, "description": {"value": "<p>An unactivated pass-rune for the deep mines of Kragmir: a palm-sized stone tile cut with a blood channel. Activation binds it to one bearer's blood forever and normally happens only before the chief steward. A blank in anyone else's hands is contraband. (manual: narrative item)</p>"}, "price": {"value": {"gp": 150}}, "bulk": {"value": 0.1}, "usage": {"value": "carried"}, "equipped": {"carryType": "stowed"}, "quantity": 1, "rules": []}}}
+    {"qty": 2, "equip": "stowed", "item": {"name": "Pass-Rune Blank", "type": "equipment", "img": "icons/commodities/stone/masonry-block-cube-tan.webp", "system": {"level": {"value": 3}, "traits": {"value": ["magical"], "rarity": "rare", "otherTags": []}, "description": {"value": "<p>An unactivated pass-rune for the deep mines of Kragmir: a palm-sized stone tile cut with a blood channel. Activation binds it to one bearer's blood forever and normally happens only before the chief steward. A blank in anyone else's hands is contraband. (manual: narrative item)</p>"}, "price": {"value": {"gp": 150}}, "bulk": {"value": 0.1}, "usage": {"value": "carried"}, "equipped": {"carryType": "stowed"}, "quantity": 1, "rules": []}}}
   ]
 }
