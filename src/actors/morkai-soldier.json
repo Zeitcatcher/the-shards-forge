@@ -1,7 +1,8 @@
 {
   "_id": "shardsmorkai0001",
   "name": "Мор'Кай (солдат)",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/mor-kai-soldier.webp",
+  "token": "modules/the-shards-forge/assets/tokens/mor-kai-soldier-token.png",
   "notes": "<p>A rank soldier of the Mor'Kai, the black humanoids that pour out of light-devouring portals from the Lower Shadow Shard. They speak an ancient tongue that belongs to no land on this shard, they do not retreat, and a captured one blows itself apart rather than talk. The slain crumble to ash and black smoke; even their blades are congealed shadow and disperse with the body, leaving no loot. This is the soldier type from the Kragmir ambush and the same troops Torvain calls through his rifts.</p>",
   "level": 4,
   "rarity": "common",

@@ -1,7 +1,8 @@
 {
   "_id": "shardstorvain001",
   "name": "Торвэйн Мерок Дур-Карраг",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/torvein-merrok-dur-karrag.webp",
+  "token": "modules/the-shards-forge/assets/tokens/torvein-merrok-dur-karrag-token.png",
   "notes": "<p>Torvain Merok Dur-Karrag, seventh keeper of the hidden Council and the grey cardinal who rules Kragmir from inside. He stole the portal shard that fed the city's mithras and handed it to the spider-folk of Ssir-Ket, and he treats with the Mor'Kai, the shadow-things beyond the rifts. Their gift runs in him now: void resistance, and the right to tear rifts of his own. He fights like a chancellor who was a duelist first, a rune-etched mithras war pick in one hand and arcane shadow in the other, channeling spells through his strikes. Soft-spoken. Every threat arrives dressed as a courtesy.</p>",
   "level": 11,
   "rarity": "unique",

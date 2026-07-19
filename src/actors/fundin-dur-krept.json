@@ -1,7 +1,8 @@
 {
   "_id": "shardsfundin0001",
   "name": "Фундин Дур-Крепт",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/fundin-tur-krept.webp",
+  "token": "modules/the-shards-forge/assets/tokens/fundin-tur-krept-token.png",
   "notes": "<p>Fundin Dur-Krept, chief steward of every mine in Kragmir, the Depths included. A dwarf near three hundred from the clan that has kept the pass-runes for generations. Every rune activation happens in his presence: he has seen the blood of every living pass and remembers each holder's face. He climbed the whole ladder himself, from miner to overseer to mine manager to steward, and he cannot be bought. Since the incident below he keeps the deep levels sealed on orders he does not understand, and it eats at him: crews vanished down there on his watch, his nephew Keld among them. Gold does not move him. The truth about the missing crews might.</p>",
   "level": 8,
   "rarity": "unique",
