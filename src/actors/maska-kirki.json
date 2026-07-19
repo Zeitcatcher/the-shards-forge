@@ -2,7 +2,7 @@
   "_id": "shardsmaskkirka0",
   "name": "Маска Кирки",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The Pick's Mask of the Defense of the First Adit, Kragmir's staged founding legend. The role of the hero who answered the breach with a miner's greatpick; the current bearer is an orc arena professional, and by tradition her name is never announced. The counter-attacker of the Five: she charges off the platform to punish overextended raiders, her fatal pick turns crits into showstoppers, and orc ferocity keeps her standing through a killing blow. The most baitable of the Five: she breaks script first.</p>",
+  "notes": "<p>The Pick's Mask of the Defense of the First Adit, Kragmir's staged founding legend. The role of the hero who answered the breach with a miner's greatpick; the current bearer is an orc arena professional, and by tradition her name is never announced. The counter-attacker of the Five: she charges off the platform to punish overextended raiders, her fatal pick turns crits into showstoppers, a kill sends her running for the next one, and orc ferocity keeps her standing through a killing blow. The most baitable of the Five: she breaks script first.</p>",
   "level": 7,
   "rarity": "unique",
   "size": "med",
@@ -54,8 +54,7 @@
           "dice": "2d10+9",
           "type": "piercing"
         }
-      ],
-      "text": "<p>On a critical hit, the pick punches through armor: the target also takes @Damage[1d8[persistent,bleed]] damage.</p>"
+      ]
     },
     {
       "name": "spiked gauntlet",
@@ -70,6 +69,20 @@
           "type": "piercing"
         }
       ]
+    },
+    {
+      "name": "javelin",
+      "bonus": 16,
+      "range": 30,
+      "traits": [
+        "thrown"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+9",
+          "type": "piercing"
+        }
+      ]
     }
   ],
   "actions": [
@@ -81,6 +94,28 @@
         "flourish"
       ],
       "text": "<p>Маска Кирки Strides twice. If she ends her movement within melee reach of at least one enemy, she can make a melee Strike against that enemy.</p>"
+    },
+    {
+      "name": "Miner's Bellow",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory",
+        "emotion",
+        "fear",
+        "mental"
+      ],
+      "text": "<p>She roars the pit-boss call that clears a working face. She attempts an Intimidation check to @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize] against every enemy within 30 feet, without the usual penalty for a target that does not share a language with her.</p>"
+    },
+    {
+      "name": "Armor Breaker",
+      "type": "passive",
+      "text": "<p>The pick is made for stone, not for people. On a critical hit with her greatpick, the target also takes @Damage[1d8[persistent,bleed]] damage.</p>"
+    },
+    {
+      "name": "Bloodlust",
+      "type": "passive",
+      "text": "<p>The crowd noise gets into her. When she scores a critical hit or reduces an enemy to 0 Hit Points, she gains a +10-foot status bonus to her Speed until the end of her next turn.</p>"
     }
   ],
   "gear": [
@@ -95,6 +130,10 @@
     {
       "slug": "spiked-gauntlet",
       "equip": "worn"
+    },
+    {
+      "slug": "javelin",
+      "qty": 3
     }
   ],
   "standardItems": [

@@ -39,7 +39,11 @@
     "spells/noise-blast": "packs/pf2e/spells/spells/rank-2/noise-blast.json",
     "spells/heroism": "packs/pf2e/spells/spells/rank-3/heroism.json",
     "abilities/form-up": "packs/pf2e/bestiary-ability-glossary-srd/form-up.json",
-    "abilities/troop-defenses": "packs/pf2e/bestiary-ability-glossary-srd/troop-defenses.json"
+    "abilities/troop-defenses": "packs/pf2e/bestiary-ability-glossary-srd/troop-defenses.json",
+    "equipment/javelin": "packs/pf2e/equipment/javelin.json",
+    "equipment/light-hammer": "packs/pf2e/equipment/light-hammer.json",
+    "spells/stabilize": "packs/pf2e/spells/spells/cantrip/stabilize.json",
+    "abilities/push": "packs/pf2e/bestiary-ability-glossary-srd/push.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

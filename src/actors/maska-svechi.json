@@ -2,7 +2,7 @@
   "_id": "shardsmasksvecha",
   "name": "Маска Свечи",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The Candle's Mask of the Defense of the First Adit: the lamp-warden who lit the tunnel and burned the raiders' ladders. The current bearer is a human alchemist from Kragmir's academy quarter, name never announced. She covers the ramps with fire flasks, blinding flash charges, and walls of smoke; her mask carries smoked-glass lenses. Glass cannon: high Reflex, thin HP, and a human's eyes, so she keeps the light where she needs it.</p>",
+  "notes": "<p>The Candle's Mask of the Defense of the First Adit: the lamp-warden who lit the tunnel and burned the raiders' ladders. The current bearer is a human alchemist from Kragmir's academy quarter, name never announced. She covers the ramps with fire flasks, blinding flash charges, and walls of smoke, snaps a charge in the face of anyone who closes, and slips away before the answer lands. Her mask carries smoked-glass lenses, so her own light never blinds her. Glass cannon: high Reflex, thin HP.</p>",
   "level": 7,
   "rarity": "unique",
   "size": "med",
@@ -121,7 +121,25 @@
       "traits": [
         "manipulate"
       ],
-      "text": "<p>Маска Свечи throws a smoke ball up to 10 feet. Smoke fills a @Template[type:burst|distance:10] for 1 minute; creatures inside the smoke are @UUID[Compendium.pf2e.conditionitems.Item.Concealed] (вручную: поставить и убрать шаблон дыма). Spends one Smoke Ball (Greater).</p>"
+      "text": "<p>Маска Свечи throws a smoke ball up to 10 feet. Smoke fills a @Template[type:burst|distance:10] for 1 minute, and creatures inside it are @UUID[Compendium.pf2e.conditionitems.Item.Concealed]. Spends one Smoke Ball (Greater).</p>"
+    },
+    {
+      "name": "Flash in the Face",
+      "type": "reaction",
+      "traits": [
+        "manipulate"
+      ],
+      "text": "<p><strong>Trigger</strong> A creature moves into a square adjacent to Маска Свечи.</p><hr /><p><strong>Effect</strong> She snaps a charge open at arm's length. The triggering creature attempts a @Check[type:fortitude|dc:25] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 round, and on a critical failure it is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round instead. Spends one Magnesium Flash.</p>"
+    },
+    {
+      "name": "Lensed Mask",
+      "type": "passive",
+      "text": "<p>The smoked glass in the mask's eyes is ground for exactly this work. Маска Свечи is immune to the @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] and @UUID[Compendium.pf2e.conditionitems.Item.Blinded] conditions from her own alchemical light, and gains a +2 circumstance bonus to saves against visual effects.</p>"
+    },
+    {
+      "name": "Mobility",
+      "type": "passive",
+      "text": "<p>She never stands where she threw from. When Маска Свечи Strides half her Speed or less, that movement does not trigger reactions.</p>"
     }
   ],
   "gear": [
@@ -142,7 +160,7 @@
       "qty": 2
     },
     {
-      "qty": 3,
+      "qty": 4,
       "item": {
         "name": "Magnesium Flash",
         "type": "consumable",

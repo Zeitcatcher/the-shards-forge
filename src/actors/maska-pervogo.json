@@ -2,7 +2,7 @@
   "_id": "shardsmaskpervy0",
   "name": "Маска Первого",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The First's Mask, captain role of the Defense of the First Adit, Kragmir's staged founding legend on the big arena. Whoever earns the bronze mask of the First anchors the breach: tower shield, hammer, and the oath not to step back. The current bearer is a veteran arena professional; by tradition the name under the mask is never announced. Immovable anvil-defender who holds the barricade line and punishes anyone who tries to slip past.</p>",
+  "notes": "<p>The First's Mask, captain role of the Defense of the First Adit, Kragmir's staged founding legend on the big arena. Whoever earns the bronze mask of the First stands in the breach itself and lets nothing through. He is a gatekeeper rather than a commander: he does not buff the other four, he shields them, shoves attackers back down the ramp, and makes the ground beside him a bad place to stand. The current bearer is a veteran arena professional; by tradition the name under the mask is never announced.</p>",
   "level": 8,
   "rarity": "unique",
   "size": "med",
@@ -12,15 +12,15 @@
   ],
   "abilities": {
     "str": 6,
-    "dex": 1,
-    "con": 6,
+    "dex": 0,
+    "con": 7,
     "int": 0,
-    "wis": 3,
-    "cha": 3
+    "wis": 2,
+    "cha": 1
   },
-  "ac": 30,
-  "hp": 170,
-  "perception": 19,
+  "ac": 27,
+  "hp": 173,
+  "perception": 16,
   "senses": [
     "darkvision"
   ],
@@ -29,17 +29,17 @@
     "dwarven"
   ],
   "saves": {
-    "fort": 19,
-    "ref": 13,
-    "will": 19
+    "fort": 21,
+    "ref": 11,
+    "will": 16
   },
   "speeds": {
     "land": 20
   },
   "skills": {
     "athletics": 21,
-    "intimidation": 18,
-    "performance": 16,
+    "intimidation": 16,
+    "performance": 14,
     "crafting": 14
   },
   "strikes": [
@@ -57,7 +57,7 @@
         }
       ],
       "effects": [
-        "knockdown"
+        "push"
       ]
     },
     {
@@ -72,13 +72,47 @@
           "type": "bludgeoning"
         }
       ]
+    },
+    {
+      "name": "light hammer",
+      "bonus": 16,
+      "range": 20,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+9",
+          "type": "bludgeoning"
+        }
+      ]
     }
   ],
   "actions": [
     {
-      "name": "Rock of the Breach",
+      "name": "Hammer and Wedge",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "attack"
+      ],
+      "text": "<p>The First makes a Молот Штольни Strike. On a hit, the target is pushed back 5 feet and the First Steps into the square it left, driving the line forward one pace.</p>"
+    },
+    {
+      "name": "Interpose",
+      "type": "reaction",
+      "text": "<p><strong>Trigger</strong> An ally within 15 feet is hit by an attack, and the First has a raised shield.</p><hr /><p><strong>Effect</strong> The First swings the tower shield across his ally and uses Shield Block against the triggering attack, reducing the damage dealt to that ally instead of to himself. Any damage the shield does not absorb is still dealt to the ally.</p>"
+    },
+    {
+      "name": "Impassable",
       "type": "passive",
-      "text": "<p>The First does not leave the breach. He gains a +2 circumstance bonus to his defenses against forced movement and to his Athletics DC against @UUID[Compendium.pf2e.actionspf2e.Item.Shove], @UUID[Compendium.pf2e.actionspf2e.Item.Trip], and @UUID[Compendium.pf2e.actionspf2e.Item.Reposition] attempts.</p>"
+      "text": "<p>The breach is a doorway one dwarf wide. Squares adjacent to the First are difficult terrain for enemies, and a creature that attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Tumble Through] his space must succeed at its check against his Athletics DC of 31 rather than his AC.</p>"
+    },
+    {
+      "name": "The Mask Feels Nothing",
+      "type": "passive",
+      "text": "<p>Behind the bronze face there is only the role. The First is immune to the @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition and gains a +2 status bonus to saves against emotion effects.</p>"
     }
   ],
   "gear": [
@@ -99,16 +133,17 @@
       }
     },
     {
+      "slug": "light-hammer",
+      "qty": 2
+    },
+    {
       "slug": "healing-potion-moderate",
       "qty": 1
     }
   ],
   "standardItems": [
     {
-      "slug": "knockdown"
-    },
-    {
-      "slug": "reactive-strike"
+      "slug": "push"
     },
     {
       "slug": "shield-block"

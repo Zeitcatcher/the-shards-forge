@@ -2,7 +2,7 @@
   "_id": "shardsmaskrog000",
   "name": "Маска Рога",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The Horn's Mask, the voice of the Defense of the First Adit on Kragmir's big arena. The bearer carries the great bronze horn that 'wakes the mine': his blasts time the show, call the reinforcement wave, and carry the founders' blessing. A warpriest-style support caster flavored as ancestral rites: he blesses and mends the Five, frightens raiders with the Roar, and is the single most valuable target on the platform. If the Horn falls silent, the wave arrives late and unblessed.</p>",
+  "notes": "<p>The Horn's Mask, the voice of the Defense of the First Adit on Kragmir's big arena. The bearer carries the great bronze horn that 'wakes the mine': his blasts time the show, call the reinforcement wave, and carry the founders' blessing. A warpriest-style support caster flavored as ancestral rites: he blesses and mends the Five, moves the line with a marching note, frightens raiders with the Roar, and throws a warded note over an ally about to be hit. If the Horn falls silent, the wave arrives late and unblessed.</p>",
   "level": 7,
   "rarity": "unique",
   "size": "med",
@@ -55,6 +55,22 @@
           "type": "bludgeoning"
         }
       ]
+    },
+    {
+      "name": "clan dagger",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "dwarf",
+        "parry",
+        "versatile-b"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+6",
+          "type": "piercing"
+        }
+      ]
     }
   ],
   "actions": [
@@ -68,7 +84,34 @@
         "fear",
         "mental"
       ],
-      "text": "<p><strong>Frequency</strong> once per fight.</p><hr /><p>The bearer sounds the great horn: the mountain answers, and the mine wakes. Each enemy in a @Template[type:emanation|distance:30] attempts a @Check[type:will|dc:25] save.</p><p><strong>Success</strong> The creature is unaffected.</p><p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened] 1.</p><p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened] 2.</p><p>In the staged show this blast is also the signal that raises the lift plates (вручную: trigger the reinforcement wave).</p>"
+      "text": "<p><strong>Frequency</strong> once per fight.</p><hr /><p>The bearer sounds the great horn and the mountain answers. Each enemy in a @Template[type:emanation|distance:30] attempts a @Check[type:will|dc:25] save.</p><p><strong>Success</strong> The creature is unaffected.</p><p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened] 1.</p><p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened] 2.</p>"
+    },
+    {
+      "name": "Pace of the Mine",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory"
+      ],
+      "text": "<p>The horn beats a marching note. Each ally within 60 feet who can hear it can Step as a free action.</p>"
+    },
+    {
+      "name": "Ancestral Ward",
+      "type": "reaction",
+      "traits": [
+        "auditory"
+      ],
+      "text": "<p><strong>Trigger</strong> An ally within 30 feet is targeted by an attack from an attacker the Horn can see.</p><hr /><p><strong>Effect</strong> A short warding note cuts across the arena. The ally gains a +2 circumstance bonus to AC against the triggering attack.</p>"
+    },
+    {
+      "name": "The Horn Keeps Time",
+      "type": "passive",
+      "text": "<p>Allies within 60 feet who can hear the horn gain a +1 status bonus to saves against emotion and fear effects.</p>"
+    },
+    {
+      "name": "Steady Spellcasting",
+      "type": "passive",
+      "text": "<p>Years of casting through a roaring crowd. If a reaction would disrupt the Horn's spellcasting action, he attempts a @Check[type:flat|dc:15] check. On a success, the spell is cast successfully.</p>"
     }
   ],
   "gear": [
@@ -79,6 +122,10 @@
     {
       "slug": "warhammer",
       "equip": "held1"
+    },
+    {
+      "slug": "clan-dagger",
+      "equip": "stowed"
     },
     {
       "qty": 1,
@@ -110,7 +157,7 @@
             "carryType": "worn"
           },
           "description": {
-            "value": "<p>The great bronze horn of the Defense of the First Adit, property of the Kragmir arena. Its voice times the show: the blessing, the Roar, and the waking of the mine. A stage relic, not a magic item; the arena wants it back after the bout.</p>"
+            "value": "<p>The great bronze horn of the Defense of the First Adit, property of the Kragmir arena. Its voice times the show: the blessing, the marching note, the Roar, and the waking of the mine. A stage relic, not a magic item; the arena wants it back after the bout.</p>"
           },
           "rules": []
         }
@@ -128,7 +175,8 @@
       "0": [
         "divine-lance",
         "shield",
-        "forbidding-ward"
+        "forbidding-ward",
+        "stabilize"
       ],
       "1": [
         "bless",

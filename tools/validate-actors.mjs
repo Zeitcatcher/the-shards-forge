@@ -98,6 +98,39 @@ function addStrikeEffect(recipe, slug) {
   return `listed "${slug}" in the ${melee[0].name} strike's attackEffects`;
 }
 
+// ---- Ability quotas (create-statblock/references/ability-quotas.md) ---------------
+// Minimum kit per level, from a census of 766 official pf2e actors. Warn-level: an
+// under-built NPC is a design smell, not a broken import.
+const QUOTAS = [
+  { max: 2, strikes: 2, activated: 1, reactions: 0, passives: 1, total: 2 },
+  { max: 5, strikes: 2, activated: 1, reactions: 0, passives: 1, total: 3 },
+  { max: 8, strikes: 3, activated: 2, reactions: 1, passives: 2, total: 4 },
+  { max: 11, strikes: 3, activated: 2, reactions: 1, passives: 2, total: 5 },
+  { max: 14, strikes: 3, activated: 3, reactions: 1, passives: 3, total: 6 },
+  { max: 99, strikes: 4, activated: 3, reactions: 2, passives: 3, total: 7 },
+];
+
+function checkQuota(doc, ctx) {
+  const level = doc.system?.details?.level?.value ?? 0;
+  const traits = doc.system?.traits?.value || [];
+  if (traits.includes("troop")) return; // troop suite satisfies the row by design
+  const q = QUOTAS.find((r) => level <= r.max);
+  const items = doc.items || [];
+  const acts = items.filter((i) => i.type === "action");
+  const by = (t) => acts.filter((a) => a.system?.actionType?.value === t).length;
+  const caster = items.some((i) => i.type === "spellcastingEntry");
+  const strikes = items.filter((i) => i.type === "melee").length;
+  const short = [];
+  if (strikes < (caster ? 2 : q.strikes)) short.push(`strikes ${strikes}/${caster ? 2 : q.strikes}`);
+  if (by("action") < q.activated) short.push(`activated ${by("action")}/${q.activated}`);
+  if (by("reaction") < q.reactions) short.push(`reactions ${by("reaction")}/${q.reactions}`);
+  if (by("passive") < q.passives) short.push(`passives ${by("passive")}/${q.passives}`);
+  const minTotal = caster ? Math.max(2, q.total - 1) : q.total;
+  if (acts.length < minTotal) short.push(`total abilities ${acts.length}/${minTotal}`);
+  if (short.length)
+    validationWarnings.push(`${ctx}: below the level-${level} ability quota (${short.join(", ")}) — see create-statblock/references/ability-quotas.md`);
+}
+
 // ---- The validator ---------------------------------------------------------------
 export function validateResolvedActor(doc, ctx) {
   const items = doc.items || [];
@@ -155,6 +188,9 @@ export function validateResolvedActor(doc, ctx) {
   // 5) Advisory: shield in inventory but no shield actions at all.
   if (shields.length && !names.has("shield-block") && !names.has("raise-a-shield"))
     validationWarnings.push(`${ctx}: carries a shield but has neither Raise a Shield nor Shield Block (intentional?)`);
+
+  // 6) Advisory: ability quota for the level.
+  checkQuota(doc, ctx);
 
   for (const f of failures) validationErrors.push(`${ctx}: ${f}`);
   return failures.length === 0;

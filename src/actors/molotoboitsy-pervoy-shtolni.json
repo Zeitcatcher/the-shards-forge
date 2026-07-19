@@ -62,7 +62,7 @@
       "name": "Heave!",
       "type": "action",
       "actions": 2,
-      "text": "<p>The line lowers shoulders and shoves. Each adjacent enemy attempts a @Check[type:fortitude|dc:20] save.</p><p><strong>Success</strong> The creature holds its ground.</p><p><strong>Failure</strong> The creature is pushed 5 feet directly away from the troop.</p><p><strong>Critical Failure</strong> The creature is pushed 10 feet directly away and knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone] (вручную: передвинуть токены).</p>"
+      "text": "<p>The line lowers shoulders and shoves. Each adjacent enemy attempts a @Check[type:fortitude|dc:20] save.</p><p><strong>Success</strong> The creature holds its ground.</p><p><strong>Failure</strong> The creature is pushed 5 feet directly away from the troop.</p><p><strong>Critical Failure</strong> The creature is pushed 10 feet directly away and knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
     },
     {
       "name": "Troop Movement",

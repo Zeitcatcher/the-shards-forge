@@ -2,7 +2,7 @@
   "_id": "shardsmasktsep00",
   "name": "Маска Цепи",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The Chain's Mask of the Defense of the First Adit: the hero who hauled climbing raiders off the barricade. The current bearer is a human woman, a former rigger of Kragmir's suspended railway, name never announced. She works the ramps and the causeway edge: a thrown combat grapnel that lodges and grabs, a reel that drags victims to her, and a meteor hammer that sweeps legs at reach. With a climb speed and rigger's balance she owns the scaffolding.</p>",
+  "notes": "<p>The Chain's Mask of the Defense of the First Adit: the hero who hauled climbing raiders off the barricade. The current bearer is a human woman, a former rigger of Kragmir's suspended railway, name never announced. She works the ramps and the causeway edge: a thrown combat grapnel that lodges and grabs, a reel that drags victims to her, a meteor hammer that sweeps legs at reach, and a snag line for anyone who thinks they can run past. With a climb speed and rigger's balance she owns the scaffolding.</p>",
   "level": 7,
   "rarity": "unique",
   "size": "med",
@@ -79,6 +79,23 @@
       "effects": [
         "knockdown"
       ]
+    },
+    {
+      "name": "dagger",
+      "bonus": 18,
+      "range": 10,
+      "traits": [
+        "agile",
+        "finesse",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "1d4+8",
+          "type": "piercing"
+        }
+      ]
     }
   ],
   "actions": [
@@ -89,12 +106,17 @@
       "traits": [
         "attack"
       ],
-      "text": "<p><strong>Requirements</strong> A creature is grabbed by Маска Цепи's combat grapnel.</p><hr /><p>She reels the chain in: the grabbed creature is pulled up to 10 feet directly toward her (вручную: передвинуть токен).</p>"
+      "text": "<p><strong>Requirements</strong> A creature is grabbed by Маска Цепи's combat grapnel.</p><hr /><p><strong>Effect</strong> She hauls the chain in hand over hand. The grabbed creature is pulled up to 10 feet directly toward her. If this drags it off a ledge or a ramp, it falls.</p>"
+    },
+    {
+      "name": "Snag Line",
+      "type": "reaction",
+      "text": "<p><strong>Trigger</strong> A creature within 15 feet Strides, Steps, or attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Tumble Through] her space.</p><hr /><p><strong>Effect</strong> The chain whips out low. She attempts an Athletics check against the triggering creature's Reflex DC. On a success the creature's movement ends immediately; on a critical success it is also knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
     },
     {
       "name": "Rigger's Grip",
       "type": "passive",
-      "text": "<p>Rigger's grip: Маска Цепи gains a +2 circumstance bonus to Athletics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Grapple], and the DC to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] her grab is 2 higher (вручную: учесть при Escape).</p>",
+      "text": "<p>Ten years of holding cable above a city. Маска Цепи gains a +2 circumstance bonus to Athletics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Grapple], and the DC to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] her grab is 27.</p>",
       "rules": [
         {
           "key": "FlatModifier",
@@ -106,6 +128,11 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Sure-Footed Rigger",
+      "type": "passive",
+      "text": "<p>Scaffolding is her floor. Маска Цепи is not @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] while climbing, and she can Climb at her full Speed.</p>"
     }
   ],
   "gear": [
@@ -120,6 +147,10 @@
     {
       "slug": "meteor-hammer",
       "equip": "held2"
+    },
+    {
+      "slug": "dagger",
+      "qty": 2
     }
   ],
   "standardItems": [
