@@ -74,6 +74,12 @@ const TABLE = {
       return null;
     },
   },
+  "reel-in": {
+    check: (c) =>
+      c.strikes.some((s) => (s.system.attackEffects?.value || []).includes("grab") || (s.system.traits?.value || []).includes("grapple"))
+        ? null
+        : "Reel In present but no Strike can grab (needs grab in attackEffects or a grapple-trait Strike)",
+  },
   // Runtime-state requirements: nothing structural to verify.
   "bone-crushing-squeeze": { runtime: true },
   "ferocity": { runtime: true },

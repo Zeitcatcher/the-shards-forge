@@ -1,0 +1,190 @@
+{
+  "_id": "shardsmasksvecha",
+  "name": "Маска Свечи",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>The Candle's Mask of the Defense of the First Adit: the lamp-warden who lit the tunnel and burned the raiders' ladders. The current bearer is a human alchemist from Kragmir's academy quarter, name never announced. She covers the ramps with fire flasks, blinding flash charges, and walls of smoke; her mask carries smoked-glass lenses. Glass cannon: high Reflex, thin HP, and a human's eyes, so she keeps the light where she needs it.</p>",
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": 0,
+    "dex": 5,
+    "con": 1,
+    "int": 4,
+    "wis": 3,
+    "cha": 2
+  },
+  "ac": 24,
+  "hp": 88,
+  "perception": 18,
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 12,
+    "ref": 18,
+    "will": 15
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "crafting": 17,
+    "acrobatics": 15,
+    "thievery": 13,
+    "performance": 13
+  },
+  "strikes": [
+    {
+      "name": "alchemist's fire",
+      "bonus": 18,
+      "range": 20,
+      "traits": [
+        "alchemical",
+        "bomb",
+        "thrown",
+        "splash",
+        "fire"
+      ],
+      "damage": [
+        {
+          "dice": "2d8",
+          "type": "fire"
+        },
+        {
+          "dice": "2",
+          "type": "fire",
+          "category": "persistent"
+        },
+        {
+          "dice": "2",
+          "type": "fire",
+          "category": "splash"
+        }
+      ],
+      "text": "<p>Spends one Alchemist's Fire (Moderate).</p>"
+    },
+    {
+      "name": "magnesium flash",
+      "bonus": 18,
+      "range": 20,
+      "traits": [
+        "alchemical",
+        "bomb",
+        "thrown",
+        "splash",
+        "light"
+      ],
+      "damage": [
+        {
+          "dice": "1d6",
+          "type": "fire"
+        },
+        {
+          "dice": "1",
+          "type": "fire",
+          "category": "splash"
+        }
+      ],
+      "text": "<p>On a hit, the target attempts a @Check[type:fortitude|dc:25] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 minute, and on a critical failure it is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round instead. Spends one Magnesium Flash.</p>"
+    },
+    {
+      "name": "staff",
+      "bonus": 13,
+      "traits": [
+        "two-hand-d8"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+3",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Quick Bomber",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Маска Свечи Interacts to draw a bomb, then Strikes with it.</p>"
+    },
+    {
+      "name": "Smoke Veil",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "manipulate"
+      ],
+      "text": "<p>Маска Свечи throws a smoke ball up to 10 feet. Smoke fills a @Template[type:burst|distance:10] for 1 minute; creatures inside the smoke are @UUID[Compendium.pf2e.conditionitems.Item.Concealed] (вручную: поставить и убрать шаблон дыма). Spends one Smoke Ball (Greater).</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "studded-leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "staff",
+      "equip": "held2"
+    },
+    {
+      "slug": "alchemists-fire-moderate",
+      "qty": 6
+    },
+    {
+      "slug": "smoke-ball-greater",
+      "qty": 2
+    },
+    {
+      "qty": 3,
+      "item": {
+        "name": "Magnesium Flash",
+        "type": "consumable",
+        "system": {
+          "slug": "magnesium-flash",
+          "level": {
+            "value": 7
+          },
+          "price": {
+            "value": {
+              "gp": 40
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "traits": {
+            "value": [
+              "alchemical",
+              "consumable",
+              "light"
+            ],
+            "rarity": "uncommon",
+            "otherTags": []
+          },
+          "usage": {
+            "value": "held-in-one-hand"
+          },
+          "category": "other",
+          "uses": {
+            "value": 1,
+            "max": 1
+          },
+          "equipped": {
+            "carryType": "worn"
+          },
+          "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p><hr /><p>A lamp-warden's magnesium charge, thrown up to 20 feet. It deals @Damage[(1d6)[fire]] damage and 1 fire splash damage. On a hit, the target attempts a @Check[type:fortitude|dc:25] save; on a failure it is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 minute, and on a critical failure it is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round instead.</p>"
+          },
+          "rules": []
+        }
+      }
+    }
+  ]
+}

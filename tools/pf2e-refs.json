@@ -25,7 +25,21 @@
     "spells/shadow-siphon": "packs/pf2e/spells/spells/rank-5/shadow-siphon.json",
     "spells/umbral-journey": "packs/pf2e/spells/spells/rank-5/umbral-journey.json",
     "spells/teleport": "packs/pf2e/spells/spells/rank-6/teleport.json",
-    "spells/mislead": "packs/pf2e/spells/spells/rank-6/mislead.json"
+    "spells/mislead": "packs/pf2e/spells/spells/rank-6/mislead.json",
+    "equipment/greatpick": "packs/pf2e/equipment/greatpick.json",
+    "equipment/spiked-gauntlet": "packs/pf2e/equipment/spiked-gauntlet.json",
+    "equipment/scale-mail": "packs/pf2e/equipment/scale-mail.json",
+    "equipment/alchemists-fire-moderate": "packs/pf2e/equipment/alchemists-fire-moderate.json",
+    "equipment/combat-grapnel": "packs/pf2e/equipment/combat-grapnel.json",
+    "equipment/meteor-hammer": "packs/pf2e/equipment/meteor-hammer.json",
+    "spells/divine-lance": "packs/pf2e/spells/spells/cantrip/divine-lance.json",
+    "spells/forbidding-ward": "packs/pf2e/spells/spells/cantrip/forbidding-ward.json",
+    "spells/bless": "packs/pf2e/spells/spells/rank-1/bless.json",
+    "spells/heal": "packs/pf2e/spells/spells/rank-1/heal.json",
+    "spells/noise-blast": "packs/pf2e/spells/spells/rank-2/noise-blast.json",
+    "spells/heroism": "packs/pf2e/spells/spells/rank-3/heroism.json",
+    "abilities/form-up": "packs/pf2e/bestiary-ability-glossary-srd/form-up.json",
+    "abilities/troop-defenses": "packs/pf2e/bestiary-ability-glossary-srd/troop-defenses.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

@@ -1,0 +1,105 @@
+{
+  "_id": "shardsmaskkirka0",
+  "name": "Маска Кирки",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>The Pick's Mask of the Defense of the First Adit, Kragmir's staged founding legend. The role of the hero who answered the breach with a miner's greatpick; the current bearer is an orc arena professional, and by tradition her name is never announced. The counter-attacker of the Five: she charges off the platform to punish overextended raiders, her fatal pick turns crits into showstoppers, and orc ferocity keeps her standing through a killing blow. The most baitable of the Five: she breaks script first.</p>",
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "orc"
+  ],
+  "abilities": {
+    "str": 6,
+    "dex": 2,
+    "con": 4,
+    "int": -1,
+    "wis": 1,
+    "cha": 2
+  },
+  "ac": 22,
+  "hp": 140,
+  "perception": 15,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "orcish"
+  ],
+  "saves": {
+    "fort": 18,
+    "ref": 15,
+    "will": 12
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "athletics": 17,
+    "intimidation": 15,
+    "acrobatics": 13,
+    "performance": 13
+  },
+  "strikes": [
+    {
+      "name": "greatpick",
+      "bonus": 18,
+      "traits": [
+        "fatal-d12"
+      ],
+      "damage": [
+        {
+          "dice": "2d10+9",
+          "type": "piercing"
+        }
+      ],
+      "text": "<p>On a critical hit, the pick punches through armor: the target also takes @Damage[1d8[persistent,bleed]] damage.</p>"
+    },
+    {
+      "name": "spiked gauntlet",
+      "bonus": 16,
+      "traits": [
+        "agile",
+        "free-hand"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+6",
+          "type": "piercing"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Sudden Charge",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "flourish"
+      ],
+      "text": "<p>Маска Кирки Strides twice. If she ends her movement within melee reach of at least one enemy, she can make a melee Strike against that enemy.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "greatpick",
+      "equip": "held2"
+    },
+    {
+      "slug": "spiked-gauntlet",
+      "equip": "worn"
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "ferocity"
+    }
+  ]
+}

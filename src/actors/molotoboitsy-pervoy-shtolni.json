@@ -1,0 +1,82 @@
+{
+  "_id": "shardsmolotoboi0",
+  "name": "Молотобойцы Первой Штольни",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>The Hammermen of the First Adit: sixteen dwarf extras of the Kragmir arena playing 'the mine waking up' in the Defense of the First Adit. They rise from the lift plates on the second gong, form a wall of sledgehammers and mining lamps, and grind forward. A single Gargantuan troop actor. Thresholds: at 48 HP it drops to 12 squares, at 24 HP to 8 squares, at 0 it disperses. Weak to area and splash damage.</p>",
+  "level": 5,
+  "rarity": "uncommon",
+  "size": "grg",
+  "traits": [
+    "dwarf",
+    "humanoid",
+    "troop"
+  ],
+  "abilities": {
+    "str": 5,
+    "dex": 1,
+    "con": 4,
+    "int": 0,
+    "wis": -1,
+    "cha": 1
+  },
+  "ac": 21,
+  "hp": 72,
+  "perception": 13,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 15,
+    "ref": 11,
+    "will": 9
+  },
+  "speeds": {
+    "land": 25
+  },
+  "weaknesses": [
+    {
+      "type": "area-damage",
+      "value": 10
+    },
+    {
+      "type": "splash-damage",
+      "value": 5
+    }
+  ],
+  "skills": {
+    "athletics": 13,
+    "intimidation": 11
+  },
+  "actions": [
+    {
+      "name": "Hammer Wall",
+      "type": "action",
+      "actions": 1,
+      "text": "<p><span class=\"action-glyph\">1</span> to <span class=\"action-glyph\">3</span></p><p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> The hammermen swing as one line against each adjacent enemy, with a @Check[type:reflex|dc:20|basic:true] save. The damage depends on the number of actions.</p><p><span class=\"action-glyph\">1</span> @Damage[(1d10)[bludgeoning]|options:area-damage] damage</p><p><span class=\"action-glyph\">2</span> @Damage[(1d10+7)[bludgeoning]|options:area-damage] damage</p><p><span class=\"action-glyph\">3</span> @Damage[(1d10+10)[bludgeoning]|options:area-damage] damage</p>"
+    },
+    {
+      "name": "Heave!",
+      "type": "action",
+      "actions": 2,
+      "text": "<p>The line lowers shoulders and shoves. Each adjacent enemy attempts a @Check[type:fortitude|dc:20] save.</p><p><strong>Success</strong> The creature holds its ground.</p><p><strong>Failure</strong> The creature is pushed 5 feet directly away from the troop.</p><p><strong>Critical Failure</strong> The creature is pushed 10 feet directly away and knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone] (вручную: передвинуть токены).</p>"
+    },
+    {
+      "name": "Troop Movement",
+      "type": "passive",
+      "text": "<p>Whenever the hammermen Stride, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving. The hammermen ignore difficult terrain caused by rubble and loose stone chips (but not greater difficult terrain).</p>"
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "form-up"
+    },
+    {
+      "slug": "troop-defenses",
+      "text": "<p>@Localize[PF2E.NPC.Abilities.Glossary.TroopDefenses]</p><p><strong>Thresholds</strong> 48 HP (12 squares), 24 HP (8 squares).</p>"
+    }
+  ]
+}
