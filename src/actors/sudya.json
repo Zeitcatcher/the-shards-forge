@@ -274,7 +274,7 @@
     {
       "name": "The Old Wound",
       "type": "passive",
-      "text": "<p>An adamantine bolt head from Брадгар's greatest attempt sits beneath the scale of the Судья's left wing joint, and the wound has never closed clean. While the Судья is @UUID[Compendium.pf2e.conditionitems.Item.Prone] or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], a creature can @UUID[Compendium.pf2e.actionspf2e.Item.Mount] him with a successful DC 33 Athletics or Acrobatics check. A creature mounted on him can spend 2 actions to drive the bolt deeper with a DC 33 Athletics check: on a success, the Судья takes @Damage[4d10[piercing]] damage and the wound tears open: apply @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardssudyawnd00]{Effect: Open Wound} to him.</p>"
+      "text": "<p>An adamantine bolt head from Брадгар's greatest attempt sits beneath the scale of the Судья's left wing joint, and the wound has never closed clean. While the Судья is @UUID[Compendium.pf2e.conditionitems.Item.Prone] or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], a creature can @UUID[Compendium.pf2e.actionspf2e.Item.Mount] him with a successful DC 30 Athletics or Acrobatics check. A creature mounted on him can spend 2 actions to drive the bolt deeper with a DC 30 Athletics check: on a success, the Судья takes @Damage[4d10[piercing]] damage and the wound tears open: apply @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardssudyawnd00]{Effect: Open Wound} to him.</p>"
     },
     {
       "name": "Faltering Flame",
