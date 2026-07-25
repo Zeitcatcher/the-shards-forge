@@ -2,7 +2,7 @@
   "_id": "shardsbradgar001",
   "name": "Брадгар Дур-Молок",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>Bradgar the Anvil, a dwarf of the Kragmir fighting club, founder and captain of the Fist of Kragmir, its champion arena team: 76 wins over the last ten years. Every teammate from the early rosters is dead or gone (the big arena of Kragmir allows killing); only Bradgar has stood through all of it. He fights in mithras full plate behind a tower shield, anchors the front, and steadies his allies with a battle cadence. He is slow, and very hard to move or to drop.</p>",
+  "notes": "<p>Bradgar the Anvil, a dwarf of the Kragmir fighting club, founder and captain of the Fist of Kragmir, its champion arena team: 76 wins over the last ten years. Every teammate from the early rosters is dead or gone (the big arena of Kragmir allows killing); only Bradgar has stood through all of it. He fights in mithras full plate behind a tower shield, anchors the front, and steadies his allies with a battle cadence. He is slow, and very hard to move or to drop. A veteran of the pit who has stood before the Судья more times than any dwarf alive: he reads the big beasts and the old arena machinery like a foreman reads a shift board, and he no longer flinches at anything.</p>",
   "level": 8,
   "rarity": "unique",
   "size": "med",
@@ -71,6 +71,21 @@
           "type": "bludgeoning"
         }
       ]
+    },
+    {
+      "name": "light hammer",
+      "bonus": 16,
+      "range": 20,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+9",
+          "type": "bludgeoning"
+        }
+      ]
     }
   ],
   "actions": [
@@ -107,9 +122,23 @@
       ]
     },
     {
+      "name": "Voice of the Pit",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory"
+      ],
+      "text": "<p>Bradgar calls the fight for one ally within 60 feet who can hear him. Until the start of his next turn, that ally gains @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardsbradgvoice]{Effect: Voice of the Pit}: a +1 circumstance bonus to attack rolls and saving throws, and a +2 circumstance bonus (instead) to checks to repair, load, or operate a siege engine.</p>"
+    },
+    {
       "name": "Rooted",
       "type": "passive",
       "text": "<p>Bradgar gains a +2 circumstance bonus to defenses against forced movement and to his Athletics DC against Shove, Trip, and Reposition.</p>"
+    },
+    {
+      "name": "Pit Veteran",
+      "type": "passive",
+      "text": "<p>Thirty years of walking down to the Судья and walking back up alone. When Bradgar gains the @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition, reduce its value by 1.</p>"
     }
   ],
   "gear": [
@@ -135,6 +164,10 @@
     },
     {
       "slug": "healing-potion-moderate",
+      "qty": 2
+    },
+    {
+      "slug": "light-hammer",
       "qty": 2
     }
   ],

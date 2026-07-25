@@ -43,7 +43,10 @@
     "equipment/javelin": "packs/pf2e/equipment/javelin.json",
     "equipment/light-hammer": "packs/pf2e/equipment/light-hammer.json",
     "spells/stabilize": "packs/pf2e/spells/spells/cantrip/stabilize.json",
-    "abilities/push": "packs/pf2e/bestiary-ability-glossary-srd/push.json"
+    "abilities/push": "packs/pf2e/bestiary-ability-glossary-srd/push.json",
+    "spells/ignition": "packs/pf2e/spells/spells/cantrip/ignition.json",
+    "spells/wall-of-fire": "packs/pf2e/spells/spells/rank-4/wall-of-fire.json",
+    "spells/breathe-fire": "packs/pf2e/spells/spells/rank-1/breathe-fire.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

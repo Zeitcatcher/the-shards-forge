@@ -1,0 +1,21 @@
+{
+  "_id": "shardsbradgvoice",
+  "name": "Effect: Voice of the Pit",
+  "type": "effect",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "slug": "effect-voice-of-the-pit",
+    "level": { "value": 8 },
+    "traits": { "value": [], "otherTags": [] },
+    "duration": { "value": 1, "unit": "rounds", "expiry": "turn-start", "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>Брадгар is calling the fight for you. You gain a +1 circumstance bonus to attack rolls and saving throws, and a +2 circumstance bonus (instead) to checks to repair, load, or operate a siege engine.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "attack", "type": "circumstance", "value": 1, "label": "Voice of the Pit" },
+      { "key": "FlatModifier", "selector": "saving-throw", "type": "circumstance", "value": 1, "label": "Voice of the Pit" }
+    ]
+  }
+}

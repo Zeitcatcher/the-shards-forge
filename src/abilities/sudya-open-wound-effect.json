@@ -1,0 +1,20 @@
+{
+  "_id": "shardssudyawnd00",
+  "name": "Effect: Open Wound",
+  "type": "effect",
+  "img": "icons/svg/blood.svg",
+  "system": {
+    "slug": "effect-sudya-open-wound",
+    "level": { "value": 13 },
+    "traits": { "value": [], "otherTags": [] },
+    "duration": { "value": 1, "unit": "rounds", "expiry": "turn-end", "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>The old bolt has been driven deeper and the scale around it is torn open. The Судья takes a -2 circumstance penalty to AC, and his resistance to physical damage is suspended while this effect lasts.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": -2, "label": "Open Wound" }
+    ]
+  }
+}
