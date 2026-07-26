@@ -2,7 +2,7 @@
   "_id": "shardsbradgar001",
   "name": "Брадгар Дур-Молок",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>Bradgar the Anvil, a dwarf of the Kragmir fighting club, founder and captain of the Fist of Kragmir, its champion arena team: 76 wins over the last ten years. Every teammate from the early rosters is dead or gone (the big arena of Kragmir allows killing); only Bradgar has stood through all of it. He fights in mithras full plate behind a tower shield, anchors the front, and steadies his allies with a battle cadence. He is slow, and very hard to move or to drop. A veteran of the pit who has stood before the Судья more times than any dwarf alive: he reads the big beasts and the old arena machinery like a foreman reads a shift board, and he no longer flinches at anything.</p>",
+  "notes": "<p>Bradgar the Anvil, a dwarf of the Kragmir fighting club, founder and captain of the Fist of Kragmir, its champion arena team: 76 wins over the last ten years. Every teammate from the early rosters is dead or gone (the big arena of Kragmir allows killing); only Bradgar has stood through all of it. He fights in mithras full plate behind a tower shield, anchors the front, and steadies his allies with a battle cadence. He is slow, and very hard to move or to drop. In ten years on the big arena he has faced the Судья, the caged dragon of the final stage, more often than any dwarf alive, and never won: his teams died there and he always walked back up. He reads big beasts and old arena machinery like a foreman reads a shift board, and he no longer flinches at anything.</p>",
   "level": 8,
   "rarity": "unique",
   "size": "med",
@@ -138,7 +138,7 @@
     {
       "name": "Pit Veteran",
       "type": "passive",
-      "text": "<p>Thirty years of walking down to the Судья and walking back up alone. When Bradgar gains the @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition, reduce its value by 1.</p>"
+      "text": "<p>Ten years of walking down to the Судья and walking back up alone. When Bradgar gains the @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition, reduce its value by 1.</p>"
     }
   ],
   "gear": [
