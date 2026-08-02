@@ -1,7 +1,8 @@
 {
   "_id": "shardsmaskpervy0",
   "name": "Маска Первого",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/maska-pervogo.webp",
+  "token": "modules/the-shards-forge/assets/tokens/maska-pervogo-token.png",
   "notes": "<p>The First's Mask, captain role of the Defense of the First Adit, Kragmir's staged founding legend on the big arena. Whoever earns the bronze mask of the First stands in the breach itself and lets nothing through. He is a gatekeeper rather than a commander: he does not buff the other four, he shields them, shoves attackers back down the ramp, and makes the ground beside him a bad place to stand. The current bearer is a veteran arena professional; by tradition the name under the mask is never announced.</p>",
   "level": 8,
   "rarity": "unique",

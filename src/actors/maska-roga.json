@@ -1,7 +1,8 @@
 {
   "_id": "shardsmaskrog000",
   "name": "Маска Рога",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/maska-roga.webp",
+  "token": "modules/the-shards-forge/assets/tokens/maska-roga-token.png",
   "notes": "<p>The Horn's Mask, the voice of the Defense of the First Adit on Kragmir's big arena. The bearer carries the great bronze horn that 'wakes the mine': his blasts time the show, call the reinforcement wave, and carry the founders' blessing. A warpriest-style support caster flavored as ancestral rites: he blesses and mends the Five, moves the line with a marching note, frightens raiders with the Roar, and throws a warded note over an ally about to be hit. If the Horn falls silent, the wave arrives late and unblessed.</p>",
   "level": 7,
   "rarity": "unique",

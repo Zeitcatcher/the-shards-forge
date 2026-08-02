@@ -1,7 +1,8 @@
 {
   "_id": "shardsmasksvecha",
   "name": "Маска Свечи",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/maska-svechi.webp",
+  "token": "modules/the-shards-forge/assets/tokens/maska-svechi-token.png",
   "notes": "<p>The Candle's Mask of the Defense of the First Adit: the lamp-warden who lit the tunnel and burned the raiders' ladders. The current bearer is a human alchemist from Kragmir's academy quarter, name never announced. She covers the ramps with fire flasks, blinding flash charges, and walls of smoke, snaps a charge in the face of anyone who closes, and slips away before the answer lands. Her mask carries smoked-glass lenses, so her own light never blinds her. Glass cannon: high Reflex, thin HP.</p>",
   "level": 7,
   "rarity": "unique",

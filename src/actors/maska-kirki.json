@@ -1,7 +1,8 @@
 {
   "_id": "shardsmaskkirka0",
   "name": "Маска Кирки",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/maska-kirki.webp",
+  "token": "modules/the-shards-forge/assets/tokens/maska-kirki-token.png",
   "notes": "<p>The Pick's Mask of the Defense of the First Adit, Kragmir's staged founding legend. The role of the hero who answered the breach with a miner's greatpick; the current bearer is an orc arena professional, and by tradition her name is never announced. The counter-attacker of the Five: she charges off the platform to punish overextended raiders, her fatal pick turns crits into showstoppers, a kill sends her running for the next one, and orc ferocity keeps her standing through a killing blow. The most baitable of the Five: she breaks script first.</p>",
   "level": 7,
   "rarity": "unique",

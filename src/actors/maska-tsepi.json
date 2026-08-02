@@ -1,7 +1,8 @@
 {
   "_id": "shardsmasktsep00",
   "name": "Маска Цепи",
-  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "img": "modules/the-shards-forge/assets/actors/maska-tsepi.webp",
+  "token": "modules/the-shards-forge/assets/tokens/maska-tsepi-token.png",
   "notes": "<p>The Chain's Mask of the Defense of the First Adit: the hero who hauled climbing raiders off the barricade. The current bearer is a human woman, a former rigger of Kragmir's suspended railway, name never announced. She works the ramps and the causeway edge: a thrown combat grapnel that lodges and grabs, a reel that drags victims to her, a meteor hammer that sweeps legs at reach, and a snag line for anyone who thinks they can run past. With a climb speed and rigger's balance she owns the scaffolding.</p>",
   "level": 7,
   "rarity": "unique",
