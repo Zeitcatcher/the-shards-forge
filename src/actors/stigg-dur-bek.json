@@ -1,0 +1,191 @@
+{
+  "_id": "shardsstigg00001",
+  "name": "Стигг Дур-Бек",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Stigg Dur-Bek, a retired shift boss of the Kragmir mines. He is 240 years old, his lungs are full of rock dust, and both of his sons died in the deeps. He comes to the closed dice club Шестая Грань for the warm room, loses almost every hand, and talks without being asked: the old names of the shafts, which foremen were moved up out of the deep levels, and how the deep seam went quiet years before the city sealed itself. He is a source, not a target. He will not start a fight, but he can still block a doorway with a pick in his hands and give an order in the voice that ran a shift for a century.</p>",
+  "level": 5,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "24",
+        "25",
+        "26",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "abilities": {
+    "str": 4,
+    "dex": 0,
+    "con": 5,
+    "int": 2,
+    "wis": 4,
+    "cha": 1
+  },
+  "ac": 20,
+  "hp": 95,
+  "perception": 12,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 15,
+    "ref": 7,
+    "will": 15
+  },
+  "speeds": {
+    "land": 15
+  },
+  "skills": {
+    "crafting": 13,
+    "intimidation": 12,
+    "athletics": 12,
+    "society": 10,
+    "diplomacy": 8
+  },
+  "lores": [
+    {
+      "name": "Mining Lore",
+      "mod": 16
+    },
+    {
+      "name": "Kragmir Lore",
+      "mod": 13
+    }
+  ],
+  "strikes": [
+    {
+      "name": "pick",
+      "bonus": 13,
+      "traits": [
+        "fatal-d10"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "light hammer",
+      "bonus": 13,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 13,
+      "traits": [
+        "agile",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+6",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Shift Boss",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory",
+        "concentrate",
+        "emotion",
+        "linguistic",
+        "mental"
+      ],
+      "text": "<p>Стигг gives one creature within 30 feet of his level or lower an order in the voice that ran a shift for a century, attempting a @Check[type:intimidation|against:will] check against its Will DC.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} and cannot take hostile actions against Стигг until the end of its next turn.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} and cannot take hostile actions against Стигг until the end of its next turn.</p>\n<p><strong>Failure</strong> No effect.</p>",
+      "rules": []
+    },
+    {
+      "name": "Nobody Dares",
+      "type": "reaction",
+      "traits": [
+        "auditory",
+        "emotion",
+        "mental"
+      ],
+      "text": "<p><strong>Trigger</strong> An opponent attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize] Стигг or one of his allies within 30 feet</p><hr /><p><strong>Effect</strong> Стигг attempts to Demoralize the triggering opponent before the opponent rolls. On a critical success, the triggering action is disrupted as well.</p>",
+      "rules": []
+    },
+    {
+      "name": "Miner's Arm",
+      "type": "passive",
+      "text": "<p>Стигг deals an additional 1d6 damage when he hits with a weapon he made himself, such as his pick.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "smiths-fury",
+          "toggleable": true,
+          "value": true
+        },
+        {
+          "diceNumber": 1,
+          "dieSize": "d6",
+          "key": "DamageDice",
+          "predicate": [
+            "smiths-fury",
+            {
+              "not": "item:fist"
+            }
+          ],
+          "selector": "strike-damage"
+        }
+      ]
+    },
+    {
+      "name": "Battle Scarred",
+      "type": "passive",
+      "text": "<p>The first time each day Стигг would be reduced to 0 HP, he remains at 1 HP and is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} for the rest of the day.</p>",
+      "rules": []
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "pick",
+      "equip": "held1"
+    },
+    {
+      "slug": "light-hammer",
+      "qty": 1
+    },
+    {
+      "slug": "lantern-hooded",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ]
+}

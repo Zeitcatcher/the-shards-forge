@@ -1,0 +1,231 @@
+{
+  "_id": "shardsgvozd00001",
+  "name": "Гвоздь",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Gvozd, a clanless dwarf who moves everything that goes in or out of sealed Kragmir: rune blanks, mithras scrap, people. He has no second name and no clan clasp, only a long iron nail worn through the knot of his beard where a clasp would sit. At the dice club Шестая Грань he plays visibly worthless dice and swaps in two Кость Безымянного when the pot is worth 1400 gp of jokers, which is a question nobody in Kragmir has answered. He does not fight at his own table: he has men who are paid for that, a hammer and a handful of nails for anyone who follows him, and a back door he only needs once.</p>",
+  "level": 9,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "36",
+        "36",
+        "27",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "abilities": {
+    "str": 4,
+    "dex": 6,
+    "con": 4,
+    "int": 4,
+    "wis": 4,
+    "cha": 3
+  },
+  "ac": 27,
+  "hp": 155,
+  "perception": 21,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 18,
+    "ref": 21,
+    "will": 23
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "intimidation": 20,
+    "stealth": 20,
+    "thievery": 18,
+    "society": 18,
+    "athletics": 16,
+    "deception": 16,
+    "crafting": 13
+  },
+  "lores": [
+    {
+      "name": "Underworld Lore",
+      "mod": 23
+    },
+    {
+      "name": "Mining Lore",
+      "mod": 16
+    }
+  ],
+  "strikes": [
+    {
+      "name": "light hammer",
+      "bonus": 21,
+      "traits": [
+        "agile",
+        "thrown-20",
+        "magical"
+      ],
+      "damage": [
+        {
+          "dice": "2d8+11",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "nail (dart)",
+      "bonus": 21,
+      "range": 20,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+9",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 21,
+      "traits": [
+        "agile",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+9",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Pin",
+      "type": "action",
+      "actions": 2,
+      "text": "<p>Гвоздь makes a light hammer Strike. If it hits, he drives one of his nails through the target's clothing, gear, or flesh into an adjacent floor, wall, or table, and the target is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until it succeeds at an @UUID[Compendium.pf2e.actionspf2e.Item.Escape] check against @Check[type:athletics|dc:28|name:Escape the nail] or another creature spends an Interact action to pull the nail. On a critical hit the target also takes @Damage[1d6[persistent,bleed]]. Гвоздь uses one nail per Pin.</p>"
+    },
+    {
+      "name": "Quick Draw",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Гвоздь @UUID[Compendium.pf2e.actionspf2e.Item.Interact]{Interacts} to draw a weapon, then @UUID[Compendium.pf2e.actionspf2e.Item.Strike]{Strikes} with that weapon.</p>"
+    },
+    {
+      "name": "Bought Men",
+      "type": "reaction",
+      "traits": [
+        "auditory",
+        "concentrate",
+        "emotion",
+        "linguistic",
+        "mental",
+        "move"
+      ],
+      "text": "<p><strong>Trigger</strong> Гвоздь is targeted with an attack, and one of his bought men, an ally of lower level, is adjacent to him</p><hr /><p><strong>Effect</strong> Гвоздь orders that bought man to leap in front of the attack. The bought man and Гвоздь swap places, and the bought man becomes the target of the attack. If the bought man has Fanatical Frenzy or a similar ability, they can activate it as a reaction if they take damage from the triggering attack.</p>"
+    },
+    {
+      "name": "Out the Back",
+      "type": "action",
+      "actions": 2,
+      "text": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> Гвоздь [[/act create-a-diversion]]{Creates a Diversion}, then Strides up to twice his Speed. If he ends this movement out of line of sight of every enemy, he is @UUID[Compendium.pf2e.conditionitems.Item.Undetected] by them.</p>"
+    },
+    {
+      "name": "Deny Advantage",
+      "type": "passive",
+      "text": "<p>Гвоздь isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to hidden, undetected, or flanking creatures of his level or lower.</p>"
+    },
+    {
+      "name": "Fixer's Leverage",
+      "type": "passive",
+      "text": "<p>Гвоздь knows something about everyone who sits at his table. He gains a +2 circumstance bonus to Deception, Diplomacy, and Intimidation checks against a creature that owes him money or a favor, or whose secret he holds.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "domain": "all",
+          "option": "fixers-leverage",
+          "toggleable": true,
+          "label": "Fixer's Leverage (target owes him)"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": [
+            "deception",
+            "diplomacy",
+            "intimidation"
+          ],
+          "type": "circumstance",
+          "value": 2,
+          "predicate": [
+            "fixers-leverage"
+          ]
+        }
+      ]
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "light-hammer",
+      "equip": "held1",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "dart",
+      "qty": 10
+    },
+    {
+      "slug": "thieves-toolkit",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-moderate",
+      "qty": 2
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "sneak-attack",
+      "text": "<p>Гвоздь deals an extra 2d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    }
+  ]
+}

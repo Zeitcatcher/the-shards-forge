@@ -1,0 +1,211 @@
+{
+  "_id": "shardshardvig001",
+  "name": "Хардвиг Дур-Тольм",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Хардвиг Дур-Тольм, the bookmaker of the Kragmir fighting club and a regular at the Шестая Грань, the closed dice club of the upper district. He prices fighters for a living and he was wrong twice: once when the party beat Брадгар's five, once on the defense of the First Adit. Both times the club paid out and he did not. He knows their faces, he still quotes odds on the second fight, and he would rather take their money than make friends with them. Two thousand gold of his winnings sit in his dice bag.</p>",
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "02",
+        "03",
+        "05",
+        "08",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "level": 6,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "abilities": {
+    "str": 2,
+    "dex": 3,
+    "con": 2,
+    "int": 5,
+    "wis": 0,
+    "cha": 4
+  },
+  "ac": 23,
+  "hp": 90,
+  "perception": 14,
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 11,
+    "ref": 17,
+    "will": 14
+  },
+  "speeds": {
+    "land": 20
+  },
+  "skills": {
+    "deception": 15,
+    "society": 15,
+    "diplomacy": 13,
+    "intimidation": 13,
+    "thievery": 11
+  },
+  "lores": [
+    {
+      "name": "Gambling Lore",
+      "mod": 18
+    },
+    {
+      "name": "Warfare Lore",
+      "mod": 13
+    },
+    {
+      "name": "Underworld Lore",
+      "mod": 13
+    }
+  ],
+  "strikes": [
+    {
+      "name": "sword cane",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "concealable",
+        "finesse"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "dagger",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "finesse",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+6",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "nonlethal",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+6",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Fence's Feint",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Хардвиг [[/act feint]]{Feints}, then can Step. If the feint succeeds, the target is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against Хардвиг's melee attacks until the end of his next turn (or to all melee attacks on a critical success).</p>"
+    },
+    {
+      "name": "Quick Rummage",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Хардвиг always has a few items close at hand. He Interacts to draw a weapon or an item that takes a single action to activate, and then Strikes with the weapon or Activates the Item.</p>"
+    },
+    {
+      "name": "Long Odds",
+      "type": "passive",
+      "text": "<p>Хардвиг gains a +2 circumstance bonus to checks to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] about a creature's combat abilities or level, and to Warfare Lore checks about arena fighters. Хардвиг prices fighters for a living.</p>",
+      "rules": [
+        {
+          "key": "FlatModifier",
+          "selector": "skill-check",
+          "type": "circumstance",
+          "value": 2,
+          "predicate": [
+            "action:recall-knowledge"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fence's Eye",
+      "type": "passive",
+      "text": "<p>Хардвиг can use @Check[underworld-lore|traits:action:identify-magic] to identify an item's value and @UUID[Compendium.pf2e.actionspf2e.Item.Identify Magic] on an item. He gains a +2 circumstance bonus to Underworld Lore checks when doing so, and to all Underworld Lore checks related to stolen items.</p>",
+      "rules": [
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "action:identify-magic"
+          ],
+          "selector": "underworld-lore",
+          "type": "circumstance",
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "sword-cane",
+      "equip": "held1"
+    },
+    {
+      "slug": "dagger",
+      "qty": 2
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "nimble-dodge"
+    },
+    {
+      "slug": "sneak-attack",
+      "text": "<p>Хардвиг deals an extra 1d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 1,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    }
+  ],
+  "senses": [
+    "darkvision"
+  ]
+}

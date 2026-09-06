@@ -1,0 +1,171 @@
+{
+  "_id": "shardsadelis0001",
+  "name": "Аделис Тэйн",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "07",
+        "07",
+        "10",
+        "10",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "notes": "<p>Аделис Тэйн is a mage of the Kragmir magic guild and one of the regulars at the Sixth Facet, the closed dice club in the Upper Vaults. She counts the odds out loud before every roll and plays a deliberately cheap set of dice, because winning on them proves the only point she cares about. Her magic is control and exit rather than damage: Slow on whoever swings hardest, Grease under the front rank, Blur on herself, a Counterspell held in reserve, Translocate when the room turns. She reads auras out of habit, so black izir behind a Nameless one's eyes would not get past her.</p>",
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": -1,
+    "dex": 2,
+    "con": 1,
+    "int": 7,
+    "wis": 3,
+    "cha": 2
+  },
+  "ac": 22,
+  "hp": 85,
+  "perception": 15,
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 12,
+    "ref": 15,
+    "will": 18
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "arcana": 20,
+    "society": 15,
+    "occultism": 15,
+    "crafting": 15,
+    "diplomacy": 11,
+    "deception": 11
+  },
+  "lores": [
+    {
+      "name": "Gambling Lore",
+      "mod": 17
+    }
+  ],
+  "strikes": [
+    {
+      "name": "dagger",
+      "bonus": 13,
+      "traits": [
+        "agile",
+        "finesse",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+4",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "staff",
+      "bonus": 13,
+      "traits": [
+        "two-hand-d8"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+4",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Counted Odds",
+      "type": "action",
+      "actions": 1,
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Аделис names a number from 1 to 20. Until the start of her next turn, the first d20 roll made by a creature within 30 feet that she can see is affected if its natural result is within 2 of the named number: Аделис chooses, when she names the number, whether that roll gains a +1 circumstance bonus or takes a -1 circumstance penalty (manual).</p>"
+    },
+    {
+      "name": "Counterspell",
+      "type": "reaction",
+      "text": "<p><strong>Trigger</strong> A creature casts a spell Аделис has prepared.</p><hr /><p><strong>Effect</strong> Аделис expends a prepared spell to counter the triggering creature's casting of that same spell. She loses her spell slot as if she had cast the triggering spell. She then attempts to counteract the triggering spell (counteract modifier +17, counteract rank 4).</p>"
+    },
+    {
+      "name": "Steady Spellcasting",
+      "type": "passive",
+      "text": "<p>If another creature's reaction disrupts Аделис's spellcasting action, Аделис attempts a @Check[flat|dc:15]. If she succeeds, her action isn't disrupted.</p>"
+    },
+    {
+      "name": "Arcane Watch",
+      "type": "passive",
+      "text": "<p>Аделис can either @UUID[Compendium.pf2e.actionspf2e.Item.Investigate] or @UUID[Compendium.pf2e.actionspf2e.Item.Search] while using the @UUID[Compendium.pf2e.actionspf2e.Item.Detect Magic] exploration activity.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "dagger",
+      "equip": "held1"
+    },
+    {
+      "slug": "staff",
+      "equip": "held2"
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ],
+  "spellcasting": {
+    "name": "Arcane Prepared Spells",
+    "tradition": "arcane",
+    "type": "prepared",
+    "ability": "int",
+    "dc": 25,
+    "attack": 17,
+    "spells": {
+      "0": [
+        "detect-magic",
+        "telekinetic-projectile",
+        "message",
+        "prestidigitation",
+        "read-aura",
+        "shield"
+      ],
+      "1": [
+        "force-barrage",
+        "grease",
+        "sure-strike"
+      ],
+      "2": [
+        "see-the-unseen",
+        "blur",
+        "mirror-image"
+      ],
+      "3": [
+        "slow",
+        "haste",
+        "dispel-magic"
+      ],
+      "4": [
+        "translocate",
+        "fly"
+      ]
+    }
+  }
+}

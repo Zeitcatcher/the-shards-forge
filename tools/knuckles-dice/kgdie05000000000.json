@@ -1,0 +1,64 @@
+{
+  "_id": "kgdie05000000000",
+  "_key": "!items!kgdie05000000000",
+  "name": "Nethys's Duality",
+  "type": "equipment",
+  "img": "modules/knuckles-game/assets/dice/default.webp",
+  "system": {
+    "description": {
+      "value": "<p>The All-Seeing Eye favors the lowest and the highest, and little between.</p>"
+    },
+    "rules": [],
+    "slug": "knuckles-die-05",
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "otherTags": []
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": true
+    },
+    "level": {
+      "value": 0
+    },
+    "quantity": 1,
+    "baseItem": null,
+    "bulk": {
+      "value": 0
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "hardness": 0,
+    "price": {
+      "value": {
+        "gp": 190
+      }
+    },
+    "equipped": {
+      "carryType": "worn",
+      "handsHeld": 0
+    },
+    "containerId": null,
+    "size": "med",
+    "material": {
+      "type": null,
+      "grade": null
+    },
+    "identification": {
+      "status": "identified"
+    },
+    "usage": {
+      "value": "held-in-one-hand"
+    }
+  },
+  "flags": {
+    "knuckles-game": {
+      "dieId": "05"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_id": "kgdie36000000000",
+  "_key": "!items!kgdie36000000000",
+  "name": "Varisian Wanderer's Die",
+  "type": "equipment",
+  "img": "modules/knuckles-game/assets/dice/default.webp",
+  "system": {
+    "description": {
+      "value": "<p>A wanderer's bone of threes and twos - many leagues travelled, no coin earned.</p>"
+    },
+    "rules": [],
+    "slug": "knuckles-die-36",
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "otherTags": []
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": true
+    },
+    "level": {
+      "value": 0
+    },
+    "quantity": 1,
+    "baseItem": null,
+    "bulk": {
+      "value": 0
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "hardness": 0,
+    "price": {
+      "value": {
+        "cp": 5
+      }
+    },
+    "equipped": {
+      "carryType": "worn",
+      "handsHeld": 0
+    },
+    "containerId": null,
+    "size": "med",
+    "material": {
+      "type": null,
+      "grade": null
+    },
+    "identification": {
+      "status": "identified"
+    },
+    "usage": {
+      "value": "held-in-one-hand"
+    }
+  },
+  "flags": {
+    "knuckles-game": {
+      "dieId": "36"
+    }
+  }
+}

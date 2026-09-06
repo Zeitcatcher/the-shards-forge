@@ -1,0 +1,231 @@
+{
+  "_id": "shardsormund0001",
+  "name": "Ормунд Дур-Кайл",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Ormund Dur-Kail, the house of the dice club Шестая Грань in the rich district Верхние Своды of Kragmir. He was paymaster of the Дур-Кайл shaft before he was anything else, and he still talks in numbers: he holds the stakes, sets the win target for the evening, and decides who is invited back. His own dice are cheap and honest, because the house does not need loaded ones. He sent Вестник the invitation himself after the win at Крайняя Чарка, and he ends fights rather than starting them, with a brass-headed cane and a voice his people obey.</p>",
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "08",
+        "08",
+        "13",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "abilities": {
+    "str": 4,
+    "dex": 1,
+    "con": 5,
+    "int": 4,
+    "wis": 3,
+    "cha": 6
+  },
+  "ac": 23,
+  "hp": 140,
+  "perception": 15,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 18,
+    "ref": 12,
+    "will": 18
+  },
+  "speeds": {
+    "land": 20
+  },
+  "skills": {
+    "diplomacy": 20,
+    "society": 17,
+    "intimidation": 17,
+    "crafting": 15,
+    "athletics": 13,
+    "deception": 13
+  },
+  "lores": [
+    {
+      "name": "Accounting Lore",
+      "mod": 20
+    },
+    {
+      "name": "Mining Lore",
+      "mod": 15
+    }
+  ],
+  "strikes": [
+    {
+      "name": "heavy cane (club)",
+      "bonus": 16,
+      "traits": [
+        "magical"
+      ],
+      "damage": [
+        {
+          "dice": "2d8+8",
+          "type": "bludgeoning"
+        }
+      ],
+      "effects": [
+        "knockdown"
+      ]
+    },
+    {
+      "name": "light hammer",
+      "bonus": 16,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 16,
+      "traits": [
+        "agile",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "The House Always Takes Its Cut",
+      "type": "passive",
+      "text": "<p>Aura, 30 feet. Allies within the aura gain a +1 status bonus to Will saving throws while Ормунд is conscious and inside the club.</p>",
+      "rules": [
+        {
+          "key": "Aura",
+          "slug": "house-cut",
+          "radius": 30,
+          "effects": [
+            {
+              "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardshousecut01",
+              "affects": "allies",
+              "events": [
+                "enter"
+              ],
+              "includesSelf": true
+            }
+          ],
+          "appearance": {
+            "border": {
+              "color": "#b8860b"
+            },
+            "fill": {
+              "color": "#b8860b",
+              "alpha": 0.08
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Call to Action",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory",
+        "concentrate",
+        "emotion",
+        "mental"
+      ],
+      "text": "<p>Ормунд gives a speech to inspire himself and all club members within 60 feet, granting them a +1 status bonus to attack and damage rolls until the start of Ормунд's next turn.</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Call to Action]</p>"
+    },
+    {
+      "name": "Tactical Command",
+      "type": "action",
+      "actions": 1,
+      "traits": [
+        "auditory",
+        "concentrate",
+        "linguistic",
+        "mental"
+      ],
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Ормунд directs an ally. The ally can immediately use their reaction to Strike or to Stride without triggering reactions. The ally gains a +2 status bonus to their Strike if Ормунд has dealt with that creature or an organization that creature belongs to before, as Ормунд offers hard-earned tactical advice.</p><hr /><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Tactical Command]</p>"
+    },
+    {
+      "name": "On His Own Floor",
+      "type": "passive",
+      "text": "<p>While inside the club or presiding over its table, Ормунд gains a +2 circumstance bonus to weapon attack rolls and deals an additional 2d6 damage on a successful weapon attack.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "sworn-duty",
+          "toggleable": true
+        },
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "sworn-duty"
+          ],
+          "selector": "attack",
+          "type": "circumstance",
+          "value": 2
+        },
+        {
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "key": "DamageDice",
+          "predicate": [
+            "sworn-duty"
+          ],
+          "selector": "weapon-damage"
+        }
+      ]
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "club",
+      "equip": "held1",
+      "runes": {
+        "potency": 1
+      }
+    },
+    {
+      "slug": "light-hammer",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "knockdown"
+    },
+    {
+      "slug": "reactive-strike"
+    }
+  ]
+}

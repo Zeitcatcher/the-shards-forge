@@ -1,0 +1,64 @@
+{
+  "_id": "kgdie03000000000",
+  "_key": "!items!kgdie03000000000",
+  "name": "Erastil's Humble Lot",
+  "type": "equipment",
+  "img": "modules/knuckles-game/assets/dice/default.webp",
+  "system": {
+    "description": {
+      "value": "<p>Old Deadeye gives the one freely, withholds the five entirely, and buries the six.</p>"
+    },
+    "rules": [],
+    "slug": "knuckles-die-03",
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "otherTags": []
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": true
+    },
+    "level": {
+      "value": 0
+    },
+    "quantity": 1,
+    "baseItem": null,
+    "bulk": {
+      "value": 0
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "hardness": 0,
+    "price": {
+      "value": {
+        "gp": 450
+      }
+    },
+    "equipped": {
+      "carryType": "worn",
+      "handsHeld": 0
+    },
+    "containerId": null,
+    "size": "med",
+    "material": {
+      "type": null,
+      "grade": null
+    },
+    "identification": {
+      "status": "identified"
+    },
+    "usage": {
+      "value": "held-in-one-hand"
+    }
+  },
+  "flags": {
+    "knuckles-game": {
+      "dieId": "03"
+    }
+  }
+}

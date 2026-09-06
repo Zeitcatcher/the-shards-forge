@@ -1,0 +1,20 @@
+{
+  "_id": "shardshousecut01",
+  "name": "Effect: The House Always Takes Its Cut",
+  "type": "effect",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "slug": "effect-the-house-always-takes-its-cut",
+    "level": { "value": 7 },
+    "traits": { "value": [], "otherTags": [] },
+    "duration": { "value": -1, "unit": "unlimited", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>The house is watching the table and it has seen this before: while within 30 feet of its source you gain a +1 status bonus to Will saving throws. Applied and removed automatically by the aura.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "FlatModifier", "selector": "will", "type": "status", "value": 1, "label": "The House Always Takes Its Cut" }
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "_id": "shardsilvena0001",
+  "name": "Ильвена Дур-Пекк",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Ilvena Dur-Pekk, a clerk in the Kragmir mine office under Fundin Dur-Krept. She logs and stores pass-rune blanks before they are activated, and she cannot activate one herself. She loses more at the dice club Шестая Грань in a week than she earns, and the 450 gp die in her hand was bought on credit. Blanks go missing on her shift, and she has already sold one to the fixer they call Гвоздь. She has never been in a fight, and it shows.</p>",
+  "level": 4,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "03",
+        "17",
+        "19",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "abilities": {
+    "str": 0,
+    "dex": 2,
+    "con": 1,
+    "int": 5,
+    "wis": 1,
+    "cha": 3
+  },
+  "ac": 18,
+  "hp": 45,
+  "perception": 8,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 8,
+    "ref": 11,
+    "will": 11
+  },
+  "speeds": {
+    "land": 20
+  },
+  "skills": {
+    "society": 15,
+    "crafting": 12,
+    "deception": 10,
+    "diplomacy": 8,
+    "thievery": 7
+  },
+  "lores": [
+    {
+      "name": "Mining Lore",
+      "mod": 12
+    },
+    {
+      "name": "Gambling Lore",
+      "mod": 8
+    }
+  ],
+  "strikes": [
+    {
+      "name": "dagger",
+      "bonus": 9,
+      "traits": [
+        "agile",
+        "finesse",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+3",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "hand crossbow",
+      "bonus": 9,
+      "range": 60,
+      "traits": [],
+      "damage": [
+        {
+          "dice": "2d4+4",
+          "type": "piercing"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Noble's Ruse",
+      "type": "action",
+      "actions": 1,
+      "text": "<p><strong>Frequency</strong> Once per round</p>\n<hr />\n<p><strong>Effect</strong> Ильвена [[/act feint]]{Feints}. On a success, Ильвена Strikes the target.</p>",
+      "rules": []
+    },
+    {
+      "name": "Clerk's Excuse",
+      "type": "reaction",
+      "text": "<p><strong>Frequency</strong> once per hour</p>\n<p><strong>Trigger</strong> Ильвена critically fails a Deception or Society check</p>\n<hr />\n<p><strong>Effect</strong> Ильвена Strides.</p>",
+      "rules": []
+    },
+    {
+      "name": "Blank Rune",
+      "type": "passive",
+      "text": "<p>+3 circumstance bonus to Crafting and Society checks involving mine documents, pass runes, or the mine office's ledgers.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "domain": "all",
+          "option": "blank-rune",
+          "toggleable": true,
+          "label": "Blank Rune (mine paperwork)"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": [
+            "crafting",
+            "society"
+          ],
+          "type": "circumstance",
+          "value": 3,
+          "predicate": [
+            "blank-rune"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ledger Specialist",
+      "type": "passive",
+      "text": "<p>For encounters involving the mine office's paperwork, pass runes, or ledgers, Ильвена is a 7th-level challenge.</p>",
+      "rules": []
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "dagger",
+      "equip": "held1"
+    },
+    {
+      "slug": "hand-crossbow",
+      "equip": "stowed"
+    },
+    {
+      "slug": "bolts",
+      "qty": 10
+    },
+    {
+      "qty": 1,
+      "equip": "stowed",
+      "item": {
+        "name": "Pass-Rune Blank",
+        "type": "equipment",
+        "img": "icons/commodities/stone/masonry-block-cube-tan.webp",
+        "system": {
+          "level": {
+            "value": 3
+          },
+          "traits": {
+            "value": [
+              "magical"
+            ],
+            "rarity": "rare",
+            "otherTags": []
+          },
+          "description": {
+            "value": "<p>An unactivated pass-rune for the deep mines of Kragmir: a palm-sized stone tile cut with a blood channel. Activation binds it to one bearer's blood forever and normally happens only before the chief steward. A blank in anyone else's hands is contraband. (manual: narrative item)</p>"
+          },
+          "price": {
+            "value": {
+              "gp": 150
+            }
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "usage": {
+            "value": "carried"
+          },
+          "equipped": {
+            "carryType": "stowed"
+          },
+          "quantity": 1,
+          "rules": []
+        }
+      }
+    }
+  ]
+}

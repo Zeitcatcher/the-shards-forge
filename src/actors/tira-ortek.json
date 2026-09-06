@@ -1,0 +1,165 @@
+{
+  "_id": "shardstira000001",
+  "name": "Тира Ортек",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "18",
+        "18",
+        "35",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "notes": "<p>Тира Ортек is a young dwarf rune-cutter, apprenticed to the rune and construct master of Kragmir, and the loudest player at the Sixth Facet, the closed dice club in the Upper Vaults. The workshop is booked twenty-three days out and the deposits are already in the drawer, so she has more coin than judgement and bets accordingly. She cuts runes well and casts above her rank: her party trick is a Fireball nobody has cleared her to cast, and it works about half the time. She will talk about the workshop to anyone who asks, including whose workshop it is.</p>",
+  "level": 4,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "abilities": {
+    "str": 1,
+    "dex": 2,
+    "con": 2,
+    "int": 5,
+    "wis": -1,
+    "cha": 4
+  },
+  "ac": 20,
+  "hp": 65,
+  "perception": 8,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 11,
+    "ref": 11,
+    "will": 8
+  },
+  "speeds": {
+    "land": 20
+  },
+  "skills": {
+    "crafting": 15,
+    "arcana": 12,
+    "society": 8,
+    "diplomacy": 8,
+    "deception": 7
+  },
+  "lores": [
+    {
+      "name": "Gambling Lore",
+      "mod": 8
+    },
+    {
+      "name": "Rune Lore",
+      "mod": 12
+    }
+  ],
+  "strikes": [
+    {
+      "name": "rune mallet (light hammer)",
+      "bonus": 12,
+      "traits": [
+        "agile",
+        "thrown-20"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+5",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 12,
+      "traits": [
+        "agile",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+4",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Overambitious Spell",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "arcane"
+      ],
+      "text": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> Тира's teacher has told her she's not ready for this spell, but desperate times call for desperate measures. Тира attempts to cast @UUID[Compendium.pf2e.spells-srd.Item.Fireball] as a 3rd-rank arcane spell but must first attempt a @Check[flat|dc:11].</p><hr /><p><strong>Critical Success</strong> The spell is cast flawlessly and heightened to 4th rank. Тира is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 2} from sheer shock.</p>\n<p><strong>Success</strong> Nothing goes wrong, and the spell is cast normally.</p>\n<p><strong>Failure</strong> The spell fizzles and creates only a harmless puff of smoke.</p>\n<p><strong>Critical Failure</strong> Academic ablaze! Тира takes @Damage[6d6[fire]] damage as the magic backfires</p>"
+    },
+    {
+      "name": "Runework Specialist",
+      "type": "passive",
+      "text": "<p>For encounters involving rune-cutting, constructs, or crafting, Тира is a 7th-level challenge.</p>"
+    },
+    {
+      "name": "Steady Spellcasting",
+      "type": "passive",
+      "text": "<p>If another creature's reaction disrupts Тира's spellcasting action, Тира attempts a @Check[flat|dc:15]. If she succeeds, her action isn't disrupted.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "light-hammer",
+      "equip": "held1"
+    },
+    {
+      "slug": "artisans-toolkit",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-minor",
+      "qty": 1
+    }
+  ],
+  "spellcasting": {
+    "name": "Arcane Prepared Spells",
+    "tradition": "arcane",
+    "type": "prepared",
+    "ability": "int",
+    "dc": 21,
+    "attack": 13,
+    "spells": {
+      "0": [
+        "detect-magic",
+        "telekinetic-hand",
+        "read-aura",
+        "prestidigitation",
+        "electric-arc",
+        "shield"
+      ],
+      "1": [
+        "force-barrage",
+        "grease",
+        "mystic-armor"
+      ],
+      "2": [
+        "knock",
+        "see-the-unseen",
+        "mirror-image"
+      ]
+    }
+  }
+}

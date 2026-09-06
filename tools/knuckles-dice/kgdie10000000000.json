@@ -1,0 +1,64 @@
+{
+  "_id": "kgdie10000000000",
+  "_key": "!items!kgdie10000000000",
+  "name": "Lamashtu's Crooked Bone",
+  "type": "equipment",
+  "img": "modules/knuckles-game/assets/dice/default.webp",
+  "system": {
+    "description": {
+      "value": "<p>The Mother of Monsters births only the odd - one, three, and five.</p>"
+    },
+    "rules": [],
+    "slug": "knuckles-die-10",
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "otherTags": []
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": true
+    },
+    "level": {
+      "value": 0
+    },
+    "quantity": 1,
+    "baseItem": null,
+    "bulk": {
+      "value": 0
+    },
+    "hp": {
+      "value": 0,
+      "max": 0
+    },
+    "hardness": 0,
+    "price": {
+      "value": {
+        "gp": 70
+      }
+    },
+    "equipped": {
+      "carryType": "worn",
+      "handsHeld": 0
+    },
+    "containerId": null,
+    "size": "med",
+    "material": {
+      "type": null,
+      "grade": null
+    },
+    "identification": {
+      "status": "identified"
+    },
+    "usage": {
+      "value": "held-in-one-hand"
+    }
+  },
+  "flags": {
+    "knuckles-game": {
+      "dieId": "10"
+    }
+  }
+}

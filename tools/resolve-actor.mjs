@@ -53,6 +53,13 @@ export function resolveActor(A) {
         description: { value: a.text || "", gm: "" }, traits: { value: a.traits || [], otherTags: [] }, rules: a.rules || [], slug: null, category: null } });
   }
 
+  // Lore skills: recipe `lores: [{name, mod}]` -> pf2e `lore` items (the NPC sheet lists them
+  // under Skills; `skills` only covers the core skills).
+  for (const l of (A.lores || [])) {
+    items.push({ _id: mkid(A._id + ":lore:" + l.name), name: l.name, type: "lore", img: "systems/pf2e/icons/default-icons/lore.svg",
+      system: { description: { value: "" }, mod: { value: l.mod || 0 }, proficient: { value: 0 }, rules: [], slug: null, traits: {} } });
+  }
+
   for (const [gi, g] of (A.gear || []).entries()) {
     let doc;
     if (g.item) { doc = JSON.parse(JSON.stringify(g.item)); }
@@ -71,6 +78,26 @@ export function resolveActor(A) {
     else { eq.carryType = "worn"; eq.handsHeld = 0; if (doc.type === "armor") eq.inSlot = true; }
     if (invested) eq.invested = (g.invested !== false);
     items.push(doc);
+  }
+
+  // Knuckles Game hand: the six-die default loadout in flags["knuckles-game"].defaultLoadout is
+  // also embedded as real dice items (snapshot in tools/knuckles-dice/), so the actor owns the
+  // hand and physical mode keeps it instead of clamping unowned dice to honest ones.
+  const loadout = A.flags?.["knuckles-game"]?.defaultLoadout;
+  if (Array.isArray(loadout) && loadout.length === 6) {
+    const copies = new Map();
+    for (const id of loadout) copies.set(String(id), (copies.get(String(id)) || 0) + 1);
+    for (const [id, qty] of copies) {
+      const p = `tools/knuckles-dice/kgdie${id}000000000.json`;
+      if (!/^\d{2}$/.test(id) || !existsSync(p)) { warnings.push(`${A.name}: Knuckles die ${id} has no snapshot in tools/knuckles-dice/`); continue; }
+      const doc = JSON.parse(readFileSync(p, "utf8"));
+      delete doc._key; strip(doc);
+      doc._id = mkid(A._id + ":die:" + id);
+      doc.system = doc.system || {};
+      doc.system.quantity = qty;
+      doc.system.equipped = { carryType: "worn", handsHeld: 0 };
+      items.push(doc);
+    }
   }
 
   if (A.spellcasting?.spells) {
@@ -115,7 +142,11 @@ export function resolveActor(A) {
     initiative: { statistic: "perception" },
   };
 
-  return { _id: A._id, name: A.name, type: "npc", img: A.img || "systems/pf2e/icons/default-icons/npc.svg",
+  // Actor-level flags pass through untouched (e.g. flags["knuckles-game"].defaultLoadout, the
+  // six-die hand the Knuckles Game module reads at game start; that module is independent and
+  // owns the contract, we only carry the data).
+  const flags = A.flags && typeof A.flags === "object" ? JSON.parse(JSON.stringify(A.flags)) : undefined;
+  return { _id: A._id, name: A.name, type: "npc", img: A.img || "systems/pf2e/icons/default-icons/npc.svg", ...(flags ? { flags } : {}),
     prototypeToken: { name: A.name, texture: { src: A.token || A.img || "systems/pf2e/icons/default-icons/npc.svg" }, disposition: -1, actorLink: false, sight: { enabled: true } },
     system, items };
 }

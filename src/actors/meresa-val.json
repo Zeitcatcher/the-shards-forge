@@ -1,0 +1,252 @@
+{
+  "_id": "shardsmeresa0001",
+  "name": "Мереса Валь",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Мереса Валь, an information broker at the Шестая Грань, the closed dice club of Kragmir's upper district. She drinks water, bets small, and ends most evenings level: winning would make people remember her. What she is there for is the talk around the table, which she sells on to an office in the Council of Keepers building, to a clerk rather than to Торвэйн himself. She has never drawn a weapon first, and she keeps a dagger, a hand crossbow and a coat of hidden pockets for the evening when the talk stops.</p>",
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "03",
+        "35",
+        "36",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "level": 8,
+  "rarity": "unique",
+  "size": "sm",
+  "traits": [
+    "humanoid",
+    "halfling"
+  ],
+  "abilities": {
+    "str": 0,
+    "dex": 5,
+    "con": 2,
+    "int": 4,
+    "wis": 6,
+    "cha": 5
+  },
+  "ac": 24,
+  "hp": 100,
+  "perception": 21,
+  "languages": [
+    "common",
+    "halfling",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 13,
+    "ref": 19,
+    "will": 19
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "deception": 21,
+    "diplomacy": 18,
+    "society": 18,
+    "stealth": 18,
+    "thievery": 16
+  },
+  "lores": [
+    {
+      "name": "Underworld Lore",
+      "mod": 18
+    },
+    {
+      "name": "Kragmir Lore",
+      "mod": 16
+    }
+  ],
+  "strikes": [
+    {
+      "name": "dagger",
+      "bonus": 18,
+      "traits": [
+        "agile",
+        "finesse",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "hand crossbow",
+      "bonus": 18,
+      "range": 60,
+      "traits": [
+        "reload-1"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+6",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 18,
+      "traits": [
+        "agile",
+        "nonlethal",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+6",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Quiet Word",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>Мереса speaks to one creature within 30 feet that has won a wager or a contest in the last minute. She attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression] with a single @Check[type:diplomacy|against:will] check; the target's flush of winning gives it a -2 circumstance penalty to its Will DC against this check.</p>"
+    },
+    {
+      "name": "Distracting Escape",
+      "type": "action",
+      "actions": 1,
+      "traits": [],
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Мереса makes a move only after she has diverted others' attention. She [[/act create-a-diversion]]{Creates a Diversion}. If she became @UUID[Compendium.pf2e.conditionitems.Item.Hidden] to at least one creature, she can then @UUID[Compendium.pf2e.actionspf2e.Item.Sneak].</p>",
+      "rules": []
+    },
+    {
+      "name": "Hidden Pockets",
+      "type": "free",
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Мереса Interacts to draw an item of light Bulk concealed in one of her hidden pockets. The pockets can store up to four objects of light Bulk. Her items are a @UUID[Compendium.pf2e.equipment-srd.Item.Smoke Ball (Lesser)], an @UUID[Compendium.pf2e.equipment-srd.Item.Elixir of Life (Lesser)], a @UUID[Compendium.pf2e.equipment-srd.Item.Thieves' Toolkit], and a second set of dice. She can refill the pockets over the course of 1 minute.</p>"
+    },
+    {
+      "name": "Slip Out",
+      "type": "reaction",
+      "text": "<p><strong>Frequency</strong> once per hour</p>\n<p><strong>Trigger</strong> Initiative is rolled and no creature has targeted Мереса yet</p><hr /><p><strong>Effect</strong> Мереса [[/act create-a-diversion]]{Creates a Diversion}, then @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneaks} up to her Speed.</p>"
+    },
+    {
+      "name": "Ledger of Faces",
+      "type": "passive",
+      "text": "<p>Мереса gains a +2 circumstance bonus to Perception checks to @UUID[Compendium.pf2e.actionspf2e.Item.Sense Motive] and to Society checks to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] about a creature she has watched for at least 1 minute.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "domain": "all",
+          "option": "ledger-of-faces",
+          "toggleable": true,
+          "label": "Ledger of Faces (watched for 1 minute)"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": [
+            "perception",
+            "society"
+          ],
+          "type": "circumstance",
+          "value": 2,
+          "predicate": [
+            "ledger-of-faces"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Keen Eyes",
+      "type": "passive",
+      "text": "<p>Мереса gains a +2 circumstance bonus when using the @UUID[Compendium.pf2e.actionspf2e.Item.Seek] action to find @UUID[Compendium.pf2e.conditionitems.Item.Hidden] or @UUID[Compendium.pf2e.conditionitems.Item.Undetected] creatures within 30 feet of her. Whenever Мереса targets a creature that is @UUID[Compendium.pf2e.conditionitems.Item.Concealed] or hidden from her, reduce the DC of the flat check to @Check[flat|dc:3] for a concealed target or @Check[flat|dc:9] for a hidden one.</p>",
+      "rules": [
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "action:seek",
+            {
+              "lte": [
+                "target:distance",
+                30
+              ]
+            },
+            {
+              "or": [
+                "target:condition:hidden",
+                "target:condition:undetected"
+              ]
+            }
+          ],
+          "selector": "perception",
+          "type": "circumstance",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Deny Advantage",
+      "type": "passive",
+      "text": "<p>Мереса isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to hidden, undetected, or flanking creatures of her level or lower.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "dagger",
+      "equip": "held1"
+    },
+    {
+      "slug": "hand-crossbow",
+      "equip": "stowed"
+    },
+    {
+      "slug": "bolts",
+      "qty": 10
+    },
+    {
+      "slug": "smoke-ball-lesser",
+      "qty": 1
+    },
+    {
+      "slug": "elixir-of-life-lesser",
+      "qty": 1
+    },
+    {
+      "slug": "thieves-toolkit",
+      "qty": 1
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "sneak-attack",
+      "text": "<p>Мереса deals an extra 2d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    }
+  ]
+}

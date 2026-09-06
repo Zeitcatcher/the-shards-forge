@@ -1,0 +1,194 @@
+{
+  "_id": "shardskassel0001",
+  "name": "Брат Кассель",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Brother Kassel, a dwarf priest of the White Fathers and the most reliable loser at the Sixth Facet, the closed dice club of the Upper Vaults in Kragmir. The money he brings to the table was collected to rebuild the order's great temple, which came down before the city sealed itself. He plays the White Fathers die out of piety, it is a bad die, and he keeps coming back anyway. He heals, he apologizes, and he is one honest question away from confessing the whole thing.</p>",
+  "flags": {
+    "knuckles-game": {
+      "defaultLoadout": [
+        "04",
+        "01",
+        "01",
+        "01",
+        "01",
+        "01"
+      ]
+    }
+  },
+  "level": 6,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "dwarf"
+  ],
+  "abilities": {
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": 1,
+    "wis": 5,
+    "cha": 3
+  },
+  "ac": 22,
+  "hp": 80,
+  "perception": 14,
+  "senses": [
+    "darkvision"
+  ],
+  "languages": [
+    "common",
+    "dwarven"
+  ],
+  "saves": {
+    "fort": 14,
+    "ref": 11,
+    "will": 17
+  },
+  "speeds": {
+    "land": 20
+  },
+  "skills": {
+    "religion": 15,
+    "medicine": 15,
+    "diplomacy": 13,
+    "society": 11,
+    "deception": 9
+  },
+  "lores": [
+    {
+      "name": "Gambling Lore",
+      "mod": 9
+    }
+  ],
+  "strikes": [
+    {
+      "name": "mace",
+      "bonus": 15,
+      "traits": [
+        "shove"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+8",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 13,
+      "traits": [
+        "agile",
+        "nonlethal"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+7",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Penance",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "auditory",
+        "concentrate",
+        "divine",
+        "emotion",
+        "mental"
+      ],
+      "text": "<p>Кассель names what one creature within 30 feet owes. The target must succeed at a @Check[type:will|dc:22] save or become @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} until the end of its next turn (@UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} on a critical failure).</p>",
+      "rules": []
+    },
+    {
+      "name": "Absolution Owed",
+      "type": "reaction",
+      "text": "<p><strong>Frequency</strong> once per 10 minutes</p>\n<p><strong>Trigger</strong> An ally within 30 feet fails a Will saving throw</p><hr /><p><strong>Effect</strong> The ally rerolls the save and uses the second result. Кассель takes @Damage[1d6[mental]] damage.</p>",
+      "rules": []
+    },
+    {
+      "name": "Healing Hands",
+      "type": "passive",
+      "text": "<p>When Кассель casts @UUID[Compendium.pf2e.spells-srd.Item.Heal], he rolls d10s instead of d8s.</p>",
+      "rules": [
+        {
+          "key": "DamageAlteration",
+          "mode": "upgrade",
+          "predicate": [
+            "item:slug:heal"
+          ],
+          "property": "dice-faces",
+          "selectors": [
+            "spell-damage",
+            "spell-healing"
+          ],
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Steady Spellcasting",
+      "type": "passive",
+      "text": "<p>If another creature's reaction disrupts Кассель's spellcasting action, he attempts a @Check[flat|dc:15]. If he succeeds, his action isn't disrupted.</p>",
+      "rules": []
+    }
+  ],
+  "gear": [
+    {
+      "slug": "explorers-clothing",
+      "equip": "worn"
+    },
+    {
+      "slug": "mace",
+      "equip": "held1"
+    },
+    {
+      "slug": "religious-symbol-wooden",
+      "equip": "worn"
+    },
+    {
+      "slug": "holy-water",
+      "qty": 2
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ],
+  "spellcasting": {
+    "name": "Divine Prepared Spells",
+    "tradition": "divine",
+    "type": "prepared",
+    "ability": "wis",
+    "dc": 24,
+    "attack": 16,
+    "spells": {
+      "0": [
+        "detect-magic",
+        "divine-lance",
+        "guidance",
+        "stabilize",
+        "light"
+      ],
+      "1": [
+        "heal",
+        "bless",
+        "sanctuary"
+      ],
+      "2": [
+        "sound-body",
+        "silence",
+        "calm"
+      ],
+      "3": [
+        "holy-light",
+        "heroism"
+      ]
+    }
+  }
+}
