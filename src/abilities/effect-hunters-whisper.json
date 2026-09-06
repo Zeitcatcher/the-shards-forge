@@ -1,0 +1,21 @@
+{
+  "_id": "shardshunterweff",
+  "name": "Effect: Hunter's Whisper",
+  "type": "effect",
+  "img": "systems/pf2e/icons/default-icons/effect.svg",
+  "system": {
+    "slug": "effect-hunters-whisper",
+    "level": { "value": 12 },
+    "traits": { "value": ["evocation"], "otherTags": [] },
+    "duration": { "value": 1, "unit": "days", "expiry": null, "sustained": false },
+    "tokenIcon": { "show": true },
+    "description": {
+      "value": "<p>You have marked one quarry for the day. Your Strikes with Whisper of the Wind deal an extra 1d6 precision damage against that creature, and it cannot be Hidden or Undetected from you. Tick the <strong>Hunter's Whisper (quarry in your sights)</strong> toggle on the Actions tab while you are shooting at the quarry. The mark holds until your next daily preparations; if this effect ends early, you cannot mark another quarry until the next day. Applied by using the Hunter's Whisper action.</p>",
+      "gm": ""
+    },
+    "rules": [
+      { "key": "RollOption", "domain": "all", "option": "whisper-quarry", "toggleable": true, "label": "Hunter's Whisper (quarry in your sights)" },
+      { "key": "DamageDice", "selector": "whisper-of-the-wind-damage", "diceNumber": 1, "dieSize": "d6", "category": "precision", "predicate": ["whisper-quarry"], "label": "Hunter's Whisper (quarry)" }
+    ]
+  }
+}

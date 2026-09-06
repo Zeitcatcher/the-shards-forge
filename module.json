@@ -4,9 +4,9 @@
   "description": "Custom Pathfinder 2e (Remaster) content for the homebrew world The Shards: NPCs, magic items, spells, and reusable abilities. Install it once and use the module's Update button to pull new content.",
   "version": "0.1.0",
   "authors": [{ "name": "Zeitcatcher", "url": "https://github.com/Zeitcatcher" }],
-  "compatibility": { "minimum": "13", "verified": "14" },
+  "compatibility": { "minimum": "13", "verified": "14.367" },
   "relationships": {
-    "systems": [{ "id": "pf2e", "type": "system", "compatibility": { "minimum": "8.0.0" } }]
+    "systems": [{ "id": "pf2e", "type": "system", "compatibility": { "minimum": "8.0.0", "verified": "8.5.0" } }]
   },
   "packs": [
     { "name": "shards-actors", "label": "Shards Actors", "path": "packs/shards-actors", "type": "Actor", "system": "pf2e" },

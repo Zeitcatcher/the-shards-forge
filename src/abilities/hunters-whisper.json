@@ -1,0 +1,20 @@
+{
+  "_id": "shardshunterwhis",
+  "name": "Hunter's Whisper",
+  "type": "action",
+  "img": "systems/pf2e/icons/actions/OneAction.webp",
+  "system": {
+    "slug": "hunters-whisper",
+    "actionType": { "value": "action" },
+    "actions": { "value": 1 },
+    "category": null,
+    "traits": { "value": ["evocation", "concentrate"], "otherTags": [] },
+    "frequency": { "max": 1, "per": "day" },
+    "selfEffect": { "name": "Effect: Hunter's Whisper", "uuid": "Compendium.the-shards-forge.shards-abilities.Item.shardshunterweff" },
+    "description": {
+      "value": "<p><strong>Frequency</strong> once per day</p><hr /><p>You name one creature you can see within 150 feet and the string learns its name. Using this action applies <strong>Effect: Hunter's Whisper</strong> to you: your Strikes with Whisper of the Wind deal an extra 1d6 precision damage against that quarry, and the quarry cannot be Hidden or Undetected from you. Tick the quarry toggle on the Actions tab while you are shooting at it. The mark holds until your next daily preparations. You mark only one quarry a day: if the mark ends early, you cannot mark another until the next day.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}
