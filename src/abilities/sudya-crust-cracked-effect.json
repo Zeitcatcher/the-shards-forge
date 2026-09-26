@@ -1,0 +1,30 @@
+{
+  "_id": "shardssudyacrk00",
+  "name": "Effect: Crust Cracked",
+  "type": "effect",
+  "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+  "system": {
+    "slug": "effect-sudya-crust-cracked",
+    "level": {
+      "value": 13
+    },
+    "traits": {
+      "value": [],
+      "otherTags": []
+    },
+    "duration": {
+      "value": 1,
+      "unit": "rounds",
+      "expiry": "turn-end",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "description": {
+      "value": "<p>Cold has cracked the crust of cooled magma on the Судья's scales, and blue ice shows through the cracks. Until the end of his next turn he has no resistances from Magma Crust, and he has weakness 10 to fire.</p>",
+      "gm": ""
+    },
+    "rules": []
+  }
+}

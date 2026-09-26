@@ -2,26 +2,26 @@
   "_id": "shardssudya00000",
   "name": "Судья",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>The Judge: the undefeated second stage of Kragmir's big arena. A living adult magma dragon, caged for generations in a cavern beneath the arena floor, raised on chains when a qualified team is proud or desperate enough to declare the Mountain's Trial. Nobody has ever won; the prize pool has been accumulating for decades. His hoard is not gold but the weapons and armor of every champion he has killed. He is ancient, intelligent, and speaks old Dwarven when he bothers to speak at all; he greets Bradgar by name, remembers every team the Anvil ever led down, and watched the party's qualifying bout through the floor grates. A century of mythras-laced ore has made his scale glass-hard and his fire is beginning to stutter with the mountain's decay: the first crack anyone has ever seen in him. Beaten low enough, he can do the one thing no living dwarf has heard: yield.</p>",
+  "notes": "<p>The Судья, the undefeated last stage of Kragmir's big arena. The city takes him for a magma dragon because he has only ever been seen in a crust of cooled magma. He is a frost dragon from the Udlun Mountains, and he spends his cold holding his mad clutch-brother Вейрсарат chained in the depths of the mountain. Holding him has worn the Судья down from level 18 to 13; if the Судья dies, Вейрсарат breaks free. Full lore: vault note Судья, GM callouts.</p><p>Table notes. Apply Effect: Crust Cracked when a single hit or effect would deal him 10 or more cold damage before immunity; show the steam and the blue light. Seal Broken turns on by itself at 78 HP; flip the toggle to crack the seal early or to keep it cracked if he is healed. After every Blizzard Breath, roll Answer from the Deep and narrate something answering from below. Drag Effect: Rime Shield from the posted Rime Shield card so it reads his 13 temporary HP. For the Old Wound, apply Effect: Open Wound before rolling the bolt's 4d10: the bolt is adamantine. He can yield when beaten low.</p>",
   "level": 13,
   "rarity": "unique",
   "size": "huge",
   "traits": [
+    "cold",
     "dragon",
-    "fire",
     "primal"
   ],
   "abilities": {
-    "str": 8,
-    "dex": 2,
-    "con": 5,
-    "int": 2,
-    "wis": 4,
+    "str": 7,
+    "dex": 4,
+    "con": 8,
+    "int": 5,
+    "wis": 6,
     "cha": 4
   },
-  "ac": 33,
-  "hp": 270,
-  "perception": 23,
+  "ac": 34,
+  "hp": 234,
+  "perception": 26,
   "senses": [
     "darkvision",
     {
@@ -34,22 +34,22 @@
     "common",
     "draconic",
     "dwarven",
-    "petran",
-    "pyric"
+    "jotun",
+    "thalassic"
   ],
   "saves": {
-    "fort": 25,
-    "ref": 21,
-    "will": 23
+    "fort": 29,
+    "ref": 22,
+    "will": 26
   },
   "speeds": {
-    "land": 40,
-    "fly": 140,
-    "burrow": 40
+    "land": 60,
+    "fly": 120,
+    "swim": 40
   },
   "immunities": [
     {
-      "type": "fire"
+      "type": "cold"
     },
     {
       "type": "paralyzed"
@@ -58,136 +58,147 @@
       "type": "sleep"
     }
   ],
-  "weaknesses": [
-    {
-      "type": "cold",
-      "value": 15
-    }
-  ],
-  "resistances": [
-    {
-      "type": "physical",
-      "value": 10,
-      "exceptions": [
-        "adamantine"
-      ]
-    }
-  ],
   "skills": {
     "athletics": 27,
+    "nature": 26,
+    "survival": 26,
     "intimidation": 25,
-    "survival": 23,
-    "acrobatics": 21,
-    "nature": 21,
-    "stealth": 21,
-    "deception": 19
+    "occultism": 24,
+    "stealth": 23,
+    "deception": 22
   },
+  "lores": [
+    {
+      "name": "Arctic Lore",
+      "mod": 25
+    },
+    {
+      "name": "Architecture Lore",
+      "mod": 25
+    }
+  ],
   "strikes": [
     {
       "name": "jaws",
-      "bonus": 27,
+      "bonus": 25,
       "traits": [
-        "fire",
         "magical",
-        "reach-15",
-        "unarmed"
+        "reach-15"
       ],
       "damage": [
         {
-          "dice": "3d8+12",
+          "dice": "3d10+11",
           "type": "piercing"
-        },
-        {
-          "dice": "2d6",
-          "type": "fire"
         }
+      ],
+      "effects": [
+        "grab"
       ]
     },
     {
       "name": "claw",
-      "bonus": 27,
+      "bonus": 25,
       "traits": [
         "agile",
         "magical",
-        "reach-10",
-        "unarmed"
+        "reach-10"
       ],
       "damage": [
         {
-          "dice": "3d10+12",
+          "dice": "3d8+11",
           "type": "slashing"
         }
       ]
     },
     {
       "name": "tail",
-      "bonus": 25,
+      "bonus": 23,
       "traits": [
         "magical",
-        "reach-20",
-        "unarmed"
+        "reach-20"
       ],
       "damage": [
         {
-          "dice": "3d12+12",
+          "dice": "3d12+11",
           "type": "bludgeoning"
-        }
-      ]
-    },
-    {
-      "name": "horn",
-      "bonus": 25,
-      "traits": [
-        "magical",
-        "reach-15",
-        "unarmed"
-      ],
-      "damage": [
-        {
-          "dice": "2d10+12",
-          "type": "piercing"
         }
       ]
     }
   ],
+  "standardItems": [
+    {
+      "slug": "grab"
+    },
+    {
+      "slug": "frightful-presence",
+      "text": "<p>90 feet. @Check[will|dc:30|options:area-effect,inflicts:frightened]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>",
+      "rules": [
+        {
+          "key": "Aura",
+          "radius": 90,
+          "slug": "frightful-presence",
+          "traits": [
+            "emotion",
+            "fear",
+            "mental"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "change-shape",
+      "text": "<p>The dragon takes on the appearance of a Medium humanoid. This does not change their Speed or their attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning).</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.ChangeShape]</p>"
+    }
+  ],
   "actions": [
-    {
-      "name": "Pyroclastic Breath",
-      "type": "action",
-      "actions": 2,
-      "traits": [
-        "fire",
-        "primal"
-      ],
-      "text": "<p>The dragon breathes a blast of magma that deals @Damage[7d6[fire],4d12[bludgeoning]|options:area-damage] in a @Template[type:cone|distance:40] (@Check[type:reflex|dc:33|basic:true|options:area-effect]). He can't use Pyroclastic Breath again for [[/gmr 1d4 #Recharge Pyroclastic Breath]]{1d4 rounds}.</p>"
-    },
-    {
-      "name": "Volcanic Purge",
-      "type": "action",
-      "actions": 1,
-      "text": "<p>If the next action the dragon uses is Pyroclastic Breath, the magma clings to those it damages. Each creature that fails its save against Pyroclastic Breath takes @Damage[4d6[persistent,fire]] damage, and as long as it has this persistent fire damage, it also takes a -10-foot status penalty to its Speeds.</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Volcanic Purge]</p>"
-    },
     {
       "name": "Draconic Frenzy",
       "type": "action",
       "actions": 2,
-      "text": "<p>The dragon makes two claw Strikes and one horn Strike in any order.</p>"
+      "text": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
     },
     {
-      "name": "Change Shape",
+      "name": "Blizzard Breath",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "cold",
+        "primal"
+      ],
+      "text": "<p>The dragon breathes out a gust of frost and ice that deals @Damage[11d8[cold]|options:area-damage] damage in a @Template[type:cone|distance:40] (@Check[reflex|dc:33|basic|options:area-effect] save). They can't use Blizzard Breath again for [[/gmr 1d4 #Recharge Blizzard Breath]]{1d4 rounds}.</p><p>Each use of Blizzard Breath also triggers Answer from the Deep.</p>"
+    },
+    {
+      "name": "Piercing Ice",
       "type": "action",
       "actions": 1,
       "traits": [
+        "cold",
         "concentrate",
-        "polymorph",
         "primal"
       ],
-      "text": "<p>The dragon takes on the appearance of a Medium humanoid. This does not change their Speed or their attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning).</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.ChangeShape]</p>"
+      "text": "<p><strong>Requirements</strong> The dragon has temporary Hit Points from Rime Shield</p><hr /><p><strong>Effect</strong> The dragon launches the collected ice shards from its scales in a @Template[type:emanation|distance:5], dealing @Damage[5d6[piercing],4d6[cold]|options:area-damage] damage (@Check[reflex|dc:33|basic|options:area-effect] save). The dragon then loses the AC bonus and temporary Hit Points from Rime Shield.</p>"
+    },
+    {
+      "name": "Rime Shield",
+      "type": "free",
+      "traits": [
+        "cold",
+        "primal"
+      ],
+      "text": "<p><strong>Requirements</strong> The rime dragon's last action was to Fly at least 40 feet</p><hr /><p><strong>Effect</strong> Water vapor collected on the dragon's scales quickly freezes over. The dragon gains a +2 circumstance bonus to AC and 13 temporary Hit Points that last until the end of the dragon's next turn.</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Rime Shield]</p>",
+      "rules": [
+        {
+          "key": "ActiveEffectLike",
+          "mode": "override",
+          "path": "flags.system.rimeShieldTempHP",
+          "value": 13
+        }
+      ]
     },
     {
       "name": "Wing Deflection",
       "type": "reaction",
-      "text": "<p><strong>Trigger</strong> The dragon is targeted with an attack.</p><hr /><p><strong>Effect</strong> The dragon raises a wing, gaining a +2 circumstance bonus to AC against the triggering attack. If the dragon is Flying, he descends 10 feet after the attack.</p>",
+      "text": "<p><strong>Trigger</strong> The dragon is targeted with an attack</p><hr /><p><strong>Effect</strong> The dragon raises a wing, gaining a +2 circumstance bonus to AC against the triggering attack. If the dragon is Flying, they descend 10 feet after the attack.</p>",
       "rules": [
         {
           "key": "RollOption",
@@ -206,24 +217,135 @@
       ]
     },
     {
-      "name": "Frightful Presence",
+      "name": "Arctic Hunter",
+      "type": "passive",
+      "text": "<p>A rime dragon's natural camouflage allows them to [[/act hide]] in arctic terrain without cover. A rime dragon also ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice.</p>"
+    },
+    {
+      "name": "Snow Vision",
+      "type": "passive",
+      "text": "<p>Snow doesn't impair the rime dragon's vision; they ignore @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealment} from snowfall.</p>"
+    },
+    {
+      "name": "+2 Status to All Saves vs. Primal",
+      "type": "passive",
+      "text": "",
+      "rules": [
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "item:trait:primal"
+          ],
+          "selector": "saving-throw",
+          "type": "status",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Magma Crust",
+      "type": "passive",
+      "text": "<p>A crust of cooled magma, left by centuries of lying on the mountain's fire, covers the Судья's scales. While the crust is intact, he has resistance 15 to fire and resistance 10 to physical damage (except adamantine). The physical resistance is also suspended while he has @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardssudyawnd00]{Effect: Open Wound}.</p><p>When a single attack or effect would deal 10 or more cold damage to the Судья (before his immunity to cold), the crust cracks until the end of his next turn and he gains @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardssudyacrk00]{Effect: Crust Cracked}. While the crust is cracked, he has neither resistance and has weakness 10 to fire, and blue light shows through the cracks.</p>",
+      "rules": [
+        {
+          "key": "Resistance",
+          "predicate": [
+            {
+              "not": "self:effect:sudya-crust-cracked"
+            }
+          ],
+          "type": "fire",
+          "value": 15
+        },
+        {
+          "exceptions": [
+            "adamantine"
+          ],
+          "key": "Resistance",
+          "predicate": [
+            {
+              "not": "self:effect:sudya-crust-cracked"
+            },
+            {
+              "not": "self:effect:sudya-open-wound"
+            }
+          ],
+          "type": "physical",
+          "value": 10
+        },
+        {
+          "key": "Weakness",
+          "predicate": [
+            "self:effect:sudya-crust-cracked"
+          ],
+          "type": "fire",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Bound Cold",
+      "type": "passive",
+      "text": "<p>The Судья spends his cold holding something down in the depths of the mountain. While the seal holds, he can't use Blizzard Breath, Piercing Ice, Rime Shield, or his innate wall of ice, Radiate Cold has no effect, and his Strikes deal no cold damage.</p><p>When the Судья is at 78 Hit Points or fewer, the seal cracks and stays cracked until the end of the encounter. His ice abilities become available, Radiate Cold takes effect, and his Strikes deal an extra 2d6 cold damage.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "label": "Seal Broken",
+          "option": "sudya-seal-broken",
+          "toggleable": true
+        },
+        {
+          "damageType": "cold",
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "key": "DamageDice",
+          "label": "Bound Cold",
+          "predicate": [
+            {
+              "or": [
+                "sudya-seal-broken",
+                {
+                  "lte": [
+                    "hp-remaining",
+                    78
+                  ]
+                }
+              ]
+            }
+          ],
+          "selector": "strike-damage"
+        }
+      ]
+    },
+    {
+      "name": "Radiate Cold",
       "type": "passive",
       "traits": [
         "aura",
-        "emotion",
-        "fear",
-        "mental"
+        "cold",
+        "primal"
       ],
-      "text": "<p>90 feet. @Check[type:will|dc:30|options:area-effect,inflicts:frightened]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>",
+      "text": "<p>15 feet. The rime dragon's presence lowers the temperature around them. A creature who enters or begins their turn in the aura must attempt a @Check[fortitude|dc:30|options:area-effect,inflicts:enfeebled,inflicts:immobilized] save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature begins to shiver as the biting cold affects it. It takes a -5-foot status penalty to its Speeds until the end of its next turn.</p>\n<p><strong>Failure</strong> The creature's body temperature begins to drop. It takes a -10-foot status penalty to their Speeds and is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} until the end of its next turn.</p>\n<p><strong>Critical Failure</strong> Ice begins to form on the creature. It's @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] ([[/act escape dc=30]]) and @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} until the end of its turn.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Radiate Cold]</p>",
       "rules": [
         {
           "key": "Aura",
-          "radius": 90,
-          "slug": "frightful-presence",
+          "radius": 15,
           "traits": [
-            "emotion",
-            "fear",
-            "mental"
+            "cold",
+            "primal"
+          ],
+          "predicate": [
+            {
+              "or": [
+                "sudya-seal-broken",
+                {
+                  "lte": [
+                    "hp-remaining",
+                    78
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -231,7 +353,7 @@
     {
       "name": "Draconic Momentum",
       "type": "passive",
-      "text": "<p>The dragon recharges his Pyroclastic Breath whenever he scores a critical hit with a Strike.</p>",
+      "text": "<p>The dragon recharges their Blizzard Breath whenever they score a critical hit with a Strike.</p>",
       "rules": [
         {
           "key": "Note",
@@ -246,40 +368,14 @@
       ]
     },
     {
-      "name": "+1 Status to All Saves vs. Magic",
+      "name": "Answer from the Deep",
       "type": "passive",
-      "text": "<p>The Судья gains a +1 status bonus to all saving throws against magic.</p>",
-      "rules": [
-        {
-          "key": "FlatModifier",
-          "predicate": [
-            "item:magical"
-          ],
-          "selector": "saving-throw",
-          "type": "status",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "name": "Magma Burrow",
-      "type": "passive",
-      "text": "<p>The Судья's burrow Speed functions only when he is Burrowing through magma or molten lava.</p>"
-    },
-    {
-      "name": "Judge's Scale",
-      "type": "passive",
-      "text": "<p>A century of mythras-laced ore turned his scale glass-hard: the Судья has resistance 10 to physical damage. Adamantine weapons, including the arena's old ballista bolts, bypass this resistance, and it is suspended entirely while his Old Wound is torn open.</p>"
+      "text": "<p>Each time the Судья uses Blizzard Breath, the fire under the seal answers. The floor of the arena's lower level heats, and each creature on it takes @Damage[7d6[fire]|options:area-damage] damage (@Check[reflex|dc:30|basic|options:area-effect] save). The Судья takes this damage even if he is flying: the heat comes up through the seal he holds.</p>"
     },
     {
       "name": "The Old Wound",
       "type": "passive",
       "text": "<p>An adamantine bolt head from Брадгар's greatest attempt sits beneath the scale of the Судья's left wing joint, and the wound has never closed clean. While the Судья is @UUID[Compendium.pf2e.conditionitems.Item.Prone] or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], a creature can @UUID[Compendium.pf2e.actionspf2e.Item.Mount] him with a successful DC 30 Athletics or Acrobatics check. A creature mounted on him can spend 2 actions to drive the bolt deeper with a DC 30 Athletics check: on a success, the Судья takes @Damage[4d10[piercing]] damage and the wound tears open: apply @UUID[Compendium.the-shards-forge.shards-abilities.Item.shardssudyawnd00]{Effect: Open Wound} to him.</p>"
-    },
-    {
-      "name": "Faltering Flame",
-      "type": "passive",
-      "text": "<p>The mythras in his fire is failing with the mountain's. While the Судья has 90 Hit Points or fewer, Pyroclastic Breath no longer takes 1d4 rounds to recharge, but each use deals @Damage[4d6[fire]] damage to the Судья himself as the flame misfires inside him. This damage ignores his fire immunity: it is his own blood burning wrong.</p>"
     }
   ],
   "spellcasting": {
@@ -288,14 +384,10 @@
     "type": "innate",
     "ability": "cha",
     "dc": 33,
-    "attack": 23,
+    "attack": 25,
     "spells": {
-      "0": [
-        "ignition"
-      ],
-      "6": [
-        "wall-of-fire",
-        "breathe-fire"
+      "7": [
+        "wall-of-ice"
       ]
     }
   }

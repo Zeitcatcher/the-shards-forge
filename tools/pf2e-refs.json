@@ -78,7 +78,10 @@
     "spells/holy-light": "packs/pf2e/spells/spells/rank-3/holy-light.json",
     "spells/telekinetic-hand": "packs/pf2e/spells/spells/cantrip/telekinetic-hand.json",
     "spells/mystic-armor": "packs/pf2e/spells/spells/rank-1/mystic-armor.json",
-    "spells/knock": "packs/pf2e/spells/spells/rank-2/knock.json"
+    "spells/knock": "packs/pf2e/spells/spells/rank-2/knock.json",
+    "spells/wall-of-ice": "packs/pf2e/spells/spells/rank-5/wall-of-ice.json",
+    "abilities/frightful-presence": "packs/pf2e/bestiary-ability-glossary-srd/frightful-presence.json",
+    "abilities/change-shape": "packs/pf2e/bestiary-ability-glossary-srd/change-shape.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

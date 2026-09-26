@@ -1,0 +1,293 @@
+{
+  "_id": "shardsveyrsarat0",
+  "name": "Вейрсарат",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Вейрсарат, 'the wing that burns': the Судья's brother from the same clutch, hatched in Горы Удлуна. He wanted what the ice never gave them and went south into the fire of this mountain. The fire remade him into a magma dragon and took his mind. He killed almost all of the first dwarven expedition, long before Крагмир was founded. The Судья could not kill his own blood, so he chained him in the depths of the mountain and has held him there with his body and his cold for many hundreds of years. The mountain feeds Вейрсарат fire and his strength never fades, while the Судья slowly weakens. Nobody alive has seen him. His eyes are black as coal.</p><p>GM secret: the party does not know he exists. If the Судья dies, Вейрсарат breaks free.</p><p>Table notes. Pinned Beneath starts on; switch it off when he breaks free. While he is pinned, the heat that reaches the arena is the Судья's Answer from the Deep, rolled from the Судья's sheet. Wall of Fire and Breathe Fire are at will, but the Forge build leaves every innate spell at the pf2e default of one use per day, so raise their uses by hand. Fireball and Magma Tomb are once per day. Base: Magma Dragon (Ancient), Pathfinder Lost Omens Draconic Codex, numbers unchanged. Madness removes Change Shape and his languages.</p>",
+  "level": 18,
+  "rarity": "unique",
+  "size": "grg",
+  "traits": [
+    "dragon",
+    "fire",
+    "primal"
+  ],
+  "abilities": {
+    "str": 8,
+    "dex": 4,
+    "con": 6,
+    "int": 4,
+    "wis": 5,
+    "cha": 6
+  },
+  "ac": 42,
+  "hp": 380,
+  "perception": 33,
+  "senses": [
+    "darkvision",
+    {
+      "type": "scent",
+      "acuity": "imprecise",
+      "range": 60
+    }
+  ],
+  "languages": [],
+  "saves": {
+    "fort": 33,
+    "ref": 28,
+    "will": 30
+  },
+  "speeds": {
+    "land": 50,
+    "burrow": 50,
+    "fly": 200
+  },
+  "immunities": [
+    {
+      "type": "fire"
+    },
+    {
+      "type": "paralyzed"
+    },
+    {
+      "type": "sleep"
+    }
+  ],
+  "weaknesses": [
+    {
+      "type": "cold",
+      "value": 15
+    }
+  ],
+  "skills": {
+    "acrobatics": 28,
+    "athletics": 35,
+    "deception": 28,
+    "intimidation": 34,
+    "nature": 28,
+    "stealth": 28,
+    "survival": 29
+  },
+  "strikes": [
+    {
+      "name": "Jaws",
+      "bonus": 36,
+      "traits": [
+        "fire",
+        "magical",
+        "reach-20",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "3d8+16",
+          "type": "piercing"
+        },
+        {
+          "dice": "3d6",
+          "type": "fire"
+        }
+      ]
+    },
+    {
+      "name": "Claw",
+      "bonus": 36,
+      "traits": [
+        "agile",
+        "magical",
+        "reach-15",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "3d10+16",
+          "type": "slashing"
+        }
+      ]
+    },
+    {
+      "name": "Tail",
+      "bonus": 34,
+      "traits": [
+        "magical",
+        "reach-25",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "3d12+16",
+          "type": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "name": "Horn",
+      "bonus": 34,
+      "traits": [
+        "magical",
+        "reach-20",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "2d10+16",
+          "type": "piercing"
+        }
+      ]
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "frightful-presence",
+      "text": "<p>90 feet. @Check[will|dc:37|options:area-effect,inflicts:frightened]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>",
+      "rules": [
+        {
+          "key": "Aura",
+          "radius": 90,
+          "slug": "frightful-presence",
+          "traits": [
+            "emotion",
+            "fear",
+            "mental"
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Draconic Frenzy",
+      "type": "action",
+      "actions": 2,
+      "text": "<p>The dragon makes two claw Strikes and one horn Strike in any order.</p>"
+    },
+    {
+      "name": "Magma Tomb",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "fire",
+        "primal"
+      ],
+      "text": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> The dragon spits a molten boulder at a target within 120 feet. This deals @Damage[12d6[fire],5d12[bludgeoning]] damage, with a @Check[reflex|dc:40|basic] save. If the creature fails its save, it's encased in magma that instantly cools and has Hardness 10, HP 40, and BT 20. The encased creature can't breathe and is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] ([[/act escape dc=40]]).</p>"
+    },
+    {
+      "name": "Pyroclastic Breath",
+      "type": "action",
+      "actions": 2,
+      "traits": [
+        "fire",
+        "primal"
+      ],
+      "text": "<p>The dragon breathes a blast of magma that deals @Damage[10d6[fire],5d12[bludgeoning]|options:area-damage] in a @Template[cone|distance:60] (@Check[reflex|basic|dc:40|options:area-effect]). He can't use Pyroclastic Breath again for [[/gmr 1d4#Recharge Pyroclastic Breath]]{1d4 rounds}.</p>"
+    },
+    {
+      "name": "Volcanic Purge",
+      "type": "action",
+      "actions": 1,
+      "text": "<p>If the next action the dragon uses is Pyroclastic Breath, the magma clings to those it damages. Each creature that fails its save against Pyroclastic Breath takes @Damage[5d6[persistent,fire]] damage, and as long as it has this persistent fire damage, it also takes a -10-foot status penalty to its Speeds.</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Volcanic Purge]</p>"
+    },
+    {
+      "name": "Wing Deflection",
+      "type": "reaction",
+      "text": "<p><strong>Trigger</strong> The dragon is targeted with an attack.</p><hr /><p><strong>Effect</strong> The dragon raises a wing, gaining a +2 circumstance bonus to AC against the triggering attack. If the dragon is Flying, he descends 10 feet after the attack.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "wing-deflection",
+          "toggleable": true
+        },
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "wing-deflection"
+          ],
+          "selector": "ac",
+          "type": "circumstance",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "+1 Status to All Saves vs. Magic",
+      "type": "passive",
+      "text": "<p>The dragon gains a +1 status bonus to all saving throws against magic.</p>",
+      "rules": [
+        {
+          "key": "FlatModifier",
+          "predicate": [
+            "item:magical"
+          ],
+          "selector": "saving-throw",
+          "type": "status",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Draconic Momentum",
+      "type": "passive",
+      "text": "<p>The dragon recharges his Pyroclastic Breath whenever he scores a critical hit with a Strike.</p>",
+      "rules": [
+        {
+          "key": "Note",
+          "outcome": [
+            "criticalSuccess"
+          ],
+          "selector": "strike-attack-roll",
+          "text": "{item|description}",
+          "title": "{item|name}",
+          "visibility": "owner"
+        }
+      ]
+    },
+    {
+      "name": "Magma Burrow",
+      "type": "passive",
+      "text": "<p>A magma dragon's burrow Speed functions only when the dragon is Burrowing through magma or molten lava.</p>"
+    },
+    {
+      "name": "Madness",
+      "type": "passive",
+      "text": "<p>The mountain's fire burned out the dragon's mind. He doesn't speak and can't change shape, and he always attacks the nearest creature.</p>"
+    },
+    {
+      "name": "Pinned Beneath",
+      "type": "passive",
+      "text": "<p>The dragon lies chained in the depths of the mountain, held down by the Судья's body and cold. While he is pinned, he is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and can't take actions or reactions.</p><p>Only his heat reaches the surface. Once the Судья's seal has cracked, every Blizzard Breath the Судья uses lets that heat up through the rock, and the floor of the arena's lower level burns, as the Судья's Answer from the Deep describes. The dragon rolls nothing for it.</p><p>He stops being pinned if the Судья dies or releases him.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "veyrsarat-pinned",
+          "toggleable": true,
+          "value": true
+        },
+        {
+          "key": "GrantItem",
+          "inMemoryOnly": true,
+          "predicate": [
+            "veyrsarat-pinned"
+          ],
+          "uuid": "Compendium.pf2e.conditionitems.Item.Immobilized"
+        }
+      ]
+    }
+  ],
+  "spellcasting": {
+    "name": "Primal Innate Spells",
+    "tradition": "primal",
+    "type": "innate",
+    "ability": "cha",
+    "dc": 40,
+    "attack": 32,
+    "spells": {
+      "0": [
+        "ignition"
+      ],
+      "8": [
+        "fireball",
+        "wall-of-fire",
+        "breathe-fire"
+      ]
+    }
+  }
+}

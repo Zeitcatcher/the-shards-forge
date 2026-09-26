@@ -84,6 +84,8 @@ const TABLE = {
   "bone-crushing-squeeze": { runtime: true },
   "ferocity": { runtime: true },
   "nimble-dodge": { runtime: true }, // "you are not encumbered": an in-play carry-load state
+  "rime-shield": { runtime: true }, // "last action was to Fly at least 40 feet": an in-play state
+  "piercing-ice": { check: (c) => (c.names.has("rime-shield") ? null : "Piercing Ice present but no Rime Shield (its requirement is Rime Shield's temporary HP)") },
 };
 
 function strikeListsCheck(c, slug) {
