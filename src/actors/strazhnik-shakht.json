@@ -1,0 +1,44 @@
+{
+  "_id": "shardsminguard01",
+  "name": "Стражник шахт",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>A guard of the deep mines of Kragmir, a generic type fought in numbers. The mines keep their own guard, about a hundred dwarves plus constructs, and it is a separate force from the army detachment at the fort. Guards police the mining town and fight to arrest: the sap, manacles, and shouted orders come first, and the mace comes out only after the party has killed a guard. Kragmir's guard has no mages. Every guard carries Effect: Under Command, so a Капитан стражи шахт's Aura of Command buffs it automatically within 30 feet.</p>",
+  "level": 5,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 4, "dex": 2, "con": 4, "int": 0, "wis": 2, "cha": 1},
+  "ac": 22,
+  "hp": 75,
+  "perception": 15,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 15, "ref": 9, "will": 12},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 13, "intimidation": 12},
+  "lores": [{"name": "Mining Lore", "mod": 12}],
+  "strikes": [
+    {"name": "sap", "bonus": 13, "traits": ["agile", "nonlethal"], "damage": [{"dice": "1d6+9", "type": "bludgeoning"}]},
+    {"name": "mace", "bonus": 13, "traits": ["shove"], "damage": [{"dice": "1d6+9", "type": "bludgeoning"}]},
+    {"name": "crossbow", "bonus": 11, "range": {"increment": 120, "max": null}, "traits": ["reload-1"], "damage": [{"dice": "1d8+5", "type": "piercing"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Lay Down the Law", "type": "action", "actions": 1, "category": "offensive", "traits": ["auditory", "concentrate", "linguistic", "mental"], "text": "<p><strong>Requirements</strong> The guard's last action this turn was a successful Strike against a creature within 30 feet</p><hr /><p><strong>Effect</strong> The guard yells a command at the creature they hit. The target must succeed at a @Check[will|dc:22] save or spend the first action on its next turn doing as commanded (or all its actions on its next turn on a critical failure). The guard can command a creature to approach the guard, release what its holding, or drop @UUID[Compendium.pf2e.conditionitems.Item.Prone]. Regardless of the result of its save, the creature is temporarily immune for 10 minutes.</p>"},
+    {"name": "Efficient Capture", "type": "action", "actions": 3, "category": "offensive", "traits": ["attack", "manipulate"], "text": "<p><strong>Requirements</strong> The guard has manacles in hand and is adjacent to a creature</p>\n<hr />\n<p><strong>Effect</strong> The guard attempts to bind the creature's wrists or ankles with the manacles. If the guard succeeds at an attack roll with a [[/r 1d20+11 #Manacles]]{+11 modifier} against the target's AC, they apply the manacles.</p>"},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the guard's turn, reduce its @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "scale-mail", "equip": "worn"},
+    {"slug": "sap", "equip": "held1"},
+    {"slug": "mace", "equip": "worn"},
+    {"slug": "crossbow", "equip": "worn"},
+    {"slug": "bolts", "qty": 10},
+    {"slug": "manacles-average", "qty": 2},
+    {"slug": "signal-whistle"},
+    {"slug": "lantern-hooded"},
+    {"item": {"name": "Effect: Under Command", "type": "effect", "img": "icons/sundries/flags/banner-flag-red-white.webp", "system": {"description": {"value": "<p>You are commanded by a captain of the guard.</p>"}, "duration": {"expiry": null, "sustained": false, "unit": "unlimited", "value": -1}, "level": {"value": 6}, "publication": {"license": "ORC", "remaster": true, "title": "Pathfinder NPC Core"}, "rules": [], "start": {"initiative": null, "value": 0}, "tokenIcon": {"show": true}, "traits": {"value": []}}}}
+  ]
+}

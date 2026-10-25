@@ -85,7 +85,7 @@
     {
       "name": "hand crossbow",
       "bonus": 9,
-      "range": 60,
+      "range": {"increment": 60, "max": null},
       "traits": [],
       "damage": [
         {

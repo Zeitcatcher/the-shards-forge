@@ -59,7 +59,24 @@ const TABLE = {
   "improved-push": { check: (c) => strikeListsCheck(c, "improved-push"), fix: (r) => addStrikeEffect(r, "improved-push") },
   "pull": { check: (c) => strikeListsCheck(c, "pull"), fix: (r) => addStrikeEffect(r, "pull") },
   "reactive-strike": {
-    check: (c) => (c.strikes.some((s) => !s.system.range?.value && !s.system.range?.max) ? null : "Reactive Strike present but the actor has no melee Strike"),
+    check: (c) => (c.strikes.some((s) => !s.system.range?.value && !s.system.range?.max && !s.system.range?.increment) ? null : "Reactive Strike present but the actor has no melee Strike"),
+  },
+  // npc-core abilities copied onto Shards NPCs (mines guard / fort garrison, 2026-10-25).
+  "lay-down-the-law": { runtime: true }, // "last action this turn was a successful Strike": an in-play state
+  "efficient-capture": {
+    check: (c) => (c.items.some((i) => i.type === "equipment" && /manacles/i.test(i.name) && (i.system.quantity ?? 1) > 0)
+      ? null : "Efficient Capture present but no manacles in inventory (its requirement is manacles in hand)"),
+  },
+  "shielded-advance": {
+    check: (c) => {
+      if (!c.shields.length) return "Shielded Advance present but no shield in inventory";
+      if (!c.names.has("raise-a-shield")) return "Shielded Advance present but the actor has no Raise a Shield action (its requirement is a raised shield)";
+      return null;
+    },
+  },
+  "crowd-control": {
+    check: (c) => (c.strikes.some((s) => !s.system.range && (s.system.traits?.value || []).some((t) => t === "reach" || t.startsWith("reach-")))
+      ? null : "Crowd Control present but no melee Strike has reach (it Repositions with the weapon's reach)"),
   },
   "attack-of-opportunity": {
     check: (c) => (c.strikes.some((s) => !s.system.range?.value && !s.system.range?.max) ? null : "Attack of Opportunity present but the actor has no melee Strike"),
@@ -142,7 +159,7 @@ export function validateResolvedActor(doc, ctx) {
   const entries = items.filter((i) => i.type === "spellcastingEntry");
   const names = new Set(actions.map((a) => slugify(a.name)));
   const c = {
-    actions, strikes, shields, entries, names,
+    items, actions, strikes, shields, entries, names,
     abilityText: (slug) => {
       const a = actions.find((x) => slugify(x.name) === slug);
       return a ? localize(a.system.description?.value || "") : "";
@@ -167,7 +184,7 @@ export function validateResolvedActor(doc, ctx) {
   // 3) Inventory backing for consumable-throwing strikes (bombs, thrown weapons).
   for (const s of strikes) {
     const traits = s.system.traits?.value || [];
-    if (!(traits.includes("bomb") || traits.includes("thrown"))) continue;
+    if (!(traits.includes("bomb") || traits.some((t) => t === "thrown" || t.startsWith("thrown-")))) continue;
     const sslug = slugify(s.name);
     const backing = items.filter((i) => ["consumable", "weapon"].includes(i.type))
       .find((i) => { const islug = slugify(i.name); return sslug.includes(islug) || islug.includes(sslug); });
@@ -218,6 +235,7 @@ if (isCLI) {
       const resolved = resolveActor(recipe);
       const items = resolved.items || [];
       const ctx2 = {
+        items,
         actions: items.filter((i) => i.type === "action"),
         strikes: items.filter((i) => i.type === "melee"),
         shields: items.filter((i) => i.type === "shield"),

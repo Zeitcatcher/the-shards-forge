@@ -1,0 +1,42 @@
+{
+  "_id": "shardsfortsold01",
+  "name": "Солдат гарнизона",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>A line soldier of the Kragmir army detachment that holds the fort in the deep mines, a generic type fought in numbers. The fort holds the known route to Ssir-Ket, homeland of the Пауки-Оборотни, and the drill shows it: alchemist's fire against webs, arbalests to shoot climbers off the walls, halberds to shove attackers back. The garrison is a separate force from the mines guard and always fights to kill. Table note: Formation is a toggle; switch it on while the soldier stands adjacent to at least two allies.</p>",
+  "level": 6,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 2, "con": 4, "int": 0, "wis": 2, "cha": 0},
+  "ac": 24,
+  "hp": 120,
+  "perception": 14,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 17, "ref": 11, "will": 14},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 13},
+  "lores": [{"name": "Warfare Lore", "mod": 13}],
+  "strikes": [
+    {"name": "halberd", "bonus": 17, "traits": ["reach-10", "versatile-s"], "damage": [{"dice": "1d10+10", "type": "piercing"}]},
+    {"name": "arbalest", "bonus": 15, "range": {"increment": 110, "max": null}, "traits": ["backstabber", "reload-1"], "damage": [{"dice": "1d10+6", "type": "piercing"}]},
+    {"name": "alchemist's fire", "bonus": 15, "range": {"increment": 20, "max": null}, "traits": ["alchemical", "bomb", "consumable", "fire", "splash"], "damage": [{"dice": "2d8", "type": "fire"}, {"dice": "2", "type": "fire", "category": "persistent"}, {"dice": "2", "type": "fire", "category": "splash"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Formation", "type": "passive", "category": "defensive", "text": "<p>When it's adjacent to at least two other allies, the soldier gains a +1 circumstance bonus to AC and saving throws. This bonus increases to +2 to Reflex saves against area effects.</p>", "rules": [{"key": "FlatModifier", "predicate": ["formation"], "selector": "saving-throw", "type": "circumstance", "value": 1}, {"key": "RollOption", "option": "formation", "toggleable": true}, {"key": "FlatModifier", "label": "PF2E.NPCAbility.HobgoblinFormationArea", "predicate": ["formation", "area-effect"], "selector": "reflex", "type": "circumstance", "value": 2}, {"key": "FlatModifier", "predicate": ["formation"], "selector": "ac", "type": "circumstance", "value": 1}]},
+    {"name": "Crowd Control", "type": "action", "actions": 1, "category": "offensive", "text": "<p><strong>Requirements</strong> The soldier's last action was a successful halberd Strike</p><hr /><p><strong>Effect</strong> The soldier attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Reposition] the creature they hit using their halberd's reach. This attempt neither applies nor counts toward the soldier's multiple attack penalty.</p>"},
+    {"name": "Shoot Down", "type": "action", "actions": 2, "category": "offensive", "text": "<p>The soldier carefully makes a ranged Strike. If the Strike deals damage, the target must succeed at a @Check[reflex|dc:24|options:inflicts:prone] saving throw or fall @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the soldier's turn, reduce its @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "half-plate", "equip": "worn"},
+    {"slug": "halberd", "equip": "held2"},
+    {"slug": "arbalest", "equip": "worn"},
+    {"slug": "bolts", "qty": 10},
+    {"slug": "alchemists-fire-moderate", "qty": 2},
+    {"slug": "antidote-moderate", "qty": 1}
+  ]
+}

@@ -81,7 +81,18 @@
     "spells/knock": "packs/pf2e/spells/spells/rank-2/knock.json",
     "spells/wall-of-ice": "packs/pf2e/spells/spells/rank-5/wall-of-ice.json",
     "abilities/frightful-presence": "packs/pf2e/bestiary-ability-glossary-srd/frightful-presence.json",
-    "abilities/change-shape": "packs/pf2e/bestiary-ability-glossary-srd/change-shape.json"
+    "abilities/change-shape": "packs/pf2e/bestiary-ability-glossary-srd/change-shape.json",
+    "equipment/dwarven-dorn-dergar": "packs/pf2e/equipment/dwarven-dorn-dergar.json",
+    "equipment/signal-whistle": "packs/pf2e/equipment/signal-whistle.json",
+    "equipment/half-plate": "packs/pf2e/equipment/half-plate.json",
+    "equipment/dwarven-war-axe": "packs/pf2e/equipment/dwarven-war-axe.json",
+    "equipment/sap": "packs/pf2e/equipment/sap.json",
+    "equipment/heavy-crossbow": "packs/pf2e/equipment/heavy-crossbow.json",
+    "equipment/manacles-average": "packs/pf2e/equipment/manacles-average.json",
+    "equipment/halberd": "packs/pf2e/equipment/halberd.json",
+    "equipment/arbalest": "packs/pf2e/equipment/arbalest.json",
+    "equipment/antidote-moderate": "packs/pf2e/equipment/antidote-moderate.json",
+    "equipment/crossbow": "packs/pf2e/equipment/crossbow.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

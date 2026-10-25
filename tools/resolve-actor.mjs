@@ -26,7 +26,10 @@ export function resolveActor(A) {
       // attackEffects wires the Strike's chat card to follow-up abilities (Grab, Knockdown...):
       // list the ability slugs in the recipe as effects: ["grab"].
       system: { bonus: { value: s.bonus || 0 }, damageRolls: dmg, traits: { value: s.traits || [], otherTags: [] }, attackEffects: { value: s.effects || [] },
-        description: { value: s.text || "", gm: "" }, rules: s.rules || [], slug: null, action: "strike", subjectToMAP: true, range: s.range ? { value: s.range } : null, area: null } });
+        // range: a number keeps the legacy shape; an object {increment, max} is the pf2e
+        // melee-item schema and passes through as-is (real range increments).
+        description: { value: s.text || "", gm: "" }, rules: s.rules || [], slug: null, action: "strike", subjectToMAP: true,
+        range: s.range ? (typeof s.range === "object" ? { increment: s.range.increment ?? null, max: s.range.max ?? null } : { value: s.range }) : null, area: null } });
   }
 
   // Standard pf2e docs embedded as-is (bestiary glossary abilities, standard actions...).
@@ -50,7 +53,7 @@ export function resolveActor(A) {
     const img = t === "action" ? (AIMG["a" + (a.actions || 1)] || AIMG.a1) : (AIMG[t] || AIMG.passive);
     items.push({ _id: mkid(A._id + ":action:" + a.name), name: a.name, type: "action", img,
       system: { actionType: { value: t === "action" ? "action" : t }, actions: { value: t === "action" ? (a.actions || 1) : null },
-        description: { value: a.text || "", gm: "" }, traits: { value: a.traits || [], otherTags: [] }, rules: a.rules || [], slug: null, category: null } });
+        description: { value: a.text || "", gm: "" }, traits: { value: a.traits || [], otherTags: [] }, rules: a.rules || [], slug: null, category: a.category || null } });
   }
 
   // Lore skills: recipe `lores: [{name, mod}]` -> pf2e `lore` items (the NPC sheet lists them
@@ -67,6 +70,8 @@ export function resolveActor(A) {
     strip(doc);
     doc._id = mkid(A._id + ":gear:" + gi + ":" + (g.slug || (g.item && g.item.name) || "x"));
     doc.system = doc.system || {};
+    // A bespoke effect (e.g. an official marker like Effect: Under Command) is not physical: no qty/equip.
+    if (doc.type === "effect") { items.push(doc); continue; }
     if (g.qty) doc.system.quantity = g.qty;
     if (g.runes) doc.system.runes = Object.assign({}, doc.system.runes || {}, g.runes);
     const eq = (doc.system.equipped = doc.system.equipped || {});

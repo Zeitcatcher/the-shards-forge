@@ -1,0 +1,44 @@
+{
+  "_id": "shardsfortcapt01",
+  "name": "Капитан гарнизона",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Commander of the Kragmir army detachment at the deep mines fort, a generic type (one per map). The fort holds the known route to Ssir-Ket, homeland of the Пауки-Оборотни. The commander runs the garrison like a drill yard: orders before the first blow, a voice that keeps a falling soldier on his feet, and a dorn-dergar to hold the gate at reach. The garrison is a separate force from the mines guard and always fights to kill. Table note: Commanding Aura grants its temporary Hit Points through the linked effect; drag it onto each ally that starts its turn within 60 feet.</p>",
+  "level": 9,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 6, "dex": 1, "con": 4, "int": 2, "wis": 3, "cha": 4},
+  "ac": 28,
+  "hp": 195,
+  "perception": 21,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 21, "ref": 15, "will": 21},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 20, "intimidation": 20},
+  "lores": [{"name": "Warfare Lore", "mod": 20}],
+  "strikes": [
+    {"name": "dwarven dorn-dergar", "bonus": 21, "traits": ["magical", "razing", "reach-10"], "damage": [{"dice": "2d10+13", "type": "bludgeoning"}]},
+    {"name": "clan dagger", "bonus": 20, "traits": ["agile", "parry", "versatile-b"], "damage": [{"dice": "1d4+12", "type": "piercing"}]},
+    {"name": "javelin", "bonus": 18, "traits": ["thrown-30"], "damage": [{"dice": "1d6+12", "type": "piercing"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Opening Orders", "type": "free", "category": "interaction", "traits": ["auditory", "linguistic"], "text": "<p><strong>Trigger</strong> The captain rolls initiative and can see at least one enemy</p><hr /><p><strong>Effect</strong> The captain unleashes a command to ready for combat. Each ally within 120 feet that can hear the captain can either Raise a Shield or Step as a free action when it rolls initiative.</p>", "rules": [{"key": "Note", "selector": "initiative", "text": "{item|description}", "title": "{item|name}", "visibility": "owner"}]},
+    {"name": "Advancing Orders", "type": "action", "actions": 1, "category": "offensive", "traits": ["auditory", "linguistic"], "text": "<p>The captain issues a command to push forward on the battlefield. Each ally who hears and understands this command becomes @UUID[Compendium.pf2e.conditionitems.Item.Quickened] until the end of its next turn but can use the extra action only to Step or Stride.</p>"},
+    {"name": "Chastising Enforcement", "type": "action", "actions": 1, "category": "offensive", "traits": ["auditory", "emotion", "linguistic", "mental"], "text": "<p>The captain exhorts a faltering comrade with a stern word and attempts an @Check[intimidation|against:will] check against the Will DC of one ally within 30 feet. On a success, the target's @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition is reduced by 2 and the captain can attempt to counteract one mental effect that ally is suffering from with a [[/r 1d20+20 #Counteract]]{+20} counteract modifier. On a critical success, the captain also reduces the frightened condition of each other ally in a @Template[type:emanation|distance:10] around the target by 1.</p>"},
+    {"name": "Commanding Aura", "type": "passive", "category": "defensive", "traits": ["aura", "emotion", "mental", "visual"], "text": "<p>60 feet. An ally that starts its turn in the aura gains 8 temporary Hit Points. These last until the start of the creature's next turn.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Commanding Aura]</p>", "rules": [{"key": "Aura", "radius": 60, "slug": "commanding-aura", "traits": ["emotion", "mental", "visual"]}]},
+    {"name": "You Don't Have My Permission to Die!", "type": "reaction", "category": "defensive", "traits": ["auditory", "emotion", "fear", "linguistic", "mental"], "text": "<p><strong>Trigger</strong> An allied creature within 30 feet would be reduced to 0 Hit Points</p><hr /><p><strong>Effect</strong> With a stern rebuke, the captain berates the target for their failure. The creature avoids being knocked out and remains at 1 HP. The creature is then temporarily immune for 24 hours.</p>"},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the captain's turn, reduce its @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "full-plate", "equip": "worn"},
+    {"slug": "dwarven-dorn-dergar", "equip": "held2", "runes": {"potency": 1, "striking": 1}},
+    {"slug": "clan-dagger", "equip": "worn"},
+    {"slug": "javelin", "qty": 3, "equip": "worn"},
+    {"slug": "healing-potion-moderate", "qty": 1},
+    {"slug": "signal-whistle"}
+  ]
+}

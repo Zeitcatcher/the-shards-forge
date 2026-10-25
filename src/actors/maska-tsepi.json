@@ -45,7 +45,7 @@
     {
       "name": "combat grapnel",
       "bonus": 18,
-      "range": 20,
+      "range": {"increment": 20, "max": null},
       "traits": [
         "finesse",
         "grapple",
@@ -84,7 +84,7 @@
     {
       "name": "dagger",
       "bonus": 18,
-      "range": 10,
+      "range": {"increment": 10, "max": null},
       "traits": [
         "agile",
         "finesse",

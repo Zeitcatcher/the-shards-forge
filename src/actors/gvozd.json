@@ -86,7 +86,7 @@
     {
       "name": "nail (dart)",
       "bonus": 21,
-      "range": 20,
+      "range": {"increment": 20, "max": null},
       "traits": [
         "agile",
         "thrown-20"

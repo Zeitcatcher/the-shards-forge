@@ -74,7 +74,7 @@
     {
       "name": "javelin",
       "bonus": 16,
-      "range": 30,
+      "range": {"increment": 30, "max": null},
       "traits": [
         "thrown"
       ],

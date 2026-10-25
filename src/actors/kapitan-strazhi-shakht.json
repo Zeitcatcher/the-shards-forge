@@ -1,0 +1,48 @@
+{
+  "_id": "shardsmincapt001",
+  "name": "Капитан стражи шахт",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>A captain of the deep mines guard of Kragmir, a generic type (one or two per map). The captain runs a street squad of Стражник шахт and fights the way they do: to arrest, with the sap, manacles, and orders, until the party kills a guard; after that the war axe comes out. The mines guard is a separate force from the army detachment at the fort, and Kragmir's guard has no mages. Table note: Aura of Command buffs only lower-level guards that carry Effect: Under Command; every Стражник шахт actor already carries it.</p>",
+  "level": 7,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 1, "con": 4, "int": 1, "wis": 3, "cha": 3},
+  "ac": 25,
+  "hp": 115,
+  "perception": 18,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 18, "ref": 12, "will": 18},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 17, "intimidation": 17},
+  "lores": [{"name": "Kragmir Lore", "mod": 15}],
+  "strikes": [
+    {"name": "dwarven war axe", "bonus": 18, "traits": ["magical", "sweep"], "damage": [{"dice": "2d8+8", "type": "slashing"}]},
+    {"name": "sap", "bonus": 17, "traits": ["agile", "nonlethal"], "damage": [{"dice": "1d6+10", "type": "bludgeoning"}]},
+    {"name": "heavy crossbow", "bonus": 13, "range": {"increment": 120, "max": null}, "traits": ["reload-2"], "damage": [{"dice": "1d10+6", "type": "piercing"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"},
+    {"slug": "shield-block"},
+    {"group": "actions", "slug": "raise-a-shield", "selfEffect": {"name": "Effect: Raise Guard", "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Raise Guard"}}
+  ],
+  "actions": [
+    {"name": "Aura of Command", "type": "passive", "category": "defensive", "traits": ["aura", "emotion", "mental"], "text": "<p>30 feet. The captain bolsters lower-level guards under their command, granting them a +1 status bonus to their attack rolls and a +2 status bonus to their Will saves.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Under Command]</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Command]</p>", "rules": [{"key": "Aura", "radius": 30, "slug": "aura-of-command", "traits": ["emotion", "mental"], "effects": [{"affects": "allies", "events": ["enter"], "includesSelf": false, "predicate": ["target:effect:under-command", {"lt": ["target:level", "self:level"]}], "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Command"}]}]},
+    {"name": "Air of Authority", "type": "passive", "category": "defensive", "traits": ["aura", "emotion", "mental"], "text": "<p>10 feet. Creatures in the aura who are the same or lower level than the captain take a -2 status penalty to their Will DC against the captain's attempts to [[/act coerce]] or [[/act demoralize]] them.</p>", "rules": [{"key": "Aura", "radius": 10, "slug": "air-of-authority", "traits": ["emotion", "mental"], "effects": [{"affects": "all", "includesSelf": false, "predicate": [{"gte": ["self:level", "target:level"]}], "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Air of Authority"}]}]},
+    {"name": "Stop in the Name of the Law!", "type": "action", "actions": 2, "category": "offensive", "traits": ["incapacitation", "linguistic"], "text": "<p>The captain Strides twice and then [[/act demoralize]]{Demoralizes}. On a success, the target is @UUID[Compendium.pf2e.conditionitems.Item.Slowed] with a value equal to its @UUID[Compendium.pf2e.conditionitems.Item.Frightened] value until it is no longer frightened.</p>"},
+    {"name": "Shielded Advance", "type": "action", "actions": 1, "category": "offensive", "text": "<p><strong>Requirements</strong> The captain has their shield raised</p><hr /><p><strong>Effect</strong> The captain presses forward, using their shield to push back foes. The captain Strides and [[/act shove]]{Shoves}, in either order. The multiple attack penalty doesn't apply to this Shove, though the Shove does count toward the captain's multiple attack penalty.</p>"},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the captain's turn, reduce its @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "half-plate", "equip": "worn"},
+    {"slug": "steel-shield", "equip": "held1"},
+    {"slug": "dwarven-war-axe", "equip": "held1", "runes": {"potency": 1, "striking": 1}},
+    {"slug": "sap", "equip": "worn"},
+    {"slug": "heavy-crossbow", "equip": "worn"},
+    {"slug": "bolts", "qty": 10},
+    {"slug": "manacles-average", "qty": 1},
+    {"slug": "signal-whistle"},
+    {"slug": "healing-potion-moderate", "qty": 1}
+  ]
+}

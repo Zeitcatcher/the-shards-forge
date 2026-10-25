@@ -60,7 +60,7 @@
     {
       "name": "throwing dagger",
       "bonus": 20,
-      "range": 10,
+      "range": {"increment": 10, "max": null},
       "traits": [
         "agile",
         "thrown"

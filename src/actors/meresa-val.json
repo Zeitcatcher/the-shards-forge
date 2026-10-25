@@ -83,7 +83,7 @@
     {
       "name": "hand crossbow",
       "bonus": 18,
-      "range": 60,
+      "range": {"increment": 60, "max": null},
       "traits": [
         "reload-1"
       ],

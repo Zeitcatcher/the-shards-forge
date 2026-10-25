@@ -44,7 +44,7 @@
     {
       "name": "alchemist's fire",
       "bonus": 18,
-      "range": 20,
+      "range": {"increment": 20, "max": null},
       "traits": [
         "alchemical",
         "bomb",
@@ -73,7 +73,7 @@
     {
       "name": "magnesium flash",
       "bonus": 18,
-      "range": 20,
+      "range": {"increment": 20, "max": null},
       "traits": [
         "alchemical",
         "bomb",
