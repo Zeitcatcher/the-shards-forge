@@ -151,7 +151,10 @@ export function resolveActor(A) {
   // six-die hand the Knuckles Game module reads at game start; that module is independent and
   // owns the contract, we only carry the data).
   const flags = A.flags && typeof A.flags === "object" ? JSON.parse(JSON.stringify(A.flags)) : undefined;
+  // Token disposition (Foundry CONST.TOKEN_DISPOSITIONS): -2 secret, -1 hostile (default), 0 neutral, 1 friendly.
+  const DISPOSITIONS = [-2, -1, 0, 1];
+  if (A.disposition !== undefined && !DISPOSITIONS.includes(A.disposition)) warnings.push(`${A.name}: disposition ${JSON.stringify(A.disposition)} is not one of ${DISPOSITIONS.join(", ")}`);
   return { _id: A._id, name: A.name, type: "npc", img: A.img || "systems/pf2e/icons/default-icons/npc.svg", ...(flags ? { flags } : {}),
-    prototypeToken: { name: A.name, texture: { src: A.token || A.img || "systems/pf2e/icons/default-icons/npc.svg" }, disposition: -1, actorLink: false, sight: { enabled: true } },
+    prototypeToken: { name: A.name, texture: { src: A.token || A.img || "systems/pf2e/icons/default-icons/npc.svg" }, disposition: DISPOSITIONS.includes(A.disposition) ? A.disposition : -1, actorLink: false, sight: { enabled: true } },
     system, items };
 }

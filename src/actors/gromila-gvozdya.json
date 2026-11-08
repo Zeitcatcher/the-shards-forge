@@ -1,0 +1,43 @@
+{
+  "_id": "shardsgvozdbrut1",
+  "name": "Громила Гвоздя",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>One of Гвоздь's bruisers, a generic type fought in threes. A broad clanless dwarf who used to haul cargo on the Kragmir docks and still fights like a loader: he knocks people flat with a maul, shoves them where they don't want to go, and when nothing else is in reach he throws the nearest crate. He counts as one of Гвоздь's bought men for Bought Men.</p>",
+  "level": 6,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 2, "con": 4, "int": 0, "wis": 1, "cha": 1},
+  "ac": 23,
+  "hp": 120,
+  "perception": 11,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 17, "ref": 11, "will": 14},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 18, "intimidation": 13},
+  "lores": [{"name": "Labor Lore", "mod": 11}],
+  "strikes": [
+    {"name": "maul", "bonus": 17, "traits": ["magical", "shove"], "damage": [{"dice": "2d12+5", "type": "bludgeoning"}], "effects": ["knockdown"]},
+    {"name": "fist", "bonus": 17, "traits": ["agile", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+10", "type": "bludgeoning"}]},
+    {"name": "javelin", "bonus": 14, "range": {"increment": 30, "max": null}, "traits": ["thrown-30"], "damage": [{"dice": "1d6+8", "type": "piercing"}]}
+  ],
+  "standardItems": [
+    {"slug": "knockdown"},
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Over the Edge", "type": "action", "actions": 1, "category": "offensive", "text": "<p>The bruiser [[/act shove options=over-the-edge]]{Shoves} a creature, gaining a +2 circumstance bonus to his Athletics check if the target is @UUID[Compendium.pf2e.conditionitems.Item.Prone]. If the Shove succeeds, the target takes @Damage[2d10[bludgeoning]] damage (double damage on a critical success). A creature Shoved into a pit, a shaft, or off a ledge falls and takes falling damage as normal.</p>",
+      "rules": [{"key": "FlatModifier", "selector": "athletics", "type": "circumstance", "value": 2, "predicate": ["action:shove", "over-the-edge", "target:condition:prone"]}]},
+    {"name": "Heft Crate", "type": "action", "actions": 2, "category": "offensive", "traits": ["manipulate"], "text": "<p>The bruiser picks up a crate or barrel adjacent to him and heaves it up to 15 feet. Upon landing, it breaks open in a @Template[type:burst|distance:5]. Each creature in the area takes @Damage[4d6[bludgeoning]|options:area-damage] damage with a @Check[reflex|dc:21|basic|options:area-effect] save, and the area is difficult terrain until cleared.</p>"},
+    {"name": "Hammer Critical Specialization", "type": "passive", "category": "offensive", "text": "<p>When the bruiser critically hits with a hammer, the target of the critical hit is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone] unless it succeeds at a @Check[fortitude|dc:24|options:inflicts:prone] save.</p>",
+      "rules": [{"key": "Note", "outcome": ["criticalSuccess"], "selector": "maul-attack-roll", "text": "{item|description}", "title": "{item|name}", "visibility": "owner"}]},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the bruiser's turn, reduce his @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "hide-armor", "equip": "worn"},
+    {"slug": "maul", "equip": "held2", "runes": {"potency": 1, "striking": 1}},
+    {"slug": "javelin", "qty": 3},
+    {"slug": "rope", "qty": 1}
+  ]
+}

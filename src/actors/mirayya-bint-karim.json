@@ -1,0 +1,312 @@
+{
+  "_id": "shardsmirayya001",
+  "name": "Мирайя бинт Карим",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Мирайя бинт Карим leads the Шёлковые шапочки. She killed Джафар and took Аль-Захир, sent bandits after the party on the road to Kragmir, then came to Крайняя Чарка with a deal: Торвэйн, and later Гвоздь, in return for her contacts and her help. She brought the potion and the scrolls to the arena before the fight with the Судья, so her half is paid. She brought her people into sealed Kragmir past Гвоздь, who holds everything that moves in or out of the city, and he wants her gone. She would rather settle things with a deal or with someone else's hands. When she does fight, she cuts from cover with a coated blade and sets her men on the weak spot, and she leaves before she can lose. Level 10 and the Human ancestry are assigned for play, not canon. Table notes: Nimble Dodge and Hidden Blade are toggles; switch them on for the attack they apply to.</p>",
+  "level": 10,
+  "disposition": 0,
+  "rarity": "unique",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": 1,
+    "dex": 7,
+    "con": 3,
+    "int": 5,
+    "wis": 4,
+    "cha": 6
+  },
+  "ac": 30,
+  "hp": 175,
+  "perception": 22,
+  "senses": [],
+  "languages": [
+    "common"
+  ],
+  "saves": {
+    "fort": 16,
+    "ref": 22,
+    "will": 19
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "deception": 25,
+    "stealth": 22,
+    "acrobatics": 19,
+    "diplomacy": 19,
+    "intimidation": 19,
+    "society": 19,
+    "thievery": 19,
+    "athletics": 15
+  },
+  "lores": [
+    {
+      "name": "Underworld Lore",
+      "mod": 22
+    }
+  ],
+  "strikes": [
+    {
+      "name": "jambiya",
+      "bonus": 23,
+      "traits": [
+        "agile",
+        "finesse",
+        "versatile-s",
+        "magical"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+10",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "dagger",
+      "bonus": 23,
+      "range": {
+        "increment": 10,
+        "max": null
+      },
+      "traits": [
+        "agile",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+10",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 22,
+      "traits": [
+        "agile",
+        "finesse",
+        "nonlethal",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+10",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "sneak-attack",
+      "text": "<p>Мирайя deals an extra 3d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 3,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    },
+    {
+      "slug": "nimble-dodge",
+      "text": "<p><strong>Trigger</strong> Мирайя is targeted with a melee or ranged attack by an attacker she can see.</p><hr /><p><strong>Effect</strong> Мирайя gains a +2 circumstance bonus to AC against the triggering attack.</p>"
+    }
+  ],
+  "actions": [
+    {
+      "name": "Deny Advantage",
+      "type": "passive",
+      "category": "defensive",
+      "text": "<p>Мирайя isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to creatures of 10th level or lower that are @UUID[Compendium.pf2e.conditionitems.Item.Hidden], @UUID[Compendium.pf2e.conditionitems.Item.Undetected], flanking, or using surprise attack.</p>",
+      "rules": [
+        {
+          "key": "ActiveEffectLike",
+          "mode": "override",
+          "path": "system.attributes.flanking.offGuardable",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Coated Blade",
+      "type": "passive",
+      "category": "offensive",
+      "traits": [
+        "poison"
+      ],
+      "text": "<p>Мирайя keeps her jambiya coated with a poison of her own mixing. The first time each round she deals damage to a creature with a jambiya Strike, that creature must attempt a @Check[fortitude|dc:29] save.</p><hr /><p><strong>Success</strong> The creature is unaffected.</p><p><strong>Failure</strong> The creature takes @Damage[2d6[poison]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} until the end of Мирайя's next turn.</p><p><strong>Critical Failure</strong> The creature takes @Damage[4d6[poison]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} until the end of Мирайя's next turn.</p>"
+    },
+    {
+      "name": "Hidden Blade",
+      "type": "action",
+      "actions": 1,
+      "category": "offensive",
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Мирайя draws a blade from her sleeve or sash and Strikes with it. The target is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against the attack.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "hidden-blade",
+          "toggleable": true
+        },
+        {
+          "key": "EphemeralEffect",
+          "predicate": [
+            "hidden-blade"
+          ],
+          "selectors": [
+            "strike-attack-roll",
+            "strike-damage"
+          ],
+          "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        }
+      ]
+    },
+    {
+      "name": "Silk Signal",
+      "type": "action",
+      "actions": 1,
+      "category": "offensive",
+      "traits": [
+        "concentrate",
+        "visual"
+      ],
+      "text": "<p>Мирайя gives a silent hand sign and points out one enemy she can see within 60 feet. Until the start of her next turn, that enemy is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against the first Strike that each of her allies who saw the sign makes against it.</p>"
+    },
+    {
+      "name": "Slip the Knot",
+      "type": "action",
+      "actions": 2,
+      "category": "defensive",
+      "traits": [
+        "move"
+      ],
+      "text": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> If Мирайя is @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], she first attempts to [[/act escape statistic=acrobatics]]{Escape}; if she fails, the activity ends. She then @UUID[Compendium.pf2e.actionspf2e.Item.Step]{Steps} and @UUID[Compendium.pf2e.actionspf2e.Item.Stride]{Strides}. If she ends this movement with cover or concealment from an enemy, or among a crowd, she becomes @UUID[Compendium.pf2e.conditionitems.Item.Hidden] to that enemy.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn",
+      "runes": {
+        "potency": 1
+      }
+    },
+    {
+      "item": {
+        "name": "Jambiya",
+        "type": "weapon",
+        "img": "icons/weapons/daggers/dagger-straight-blue.webp",
+        "system": {
+          "ammo": null,
+          "baseItem": "dagger",
+          "bonus": {
+            "value": 0
+          },
+          "bonusDamage": {
+            "value": 0
+          },
+          "bulk": {
+            "value": 0.1
+          },
+          "category": "simple",
+          "containerId": null,
+          "damage": {
+            "damageType": "piercing",
+            "dice": 1,
+            "die": "d4"
+          },
+          "description": {
+            "value": "<p>A curved, double-edged dagger worn in a silk sash. It uses the statistics of a dagger.</p>"
+          },
+          "expend": null,
+          "grade": null,
+          "group": "knife",
+          "hardness": 0,
+          "hp": {
+            "max": 0,
+            "value": 0
+          },
+          "level": {
+            "value": 0
+          },
+          "material": {
+            "grade": null,
+            "type": null
+          },
+          "price": {
+            "value": {
+              "sp": 2
+            }
+          },
+          "quantity": 1,
+          "range": null,
+          "reload": {
+            "value": "-"
+          },
+          "rules": [],
+          "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+          },
+          "size": "med",
+          "splashDamage": {
+            "value": 0
+          },
+          "traits": {
+            "rarity": "common",
+            "value": [
+              "agile",
+              "finesse",
+              "versatile-s"
+            ]
+          },
+          "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+          }
+        }
+      },
+      "equip": "worn",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "dagger",
+      "qty": 4
+    },
+    {
+      "slug": "clothing-fine",
+      "equip": "worn"
+    },
+    {
+      "slug": "thieves-toolkit",
+      "qty": 1
+    },
+    {
+      "slug": "healing-potion-moderate",
+      "qty": 1
+    }
+  ]
+}

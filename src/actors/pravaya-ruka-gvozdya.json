@@ -1,0 +1,42 @@
+{
+  "_id": "shardsgvozdhand1",
+  "name": "Правая рука Гвоздя",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Гвоздь's right hand: the heaviest of the clanless dwarves he pays, and the one who stands at his shoulder when a deal turns into a fight. A generic type with no name of record. He wears mail, carries a two-handed dwarven war axe and a pair of hatchets, and his job is simple: whoever reaches the boss goes through him first. He counts as one of Гвоздь's bought men for Bought Men, and he will take a blow meant for his employer without being asked.</p>",
+  "level": 8,
+  "rarity": "common",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 6, "dex": 2, "con": 4, "int": 1, "wis": 3, "cha": 2},
+  "ac": 27,
+  "hp": 165,
+  "perception": 16,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 19, "ref": 13, "will": 16},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 18, "intimidation": 16},
+  "lores": [{"name": "Underworld Lore", "mod": 13}],
+  "strikes": [
+    {"name": "dwarven war axe", "bonus": 20, "traits": ["magical", "sweep", "two-hand-d12"], "damage": [{"dice": "2d12+9", "type": "slashing"}]},
+    {"name": "fist", "bonus": 19, "traits": ["agile", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+12", "type": "bludgeoning"}]},
+    {"name": "hatchet", "bonus": 18, "range": {"increment": 10, "max": null}, "traits": ["agile", "sweep", "thrown-10"], "damage": [{"dice": "1d6+10", "type": "slashing"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"},
+    {"slug": "power-attack"}
+  ],
+  "actions": [
+    {"name": "Take the Blow", "type": "reaction", "category": "defensive", "text": "<p><strong>Trigger</strong> Гвоздь takes damage from an attack, and the right hand is adjacent to him</p><hr /><p><strong>Effect</strong> The right hand throws himself into the blow and takes the damage instead, along with any secondary effects of the attack. This damage can't be reduced in any way.</p>"},
+    {"name": "Intimidating Strike", "type": "action", "actions": 2, "category": "offensive", "traits": ["emotion", "fear", "mental"], "text": "<p>The right hand makes a melee Strike meant to break the target's nerve. If it hits and deals damage, the target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}, or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical hit.</p>"},
+    {"name": "Axe Critical Specialization", "type": "passive", "category": "offensive", "text": "<p>When the right hand critically hits with an axe, he can choose one creature adjacent to the initial target and within his reach. If that creature's AC is lower than the result of the critical attack roll, it takes damage equal to the result of the weapon damage dice rolled, including the extra die from the striking rune. This damage isn't doubled, and no bonuses or other additional dice apply to it.</p>",
+      "rules": [{"key": "Note", "outcome": ["criticalSuccess"], "selector": "dwarven-war-axe-attack-roll", "text": "{item|description}", "title": "{item|name}", "visibility": "owner"}]},
+    {"name": "Dwarven Doughtiness", "type": "passive", "category": "defensive", "text": "<p>Dwarves are often calm and collected in the face of imminent danger. At the end of the right hand's turn, reduce his @UUID[Compendium.pf2e.conditionitems.Item.Frightened] condition by 2 instead of 1.</p>"}
+  ],
+  "gear": [
+    {"slug": "chain-mail", "equip": "worn", "runes": {"potency": 1}},
+    {"slug": "dwarven-war-axe", "equip": "held2", "runes": {"potency": 1, "striking": 1}},
+    {"slug": "hatchet", "qty": 2},
+    {"slug": "healing-potion-moderate", "qty": 1}
+  ]
+}

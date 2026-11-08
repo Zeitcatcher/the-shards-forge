@@ -92,7 +92,22 @@
     "equipment/halberd": "packs/pf2e/equipment/halberd.json",
     "equipment/arbalest": "packs/pf2e/equipment/arbalest.json",
     "equipment/antidote-moderate": "packs/pf2e/equipment/antidote-moderate.json",
-    "equipment/crossbow": "packs/pf2e/equipment/crossbow.json"
+    "equipment/crossbow": "packs/pf2e/equipment/crossbow.json",
+    "equipment/shortsword": "packs/pf2e/equipment/shortsword.json",
+    "equipment/maul": "packs/pf2e/equipment/maul.json",
+    "equipment/rope": "packs/pf2e/equipment/rope.json",
+    "equipment/chain-mail": "packs/pf2e/equipment/chain-mail.json",
+    "equipment/hatchet": "packs/pf2e/equipment/hatchet.json",
+    "abilities/power-attack": "packs/pf2e/bestiary-ability-glossary-srd/power-attack.json",
+    "equipment/main-gauche": "packs/pf2e/equipment/main-gauche.json",
+    "equipment/clothing-fine": "packs/pf2e/equipment/clothing-fine.json",
+    "equipment/composite-shortbow": "packs/pf2e/equipment/composite-shortbow.json",
+    "equipment/arrows": "packs/pf2e/equipment/arrows.json",
+    "equipment/blowgun": "packs/pf2e/equipment/blowgun.json",
+    "equipment/blowgun-darts": "packs/pf2e/equipment/blowgun-darts.json",
+    "equipment/giant-scorpion-venom": "packs/pf2e/equipment/giant-scorpion-venom.json",
+    "equipment/lethargy-poison": "packs/pf2e/equipment/lethargy-poison.json",
+    "equipment/darkvision-elixir-lesser": "packs/pf2e/equipment/darkvision-elixir-lesser.json"
   },
   "dirs": {
     "equipment": "packs/pf2e/equipment",

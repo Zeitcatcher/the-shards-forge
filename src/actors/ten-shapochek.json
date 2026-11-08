@@ -1,0 +1,223 @@
+{
+  "_id": "shardssilkshade1",
+  "name": "Тень Шёлковых шапочек",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>A shadow of the Шёлковые шапочки, Мирайя's scout and poisoner, a generic type fought alone. A shadow goes first and is seen last. It watches the meeting place and carries messages; in a fight it works from the dark with a blowgun and a poisoned dagger, and keeps a smoke ball for the way out. It carries a darkvision elixir for nights like this one. Human ancestry is assigned for play, not canon. Table note: Spry Dodge is a toggle for the triggering attack.</p>",
+  "level": 6,
+  "disposition": 0,
+  "rarity": "common",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": 0,
+    "dex": 5,
+    "con": 2,
+    "int": 3,
+    "wis": 2,
+    "cha": 1
+  },
+  "ac": 23,
+  "hp": 75,
+  "perception": 17,
+  "senses": [],
+  "languages": [
+    "common"
+  ],
+  "saves": {
+    "fort": 14,
+    "ref": 17,
+    "will": 11
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "stealth": 18,
+    "acrobatics": 15,
+    "crafting": 13,
+    "thievery": 13,
+    "deception": 11,
+    "medicine": 11,
+    "athletics": 9
+  },
+  "strikes": [
+    {
+      "name": "dagger",
+      "bonus": 17,
+      "traits": [
+        "agile",
+        "finesse",
+        "versatile-s",
+        "magical"
+      ],
+      "damage": [
+        {
+          "dice": "2d4+7",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "dagger (thrown)",
+      "bonus": 17,
+      "range": {
+        "increment": 10,
+        "max": null
+      },
+      "traits": [
+        "agile",
+        "thrown-10",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "1d4+7",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "blowgun",
+      "bonus": 17,
+      "range": {
+        "increment": 20,
+        "max": null
+      },
+      "traits": [
+        "agile",
+        "nonlethal",
+        "reload-1"
+      ],
+      "damage": [
+        {
+          "dice": "1d4+3",
+          "type": "piercing"
+        }
+      ]
+    }
+  ],
+  "standardItems": [
+    {
+      "slug": "sneak-attack",
+      "text": "<p>The shadow deals an extra 2d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>",
+      "rules": [
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 2,
+          "dieSize": "d6",
+          "predicate": [
+            "target:condition:off-guard"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "target:condition:off-guard",
+          "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+          "toggleable": "totm"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Quick Toxin",
+      "type": "action",
+      "actions": 1,
+      "category": "offensive",
+      "traits": [
+        "manipulate"
+      ],
+      "text": "<p>The shadow applies a dose of injury poison it carries to the dagger it holds or to a blowgun dart. If the poison's DC is lower than 22, it uses DC 22 instead.</p>"
+    },
+    {
+      "name": "Smoke and Gone",
+      "type": "action",
+      "actions": 2,
+      "category": "defensive",
+      "traits": [
+        "manipulate"
+      ],
+      "text": "<p>The shadow smashes a @UUID[Compendium.pf2e.equipment-srd.Item.Smoke Ball (Lesser)] on the ground, filling a @Template[type:burst|distance:5] centered on one corner of its space with thick smoke for 1 minute. Creatures inside the smoke are @UUID[Compendium.pf2e.conditionitems.Item.Concealed], and all other creatures are concealed to them. The shadow then @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hides} or @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneaks}.</p>"
+    },
+    {
+      "name": "Spry Dodge",
+      "type": "reaction",
+      "category": "defensive",
+      "text": "<p><strong>Trigger</strong> The shadow is targeted with a melee or ranged attack by an attacker it can see</p><hr /><p><strong>Effect</strong> The shadow gains a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the shadow can @UUID[Compendium.pf2e.actionspf2e.Item.Step].</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "domain": "ac",
+          "option": "spry-dodge",
+          "toggleable": true
+        },
+        {
+          "key": "FlatModifier",
+          "selector": "ac",
+          "type": "circumstance",
+          "value": 2,
+          "predicate": [
+            "spry-dodge"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Slink in Shadows",
+      "type": "passive",
+      "category": "offensive",
+      "text": "<p>The shadow can @UUID[Compendium.pf2e.actionspf2e.Item.Hide] or end its @UUID[Compendium.pf2e.actionspf2e.Item.Sneak] in a creature's or object's shadow.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "dagger",
+      "equip": "held1",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "dagger",
+      "qty": 3
+    },
+    {
+      "slug": "blowgun",
+      "equip": "held1"
+    },
+    {
+      "slug": "blowgun-darts",
+      "qty": 10
+    },
+    {
+      "slug": "giant-scorpion-venom",
+      "qty": 2
+    },
+    {
+      "slug": "lethargy-poison",
+      "qty": 2
+    },
+    {
+      "slug": "smoke-ball-lesser",
+      "qty": 2
+    },
+    {
+      "slug": "darkvision-elixir-lesser",
+      "qty": 1
+    },
+    {
+      "slug": "thieves-toolkit",
+      "qty": 1
+    }
+  ]
+}

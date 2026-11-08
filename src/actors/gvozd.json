@@ -2,8 +2,8 @@
   "_id": "shardsgvozd00001",
   "name": "Гвоздь",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "notes": "<p>Gvozd, a clanless dwarf who moves everything that goes in or out of sealed Kragmir: rune blanks, mithras scrap, people. He has no second name and no clan clasp, only a long iron nail worn through the knot of his beard where a clasp would sit. At the dice club Шестая Грань he plays visibly worthless dice and swaps in two Кость Безымянного when the pot is worth 1400 gp of jokers, which is a question nobody in Kragmir has answered. He does not fight at his own table: he has men who are paid for that, a hammer and a handful of nails for anyone who follows him, and a back door he only needs once.</p>",
-  "level": 9,
+  "notes": "<p>Gvozd, a clanless dwarf who moves everything that goes in or out of sealed Kragmir: rune blanks, mithras scrap, people. He has no second name and no clan clasp, only a long iron nail worn through the knot of his beard where a clasp would sit. At the dice club Шестая Грань he plays visibly worthless dice and swaps in two Кость Безымянного when the pot is worth 1400 gp of jokers, which is a question nobody in Kragmir has answered. He does not fight at his own table: he has men who are paid for that, a hammer and a handful of nails for anyone who follows him, and a back door he only needs once. Since the night at the abandoned port warehouse he keeps Мирайя's medallion in an inner pocket of his jacket.</p>",
+  "level": 10,
   "rarity": "unique",
   "size": "med",
   "traits": [
@@ -23,16 +23,16 @@
     }
   },
   "abilities": {
-    "str": 4,
-    "dex": 6,
-    "con": 4,
-    "int": 4,
-    "wis": 4,
+    "str": 5,
+    "dex": 7,
+    "con": 5,
+    "int": 5,
+    "wis": 5,
     "cha": 3
   },
-  "ac": 27,
-  "hp": 155,
-  "perception": 21,
+  "ac": 29,
+  "hp": 175,
+  "perception": 22,
   "senses": [
     "darkvision"
   ],
@@ -41,36 +41,36 @@
     "dwarven"
   ],
   "saves": {
-    "fort": 18,
-    "ref": 21,
-    "will": 23
+    "fort": 19,
+    "ref": 22,
+    "will": 24
   },
   "speeds": {
     "land": 25
   },
   "skills": {
-    "intimidation": 20,
-    "stealth": 20,
-    "thievery": 18,
-    "society": 18,
-    "athletics": 16,
-    "deception": 16,
-    "crafting": 13
+    "intimidation": 22,
+    "stealth": 22,
+    "thievery": 19,
+    "society": 19,
+    "athletics": 17,
+    "deception": 17,
+    "crafting": 15
   },
   "lores": [
     {
       "name": "Underworld Lore",
-      "mod": 23
+      "mod": 25
     },
     {
       "name": "Mining Lore",
-      "mod": 16
+      "mod": 17
     }
   ],
   "strikes": [
     {
       "name": "light hammer",
-      "bonus": 21,
+      "bonus": 23,
       "traits": [
         "agile",
         "thrown-20",
@@ -78,36 +78,40 @@
       ],
       "damage": [
         {
-          "dice": "2d8+11",
+          "dice": "2d8+13",
           "type": "bludgeoning"
         }
       ]
     },
     {
       "name": "nail (dart)",
-      "bonus": 21,
-      "range": {"increment": 20, "max": null},
+      "bonus": 23,
+      "range": {
+        "increment": 20,
+        "max": null
+      },
       "traits": [
         "agile",
         "thrown-20"
       ],
       "damage": [
         {
-          "dice": "2d6+9",
+          "dice": "2d6+10",
           "type": "piercing"
         }
       ]
     },
     {
       "name": "fist",
-      "bonus": 21,
+      "bonus": 23,
       "traits": [
         "agile",
-        "nonlethal"
+        "nonlethal",
+        "unarmed"
       ],
       "damage": [
         {
-          "dice": "2d6+9",
+          "dice": "2d6+10",
           "type": "bludgeoning"
         }
       ]
@@ -118,7 +122,7 @@
       "name": "Pin",
       "type": "action",
       "actions": 2,
-      "text": "<p>Гвоздь makes a light hammer Strike. If it hits, he drives one of his nails through the target's clothing, gear, or flesh into an adjacent floor, wall, or table, and the target is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until it succeeds at an @UUID[Compendium.pf2e.actionspf2e.Item.Escape] check against @Check[type:athletics|dc:28|name:Escape the nail] or another creature spends an Interact action to pull the nail. On a critical hit the target also takes @Damage[1d6[persistent,bleed]]. Гвоздь uses one nail per Pin.</p>"
+      "text": "<p>Гвоздь makes a light hammer Strike. If it hits, he drives one of his nails through the target's clothing, gear, or flesh into an adjacent floor, wall, or table, and the target is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until it [[/act escape dc=29]]{Escapes} or another creature spends an Interact action to pull the nail. On a critical hit the target also takes @Damage[2d6[persistent,bleed]]. Гвоздь uses one nail per Pin.</p>"
     },
     {
       "name": "Quick Draw",
@@ -140,6 +144,12 @@
       "text": "<p><strong>Trigger</strong> Гвоздь is targeted with an attack, and one of his bought men, an ally of lower level, is adjacent to him</p><hr /><p><strong>Effect</strong> Гвоздь orders that bought man to leap in front of the attack. The bought man and Гвоздь swap places, and the bought man becomes the target of the attack. If the bought man has Fanatical Frenzy or a similar ability, they can activate it as a reaction if they take damage from the triggering attack.</p>"
     },
     {
+      "name": "Nail Through the Hand",
+      "type": "reaction",
+      "category": "offensive",
+      "text": "<p><strong>Trigger</strong> A creature within 20 feet of Гвоздь uses a manipulate action</p><hr /><p><strong>Effect</strong> Гвоздь flicks a nail (dart) Strike at the triggering creature's hand. If the Strike is a critical hit, the triggering action is disrupted.</p>"
+    },
+    {
       "name": "Out the Back",
       "type": "action",
       "actions": 2,
@@ -148,7 +158,16 @@
     {
       "name": "Deny Advantage",
       "type": "passive",
-      "text": "<p>Гвоздь isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to hidden, undetected, or flanking creatures of his level or lower.</p>"
+      "category": "defensive",
+      "text": "<p>Гвоздь isn't @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to hidden, undetected, or flanking creatures of his level or lower.</p>",
+      "rules": [
+        {
+          "key": "ActiveEffectLike",
+          "mode": "override",
+          "path": "system.attributes.flanking.offGuardable",
+          "value": 10
+        }
+      ]
     },
     {
       "name": "Fixer's Leverage",
@@ -181,7 +200,10 @@
   "gear": [
     {
       "slug": "leather-armor",
-      "equip": "worn"
+      "equip": "worn",
+      "runes": {
+        "potency": 1
+      }
     },
     {
       "slug": "light-hammer",
@@ -202,6 +224,47 @@
     {
       "slug": "healing-potion-moderate",
       "qty": 2
+    },
+    {
+      "equip": "stowed",
+      "item": {
+        "name": "Медальон Мирайи",
+        "type": "treasure",
+        "img": "icons/equipment/neck/amulet-carved-stone-purple.webp",
+        "system": {
+          "baseItem": null,
+          "bulk": {
+            "value": 0
+          },
+          "category": "art-object",
+          "containerId": null,
+          "description": {
+            "value": "<p>Мирайя's medallion on a thin chain. The chain and the setting are mithras; the stone is large and faceted, and something is visible inside it, though no one can make out what. Worn under clothing it goes unnoticed.</p>"
+          },
+          "hardness": 0,
+          "hp": {
+            "max": 0,
+            "value": 0
+          },
+          "level": {
+            "value": 0
+          },
+          "material": {
+            "grade": null,
+            "type": null
+          },
+          "price": {
+            "value": {}
+          },
+          "quantity": 1,
+          "rules": [],
+          "size": "med",
+          "traits": {
+            "rarity": "common",
+            "value": []
+          }
+        }
+      }
     }
   ],
   "standardItems": [

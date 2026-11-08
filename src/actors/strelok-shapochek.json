@@ -1,0 +1,244 @@
+{
+  "_id": "shardssilkarchr1",
+  "name": "Стрелок Шёлковых шапочек",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>An archer of the Шёлковые шапочки, Мирайя's people, a generic type fought in pairs. Archers take the high places and the dark corners, and each one picks a mark and keeps shooting it until someone runs at Мирайя. They carry shortswords for when the fight reaches them, and would rather it did not. Human ancestry is assigned for play, not canon. Table notes: Marked Quarry has two toggles (the target is the quarry; this is the first hit this round); Double Shot is a toggle for its -2 penalty.</p>",
+  "level": 6,
+  "disposition": 0,
+  "rarity": "common",
+  "size": "med",
+  "traits": [
+    "humanoid",
+    "human"
+  ],
+  "abilities": {
+    "str": 2,
+    "dex": 5,
+    "con": 1,
+    "int": 1,
+    "wis": 3,
+    "cha": 1
+  },
+  "ac": 23,
+  "hp": 91,
+  "perception": 17,
+  "senses": [],
+  "languages": [
+    "common"
+  ],
+  "saves": {
+    "fort": 11,
+    "ref": 17,
+    "will": 14
+  },
+  "speeds": {
+    "land": 25
+  },
+  "skills": {
+    "stealth": 15,
+    "acrobatics": 13,
+    "athletics": 11,
+    "survival": 11
+  },
+  "strikes": [
+    {
+      "name": "composite shortbow",
+      "bonus": 17,
+      "range": {
+        "increment": 60,
+        "max": null
+      },
+      "traits": [
+        "deadly-d10",
+        "propulsive",
+        "reload-0",
+        "magical"
+      ],
+      "damage": [
+        {
+          "dice": "2d6+8",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "shortsword",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "finesse",
+        "versatile-s"
+      ],
+      "damage": [
+        {
+          "dice": "1d6+8",
+          "type": "piercing"
+        }
+      ]
+    },
+    {
+      "name": "fist",
+      "bonus": 15,
+      "traits": [
+        "agile",
+        "finesse",
+        "nonlethal",
+        "unarmed"
+      ],
+      "damage": [
+        {
+          "dice": "1d4+8",
+          "type": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Marked Quarry",
+      "type": "action",
+      "actions": 1,
+      "category": "offensive",
+      "traits": [
+        "concentrate"
+      ],
+      "text": "<p>The archer marks one creature it can see as its quarry. It gains a +2 circumstance bonus to Perception checks to @UUID[Compendium.pf2e.actionspf2e.Item.Seek] the quarry, and it ignores the penalty for attacking the quarry in its second range increment. The first time the archer hits the quarry in a round, it deals an additional 1d8 precision damage. These effects last until the archer uses Marked Quarry again.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "option": "marked-quarry",
+          "toggleable": true,
+          "label": "Target is the marked quarry"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": "perception",
+          "type": "circumstance",
+          "value": 2,
+          "predicate": [
+            "action:seek",
+            "marked-quarry"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "domain": "ranged-attack-roll",
+          "option": "ignore-range-penalty:2",
+          "predicate": [
+            "marked-quarry"
+          ]
+        },
+        {
+          "key": "RollOption",
+          "option": "first-attack",
+          "toggleable": true,
+          "label": "PF2E.SpecificRule.Ranger.HuntersEdge.FirstAttack"
+        },
+        {
+          "key": "DamageDice",
+          "selector": "strike-damage",
+          "category": "precision",
+          "diceNumber": 1,
+          "dieSize": "d8",
+          "predicate": [
+            "marked-quarry",
+            "first-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Double Shot",
+      "type": "action",
+      "actions": 2,
+      "category": "offensive",
+      "traits": [
+        "flourish"
+      ],
+      "text": "<p>The archer shoots twice in quick succession. It makes two composite shortbow Strikes, each against a different target and each with a -2 penalty. Both attacks count toward its multiple attack penalty, but the penalty doesn't increase until after both are made.</p>",
+      "rules": [
+        {
+          "key": "RollOption",
+          "domain": "ranged-attack-roll",
+          "option": "double-shot",
+          "toggleable": true,
+          "label": "Double Shot"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": "ranged-attack-roll",
+          "slug": "double-shot",
+          "value": -2,
+          "predicate": [
+            "double-shot"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Covering Fire",
+      "type": "reaction",
+      "category": "offensive",
+      "text": "<p><strong>Trigger</strong> An enemy the archer can see within 60 feet moves into a square adjacent to one of the archer's allies</p><hr /><p><strong>Effect</strong> The archer makes a composite shortbow Strike against the triggering enemy.</p>"
+    },
+    {
+      "name": "Surprise Attack",
+      "type": "passive",
+      "category": "offensive",
+      "text": "<p>On the first round of combat, creatures that haven't acted yet are @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] to the archer.</p>",
+      "rules": [
+        {
+          "key": "EphemeralEffect",
+          "predicate": [
+            "encounter:round:1",
+            {
+              "lt": [
+                "self:participant:initiative:rank",
+                "target:participant:initiative:rank"
+              ]
+            }
+          ],
+          "selectors": [
+            "strike-attack-roll",
+            "spell-attack-roll",
+            "strike-damage",
+            "attack-spell-damage"
+          ],
+          "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        }
+      ]
+    },
+    {
+      "name": "Swift Sneak",
+      "type": "passive",
+      "category": "interaction",
+      "text": "<p>The archer can move its full Speed while @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneaking}.</p>"
+    }
+  ],
+  "gear": [
+    {
+      "slug": "leather-armor",
+      "equip": "worn"
+    },
+    {
+      "slug": "composite-shortbow",
+      "equip": "held2",
+      "runes": {
+        "potency": 1,
+        "striking": 1
+      }
+    },
+    {
+      "slug": "arrows",
+      "qty": 20
+    },
+    {
+      "slug": "shortsword",
+      "equip": "worn"
+    },
+    {
+      "slug": "healing-potion-lesser",
+      "qty": 1
+    }
+  ]
+}
