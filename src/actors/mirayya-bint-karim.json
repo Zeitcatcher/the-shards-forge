@@ -62,7 +62,7 @@
       ],
       "damage": [
         {
-          "dice": "2d6+10",
+          "dice": "2d4+12",
           "type": "piercing"
         }
       ]
