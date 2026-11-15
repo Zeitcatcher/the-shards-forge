@@ -1,0 +1,41 @@
+{
+  "_id": "shardsbrok000001",
+  "name": "Брок",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "disposition": 0,
+  "notes": "<p>Брок, one of the two accusers at Грог's trial in Kragmir (Session 10 arrest). A clanless dock dwarf in Гвоздь's pay. On the night of Session 10 he and Тамм posed as undercover guards, offered Грог 15 gold to help break into a port warehouse, and were taken down by him: Брок got the butt of an axe under the knee. The knee never set right. He walks on an iron-shod crutch at half a dwarf's pace and plays the cripple loudly for any audience.</p><p>In court he is the loud one: he shows the knee, tells the story of an honest worker beaten for nothing, and lies with conviction. The truth (GM): the pair were opening a smuggling store for Гвоздь in the port, and Брок does not yet know that Гвоздь's crew died in the warehouse the night before the trial.</p><p>In a fight he can't keep up, so he brings enemies down to him: a hooked aklys on a cord that pulls legs out from under people, crutch hooks, and a clan dagger once everyone is on the floor. If he loses the crutch he falls. He counts as one of Гвоздь's bought men for Bought Men.</p>",
+  "level": 4,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 4, "dex": 1, "con": 3, "int": 0, "wis": 1, "cha": 3},
+  "ac": 19,
+  "hp": 62,
+  "perception": 10,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 12, "ref": 7, "will": 9},
+  "speeds": {"land": 10},
+  "skills": {"deception": 12, "athletics": 11, "intimidation": 11, "performance": 10},
+  "lores": [{"name": "Underworld Lore", "mod": 9}, {"name": "Labor Lore", "mod": 9}],
+  "strikes": [
+    {"name": "crutch", "bonus": 12, "traits": ["trip"], "damage": [{"dice": "2d6+5", "type": "bludgeoning"}]},
+    {"name": "clan dagger", "bonus": 12, "traits": ["agile", "dwarf", "parry", "versatile-b"], "damage": [{"dice": "2d4+5", "type": "piercing"}]},
+    {"name": "aklys", "bonus": 11, "range": {"increment": 20, "max": null}, "traits": ["ranged-trip", "tethered", "thrown-20", "trip"], "damage": [{"dice": "2d6+3", "type": "bludgeoning"}]}
+  ],
+  "actions": [
+    {"name": "Knee for a Knee", "type": "action", "actions": 2, "category": "offensive", "text": "<p>Брок hooks a creature's legs with his crutch and throws his whole weight after it. He makes a crutch Strike against an adjacent creature.</p><hr /><p><strong>Critical Success</strong> The target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone]. Брок keeps his feet.</p><p><strong>Success</strong> The target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone], and Брок falls @UUID[Compendium.pf2e.conditionitems.Item.Prone] beside it.</p><p><strong>Failure</strong> Брок falls @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"},
+    {"name": "Smashed Knee", "type": "passive", "category": "defensive", "text": "<p>An axe butt under the knee left Брок lame. His Speed already includes the injury. He can't Leap, and when he is @UUID[Compendium.pf2e.conditionitems.Item.Prone], Stand takes him 2 actions instead of 1.</p><p>Without his crutch in hand he falls @UUID[Compendium.pf2e.conditionitems.Item.Prone] and can only Crawl until he picks it up again.</p>",
+      "rules": [{"key": "RollOption", "option": "brok-without-crutch", "toggleable": true, "label": "Without crutch"}, {"key": "GrantItem", "inMemoryOnly": true, "predicate": ["brok-without-crutch"], "uuid": "Compendium.pf2e.conditionitems.Item.Prone"}]},
+    {"name": "Fights from the Floor", "type": "passive", "category": "offensive", "text": "<p>Брок spends half his fights on the ground and has learned to strike from there. He gains a +2 circumstance bonus to Strike attack rolls while he is @UUID[Compendium.pf2e.conditionitems.Item.Prone], which cancels the penalty for being prone.</p>",
+      "rules": [{"key": "FlatModifier", "selector": "strike-attack-roll", "type": "circumstance", "value": 2, "predicate": ["self:condition:prone"], "label": "Fights from the Floor"}]},
+    {"name": "Look What He Did to Me", "type": "passive", "category": "interaction", "text": "<p>While Брок shows his ruined knee to an audience, he gains a +2 circumstance bonus to Deception checks to [[/act lie]]{Lie} and to Performance checks.</p>",
+      "rules": [{"key": "RollOption", "option": "brok-shows-knee", "toggleable": true, "label": "Showing the knee"}, {"key": "FlatModifier", "selector": "deception", "type": "circumstance", "value": 2, "predicate": ["brok-shows-knee", "action:lie"], "label": "Look What He Did to Me"}, {"key": "FlatModifier", "selector": "performance", "type": "circumstance", "value": 2, "predicate": ["brok-shows-knee"], "label": "Look What He Did to Me"}]}
+  ],
+  "gear": [
+    {"slug": "leather-armor", "equip": "worn"},
+    {"slug": "crutch", "equip": "held1"},
+    {"slug": "clan-dagger", "equip": "worn"},
+    {"slug": "aklys", "equip": "worn"}
+  ]
+}

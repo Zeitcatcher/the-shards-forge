@@ -1,0 +1,96 @@
+{
+  "_id": "shardsnelidursk1",
+  "name": "Нэли Дур-Сказ",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Neli Dur-Skaz, the clerk of the Kragmir court. She keeps the hearing record word for word and knows the court registers better than the judges do, including the precedent where an accused was acquitted because a respected citizen of Kragmir signed under his words. She is neutral: she answers anyone who asks politely and in proper form, and reports pressure to the judges. She has never been in a fight.</p>",
+  "level": 1,
+  "rarity": "unique",
+  "size": "med",
+  "disposition": 0,
+  "traits": ["humanoid", "dwarf"],
+  "abilities": {"str": 0, "dex": 1, "con": 1, "int": 4, "wis": 3, "cha": 1},
+  "ac": 14,
+  "hp": 15,
+  "perception": 10,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 4, "ref": 7, "will": 10},
+  "speeds": {"land": 20},
+  "skills": {"society": 9, "diplomacy": 6},
+  "lores": [
+    {"name": "Legal Lore", "mod": 10},
+    {"name": "Kragmir Lore", "mod": 7}
+  ],
+  "strikes": [
+    {"name": "court register", "bonus": 5, "traits": ["nonlethal"], "damage": [{"dice": "1d6+2", "type": "bludgeoning"}]},
+    {"name": "fist", "bonus": 5, "traits": ["agile", "finesse", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+2", "type": "bludgeoning"}]}
+  ],
+  "actions": [
+    {
+      "name": "Read Back the Record",
+      "type": "action",
+      "actions": 1,
+      "category": "interaction",
+      "traits": ["auditory", "concentrate", "linguistic"],
+      "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Нэли reads back, word for word, something a creature said earlier in this hearing. Choose one creature who asked her to read it or who argues against that statement. That creature gains a +2 circumstance bonus to Diplomacy checks to [[/act make-an-impression]] or [[/act request]] something of the judges about that statement for 10 minutes. A statement can be read back only once per hearing.</p>",
+      "rules": []
+    },
+    {
+      "name": "Precedent Search",
+      "type": "passive",
+      "category": "interaction",
+      "text": "<p>Given 10 minutes with the court registers, Нэли can look for a precedent on the matter being argued. She attempts a Legal Lore check; the GM sets the DC (typically @Check[legal-lore|dc:15]{DC 15} for a common matter, DC 20 for a rare one). On a success, she names the case, and one creature arguing from it gains the same bonus as from Read Back the Record. On a critical success, she also says whether a precedent exists that the other side could use against it.</p>",
+      "rules": []
+    },
+    {
+      "name": "Record Specialist",
+      "type": "passive",
+      "category": "interaction",
+      "text": "<p>For encounters involving the Kragmir court, its records, or its precedents, Нэли is a 4th-level challenge.</p>",
+      "rules": []
+    }
+  ],
+  "gear": [
+    {"slug": "clothing-ordinary", "equip": "worn"},
+    {"slug": "writing-set"},
+    {
+      "qty": 1,
+      "equip": "held1",
+      "item": {
+        "name": "Court Register",
+        "type": "equipment",
+        "img": "icons/sundries/books/book-face-black.webp",
+        "system": {
+          "level": {"value": 0},
+          "traits": {"value": [], "rarity": "unique", "otherTags": []},
+          "description": {"value": "<p>The bound register of the Kragmir court for the current term, in Нэли Дур-Сказ's hand: every hearing, every statement, every verdict. Heavy enough to hit someone with.</p>"},
+          "price": {"value": {"gp": 0}},
+          "bulk": {"value": 1},
+          "usage": {"value": "held-in-one-hand"},
+          "equipped": {"carryType": "held", "handsHeld": 1},
+          "quantity": 1,
+          "rules": []
+        }
+      }
+    },
+    {
+      "item": {
+        "name": "Effect: Read Back the Record",
+        "type": "effect",
+        "img": "icons/sundries/books/book-face-black.webp",
+        "system": {
+          "description": {"value": "<p>Нэли read back a statement from the hearing record. +2 circumstance bonus to Diplomacy checks to Make an Impression on or Request something of the judges about that statement.</p>"},
+          "duration": {"expiry": "turn-end", "sustained": false, "unit": "minutes", "value": 10},
+          "level": {"value": 1},
+          "publication": {"license": "ORC", "remaster": true, "title": ""},
+          "rules": [
+            {"key": "FlatModifier", "selector": "diplomacy", "type": "circumstance", "value": 2, "predicate": [{"or": ["action:make-an-impression", "action:request"]}]}
+          ],
+          "start": {"initiative": null, "value": 0},
+          "tokenIcon": {"show": true},
+          "traits": {"value": []}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "shardsostendurl1",
+  "name": "Остен Дур-Лейк",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "disposition": 0,
+  "notes": "<p>Остен Дур-Лейк, the advocate who speaks for Брок and Тамм at Грог's trial in Kragmir. A well-dressed dwarf with a soft voice and a sword cane, who knows the city's laws and its judges better than they know themselves. He argues that two honest workers were crippled for nothing by an outsider who took their money first.</p><p>The truth (GM): Гвоздь pays him. Unlike his clients, he knows what happened in the port warehouse the night before the trial. Before the hearing he offers the party a deal: hand over Гвоздь's right hand, and the accusers withdraw. If the party proves in court who pays him, the case collapses.</p><p>He avoids fights. If one starts, he reminds everyone in earshot what Kragmir law does to those who strike without cause, and keeps his blade for whoever doesn't listen.</p>",
+  "level": 6,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 0, "dex": 3, "con": 1, "int": 4, "wis": 2, "cha": 5},
+  "ac": 22,
+  "hp": 80,
+  "perception": 15,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 10, "ref": 13, "will": 17},
+  "speeds": {"land": 20},
+  "skills": {"deception": 16, "diplomacy": 15, "society": 14, "performance": 13, "intimidation": 12},
+  "lores": [{"name": "Legal Lore", "mod": 18}, {"name": "Underworld Lore", "mod": 12}],
+  "strikes": [
+    {"name": "sword cane", "bonus": 14, "traits": ["agile", "concealable", "finesse"], "damage": [{"dice": "2d6+6", "type": "piercing"}]},
+    {"name": "fist", "bonus": 14, "traits": ["agile", "finesse", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+6", "type": "bludgeoning"}]},
+    {"name": "dart", "bonus": 14, "range": {"increment": 20, "max": null}, "traits": ["agile", "thrown-20"], "damage": [{"dice": "2d4+4", "type": "piercing"}]}
+  ],
+  "actions": [
+    {"name": "Cite Precedent", "type": "action", "actions": 1, "category": "interaction", "traits": ["auditory", "linguistic"], "text": "<p>Остен uses existing case law to undermine his opposition. If he succeeds at a @Check[legal-lore|dc:26]{Legal Lore} check, he imposes a -2 circumstance penalty on the next Diplomacy check an opponent attempts in a legal argument.</p><p>Any further attempts to Cite Precedent fail until a new topic with different precedents is being argued.</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Cite Precedent]</p>"},
+    {"name": "Not in Front of Witnesses", "type": "action", "actions": 2, "category": "defensive", "traits": ["auditory", "linguistic", "mental"], "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Остен names, calmly and loudly, the Kragmir punishment for striking a citizen without cause. Each enemy within 30 feet that can hear and understand him must attempt a @Check[will|dc:24] save. The effect ends for all creatures if Остен uses a hostile action.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected and temporarily immune for 1 day.</p><p><strong>Success</strong> The creature is unaffected.</p><p><strong>Failure</strong> The creature can't use hostile actions against Остен until the start of Остен's next turn.</p><p><strong>Critical Failure</strong> As failure, but until the end of Остен's next turn.</p>"},
+    {"name": "Objection", "type": "reaction", "category": "interaction", "traits": ["auditory", "linguistic"], "text": "<p><strong>Trigger</strong> A creature within 30 feet that Остен can hear attempts a Diplomacy, Deception, or Intimidation check</p><hr /><p><strong>Effect</strong> Остен talks over the creature at exactly the wrong moment. He attempts a @Check[legal-lore|against:will]{Legal Lore} check in a legal proceeding, or a @Check[deception|against:will]{Deception} check elsewhere, against the creature's Will DC.</p><hr /><p><strong>Critical Success</strong> The creature takes a -4 circumstance penalty to the triggering check.</p><p><strong>Success</strong> The creature takes a -2 circumstance penalty to the triggering check.</p><p><strong>Failure</strong> No effect.</p><p><strong>Critical Failure</strong> Остен looks petty. He takes a -2 circumstance penalty to his next Deception or Diplomacy check against that creature or its audience this scene.</p>"},
+    {"name": "Legal Specialist", "type": "passive", "category": "interaction", "text": "<p>In a court case or other legal proceeding, Остен is a 9th-level challenge.</p>"},
+    {"name": "Sway the Judge and Jury", "type": "passive", "category": "interaction", "text": "<p>Остен gains a +2 circumstance bonus to Diplomacy checks to [[/act make-an-impression]] or [[/act request]] something of the deciding members within a courtroom.</p><p>If Остен successfully @Check[performance|dc:22]{Performs} against a DC of 22 during the 20 minutes prior to the check, he increases the circumstance bonus to +4.</p>",
+      "rules": [{"key": "RollOption", "option": "sway-judge-and-jury", "suboptions": [{"label": "PF2E.SpecificRule.BonusLabel.PlusTwo", "value": "2"}, {"label": "PF2E.SpecificRule.BonusLabel.PlusFour", "value": "4"}], "toggleable": true}, {"key": "FlatModifier", "predicate": ["sway-judge-and-jury", {"or": ["action:make-an-impression", "action:request"]}], "selector": "diplomacy", "type": "circumstance", "value": "{item|flags.system.rulesSelections.swayJudgeAndJury}"}]}
+  ],
+  "gear": [
+    {"slug": "clothing-fine", "equip": "worn"},
+    {"slug": "sword-cane", "equip": "held1"},
+    {"slug": "dart", "qty": 4},
+    {"slug": "writing-set", "qty": 1}
+  ]
+}

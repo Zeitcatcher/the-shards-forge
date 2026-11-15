@@ -1,0 +1,43 @@
+{
+  "_id": "shardssvartnef01",
+  "name": "Сварта Дур-Неф",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Svarta Dur-Nef, the accountant of Fundin Dur-Krept's mines in Kragmir and one of the three judges at Grog's trial. Dry, exact, and she counts everything: candles, minutes, the cost of a broken knee. The mines are short of strong hands, so she may push the bench toward a sentence of labour in the mines instead of a fine. She is not a fighter; the light pick and the sling are a mine dwarf's habit.</p>",
+  "disposition": 0,
+  "level": 5,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 1, "dex": 2, "con": 2, "int": 5, "wis": 3, "cha": 2},
+  "ac": 19,
+  "hp": 75,
+  "perception": 13,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 12, "ref": 9, "will": 15},
+  "speeds": {"land": 20},
+  "skills": {"society": 16, "crafting": 12, "diplomacy": 12, "intimidation": 10},
+  "lores": [
+    {"name": "Accounting Lore", "mod": 16},
+    {"name": "Mining Lore", "mod": 13}
+  ],
+  "strikes": [
+    {"name": "light pick", "bonus": 11, "traits": ["agile", "fatal-d8"], "damage": [{"dice": "2d4+5", "type": "piercing"}]},
+    {"name": "sling", "bonus": 12, "range": {"increment": 50, "max": null}, "traits": ["propulsive", "reload-1"], "damage": [{"dice": "1d6+4", "type": "bludgeoning"}]}
+  ],
+  "actions": [
+    {"name": "Itemized Cost", "type": "action", "actions": 1, "category": "offensive", "traits": ["auditory", "linguistic", "mental"], "text": "<p>Сварта recites, flatly and without a pause, what a creature within 30 feet that can hear her has broken, spent and owes. The target is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for 1 round.</p>"},
+    {"name": "Work It Off", "type": "passive", "category": "interaction", "text": "<p>In a legal proceeding, Сварта gains a +2 circumstance bonus to Diplomacy and Society checks to argue for a sentence of labour in the mines instead of a fine or prison.</p>", "rules": [{"key": "RollOption", "domain": "all", "option": "work-it-off", "toggleable": true, "label": "Work It Off (arguing for mine labour)"}, {"key": "FlatModifier", "selector": ["diplomacy", "society"], "type": "circumstance", "value": 2, "predicate": ["work-it-off"]}]},
+    {"name": "Counts Everything", "type": "passive", "category": "interaction", "text": "<p>Сварта has a +4 circumstance bonus to her Perception DC against attempts to [[/act steal]]{Steal} from her or [[/act palm-an-object]]{Palm an Object} near her, and against [[/act lie]]{Lies} about sums, prices and quantities.</p>", "rules": [{"key": "RollOption", "domain": "all", "option": "counts-everything", "toggleable": true, "label": "Counts Everything (a lie about numbers)"}, {"key": "FlatModifier", "selector": "perception-dc", "type": "circumstance", "value": 4, "predicate": [{"or": ["action:steal", "action:palm-an-object", "counts-everything"]}]}]},
+    {"name": "Mine Accounts Specialist", "type": "passive", "category": "interaction", "text": "<p>When dealing with the accounts, debts, wages or labour of the Kragmir mines, Сварта is an 8th-level challenge.</p>"}
+  ],
+  "gear": [
+    {"slug": "explorers-clothing", "equip": "worn"},
+    {"slug": "light-pick", "equip": "held1", "runes": {"striking": 1}},
+    {"slug": "sling", "equip": "worn"},
+    {"slug": "sling-bullets", "qty": 10},
+    {"slug": "writing-set"},
+    {"slug": "merchants-scale"},
+    {"slug": "healing-potion-lesser", "qty": 1}
+  ]
+}

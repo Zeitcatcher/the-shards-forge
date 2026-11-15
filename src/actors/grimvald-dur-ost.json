@@ -1,0 +1,49 @@
+{
+  "_id": "shardsgrimvost01",
+  "name": "Гримвальд Дур-Ост",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Grimvald Dur-Ost, captain of the Stone Fists, the city guard of Kragmir. He ran Grog's case after the arrest, set the 1000 gp bail and signed the bail contract, and he sits as the middle judge at Grog's trial. A tired veteran who goes by the book, hates paperwork and wants a clean verdict by evening. He has heard about the bloodbath at the port warehouse and suspects the party, but he will not say so without proof. Table note: the trial is a social scene first; Collar and the bola are for a defendant who runs.</p>",
+  "disposition": 0,
+  "level": 7,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 5, "dex": 1, "con": 4, "int": 2, "wis": 4, "cha": 3},
+  "ac": 24,
+  "hp": 118,
+  "perception": 20,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 15, "ref": 12, "will": 18},
+  "speeds": {"land": 20},
+  "skills": {"intimidation": 17, "athletics": 15, "society": 15, "diplomacy": 13},
+  "lores": [
+    {"name": "Kragmir Law Lore", "mod": 17},
+    {"name": "Kragmir Lore", "mod": 15}
+  ],
+  "strikes": [
+    {"name": "morningstar", "bonus": 16, "traits": ["magical", "versatile-p"], "damage": [{"dice": "2d6+10", "type": "bludgeoning"}]},
+    {"name": "gauntlet", "bonus": 16, "traits": ["agile", "free-hand"], "damage": [{"dice": "2d4+10", "type": "bludgeoning"}], "effects": ["grab"]},
+    {"name": "bola", "bonus": 13, "range": {"increment": 20, "max": null}, "traits": ["nonlethal", "ranged-trip", "thrown"], "damage": [{"dice": "1d6+8", "type": "bludgeoning"}]}
+  ],
+  "standardItems": [
+    {"slug": "grab"},
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {"name": "Collar", "type": "action", "actions": 2, "category": "offensive", "text": "<p>Гримвальд Strides, then makes a gauntlet Strike. If the Strike hits, the target is @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by Гримвальд as if he had used Grab.</p>"},
+    {"name": "Remember, You're Under Oath", "type": "action", "actions": 2, "category": "offensive", "traits": ["auditory", "concentrate", "emotion", "fear", "mental"], "text": "<p>Гримвальд reminds a creature of the oath it swore to the court. He makes an @Check[intimidation|defense:will] check against the target's Will DC. On a success, the target takes a -2 status penalty to Deception checks to @UUID[Compendium.pf2e.actionspf2e.Item.Lie] for 10 minutes (or a -4 status penalty on a critical success). Regardless of the result, the target is temporarily immune to this ability for 24 hours.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Remember, You're Under Oath]</p>"},
+    {"name": "Order in the Hall!", "type": "reaction", "category": "defensive", "traits": ["auditory", "linguistic"], "text": "<p><strong>Trigger</strong> A creature within 30 feet takes an action with the linguistic trait</p><hr /><p><strong>Effect</strong> Гримвальд slams a fist on the bench and barks for order. The triggering creature must succeed at a @Check[will|dc:25] saving throw or its action is disrupted.</p>"},
+    {"name": "Seen It All", "type": "passive", "category": "interaction", "text": "<p>When Гримвальд succeeds at a Perception check to [[/act sense-motive]]{Sense Motive}, he critically succeeds instead.</p>", "rules": [{"key": "AdjustDegreeOfSuccess", "selector": "perception", "predicate": ["action:sense-motive"], "adjustment": {"success": "to-critical-success"}}]},
+    {"name": "Presiding Judge", "type": "passive", "category": "interaction", "text": "<p>In a legal proceeding in Kragmir, Гримвальд is a 10th-level challenge.</p>"}
+  ],
+  "gear": [
+    {"slug": "breastplate", "equip": "worn", "runes": {"potency": 1}},
+    {"slug": "morningstar", "equip": "held1", "runes": {"potency": 1, "striking": 1}},
+    {"slug": "gauntlet", "equip": "worn"},
+    {"slug": "bola", "qty": 3},
+    {"slug": "manacles-average", "qty": 1},
+    {"slug": "signal-whistle"},
+    {"slug": "healing-potion-moderate", "qty": 1}
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "shardsskallibag1",
+  "name": "Скалли Багор",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Skalli Bagor, a dockhand in the port of Kragmir, nicknamed after the boathook he never puts down. He works nights and sees what happens on the piers. He saw both of Grog's accusers near the port warehouse at night with a crowbar, which supports Grog's story that they were breaking in, not working. He is afraid of the fixer they call Гвоздь and will testify only if someone protects him or pays him. He does not know yet that Гвоздь's crew died the night before the trial. He fights only when cornered, and then mostly to get away.</p>",
+  "level": 2,
+  "rarity": "unique",
+  "size": "med",
+  "disposition": 0,
+  "traits": ["humanoid", "dwarf"],
+  "abilities": {"str": 4, "dex": 2, "con": 3, "int": 0, "wis": 2, "cha": -1},
+  "ac": 17,
+  "hp": 30,
+  "perception": 11,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 11, "ref": 8, "will": 6},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 8, "stealth": 8, "intimidation": 4},
+  "lores": [
+    {"name": "Labor Lore", "mod": 7},
+    {"name": "Sailing Lore", "mod": 7}
+  ],
+  "strikes": [
+    {"name": "gaff", "bonus": 9, "traits": ["trip", "versatile-p"], "damage": [{"dice": "1d6+5", "type": "bludgeoning"}]},
+    {"name": "fist", "bonus": 9, "traits": ["agile", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+4", "type": "bludgeoning"}]},
+    {"name": "alcohol bottle", "bonus": 8, "range": {"increment": 15, "max": null}, "traits": ["agile", "thrown-15"], "damage": [{"dice": "1d4+4", "type": "bludgeoning"}]}
+  ],
+  "actions": [
+    {
+      "name": "Swig",
+      "type": "action",
+      "actions": 2,
+      "category": "offensive",
+      "traits": ["manipulate"],
+      "text": "<p>Скалли Interacts to either draw a bottle of @UUID[Compendium.pf2e.equipment-srd.Item.Alcohol] or pick up a nearby unattended bottle of alcohol, then drinks the whole thing. For 1 minute, Скалли gains a +2 item bonus to melee damage rolls and saving throws against fear but is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard].</p><p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Swig]</p>",
+      "rules": []
+    },
+    {
+      "name": "Dock Rat's Exit",
+      "type": "action",
+      "actions": 2,
+      "category": "defensive",
+      "traits": ["move"],
+      "text": "<p><strong>Frequency</strong> once per 10 minutes</p><hr /><p><strong>Effect</strong> Скалли plants his gaff and vaults. He Leaps up to 15 feet horizontally without a check, across water, a gap between piers, or a stack of crates, then Strides. If he ends this movement with cover or concealment from every enemy, he can [[/act hide]] as a free action.</p>",
+      "rules": []
+    },
+    {
+      "name": "Nobody Looks at a Dockhand",
+      "type": "passive",
+      "category": "defensive",
+      "text": "<p>Among the crates, cargo, and piers of a port, Скалли gains a +2 circumstance bonus to Stealth checks and to Perception checks to notice who comes and goes.</p>",
+      "rules": [
+        {"key": "RollOption", "domain": "all", "option": "on-the-docks", "toggleable": true, "label": "Nobody Looks at a Dockhand (in the port)"},
+        {"key": "FlatModifier", "selector": ["stealth", "perception"], "type": "circumstance", "value": 2, "predicate": ["on-the-docks"]}
+      ]
+    }
+  ],
+  "gear": [
+    {"slug": "clothing-ordinary", "equip": "worn"},
+    {"slug": "gaff", "equip": "held1"},
+    {"slug": "alcohol", "qty": 2},
+    {"slug": "rope"}
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "_id": "shardsbrunitagg1",
+  "name": "Бруни Дур-Тагг",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Bruni Dur-Tagg, a sergeant of the Каменные кулаки, the city guard of Kragmir (a separate force from the deep-mines guard). He was the sergeant on duty at the port post the night Grog dragged in the two crippled dwarves, and he arrested all three under the guard's rule of taking everyone in until the matter is sorted. At Grog's trial he testifies for the accusers' side because he wrote the report. He is honest and sure he was right. Evidence and a credible witness can move him; money and threats cannot, and a bribe attempt goes straight into the record. He fights to arrest: guisarme trips at reach, bolas for runners, fists for the cuffing.</p>",
+  "level": 5,
+  "rarity": "unique",
+  "size": "med",
+  "disposition": 0,
+  "traits": ["humanoid", "dwarf"],
+  "abilities": {"str": 4, "dex": 1, "con": 3, "int": 1, "wis": 3, "cha": 1},
+  "ac": 22,
+  "hp": 75,
+  "perception": 15,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 12, "ref": 9, "will": 15},
+  "speeds": {"land": 20},
+  "skills": {"athletics": 13, "intimidation": 12, "society": 12, "diplomacy": 9},
+  "lores": [
+    {"name": "Legal Lore", "mod": 12},
+    {"name": "Kragmir Lore", "mod": 13}
+  ],
+  "strikes": [
+    {"name": "guisarme", "bonus": 13, "traits": ["reach", "trip"], "damage": [{"dice": "2d10+4", "type": "slashing"}]},
+    {"name": "fist", "bonus": 13, "traits": ["agile", "nonlethal", "unarmed"], "damage": [{"dice": "1d4+7", "type": "bludgeoning"}]},
+    {"name": "bola", "bonus": 12, "range": {"increment": 20, "max": null}, "traits": ["nonlethal", "ranged-trip", "thrown-20"], "damage": [{"dice": "1d6+6", "type": "bludgeoning"}]}
+  ],
+  "standardItems": [
+    {"slug": "reactive-strike"}
+  ],
+  "actions": [
+    {
+      "name": "Unavoidable Question",
+      "type": "action",
+      "actions": 1,
+      "category": "offensive",
+      "traits": ["linguistic"],
+      "text": "<p><strong>Frequency</strong> once per turn</p><hr /><p><strong>Effect</strong> Бруни [[/act demoralize]]{Demoralizes} a creature and asks a question. On a success, the next Strike Бруни attempts against that target deals an additional 1d6 precision damage. If the target spends an action on their next turn to answer the question, either truthfully or by succeeding at a @Check[deception|dc:25] check, they are temporarily immune to Бруни's Unavoidable Question for 1 minute.</p>",
+      "rules": [
+        {"key": "RollOption", "domain": "damage", "option": "unavoidable-question", "toggleable": true},
+        {"key": "DamageDice", "selector": "strike-damage", "category": "precision", "diceNumber": 1, "dieSize": "d6", "predicate": ["unavoidable-question"]}
+      ]
+    },
+    {
+      "name": "+2 to Sense Motive",
+      "type": "passive",
+      "category": "defensive",
+      "text": "",
+      "rules": [
+        {"key": "FlatModifier", "selector": "perception", "value": 2, "predicate": ["action:sense-motive"]}
+      ]
+    },
+    {
+      "name": "Sure of His Report",
+      "type": "passive",
+      "category": "defensive",
+      "text": "<p>While Бруни testifies about an arrest he made himself, he gains a +2 circumstance bonus to his Will DC against Deception, Diplomacy, and Intimidation checks meant to make him change his account. Attempts to bribe him automatically fail.</p><p>Once he is shown physical evidence or a credible witness that contradicts his report, the bonus ends for the rest of the hearing, and he instead takes a -2 circumstance penalty to his Will DC against Diplomacy checks to correct the record.</p>",
+      "rules": [
+        {"key": "RollOption", "domain": "all", "option": "sure-of-his-report", "toggleable": true, "label": "Sure of His Report (testifying)"},
+        {"key": "FlatModifier", "selector": "will-dc", "type": "circumstance", "value": 2, "predicate": ["sure-of-his-report"]},
+        {"key": "RollOption", "domain": "all", "option": "report-contradicted", "toggleable": true, "label": "Report contradicted by evidence"},
+        {"key": "FlatModifier", "selector": "will-dc", "type": "circumstance", "value": -2, "predicate": ["report-contradicted"]}
+      ]
+    }
+  ],
+  "gear": [
+    {"slug": "scale-mail", "equip": "worn"},
+    {"slug": "guisarme", "equip": "held2"},
+    {"slug": "bola", "qty": 3},
+    {"slug": "manacles-average", "qty": 1},
+    {"slug": "signal-whistle"},
+    {
+      "qty": 1,
+      "equip": "stowed",
+      "item": {
+        "name": "Arrest Report (Grog)",
+        "type": "equipment",
+        "img": "icons/sundries/documents/document-bound-white-tan.webp",
+        "system": {
+          "level": {"value": 0},
+          "traits": {"value": [], "rarity": "unique", "otherTags": []},
+          "description": {"value": "<p>Sergeant Бруни Дур-Тагг's written report from the port post of the Каменные кулаки: the minotaur Grog brought in two crippled dwarves, all three were held until the matter was sorted, and 15 gp found on Grog were seized as evidence. The report records what the guard saw at the post, not what happened at the warehouse.</p>"},
+          "price": {"value": {"gp": 0}},
+          "bulk": {"value": 0},
+          "usage": {"value": "carried"},
+          "equipped": {"carryType": "stowed"},
+          "quantity": 1,
+          "rules": []
+        }
+      }
+    }
+  ]
+}

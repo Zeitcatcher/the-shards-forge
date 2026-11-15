@@ -1,0 +1,42 @@
+{
+  "_id": "shardskeldassen1",
+  "name": "Кельд Дур-Ассен",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "notes": "<p>Keld Dur-Assen, a quiet secretary of the Kragmir city treasury and one of the three judges at Grog's trial. He says little and writes a great deal. Secretly he reports to Torvain Merok Dur-Karrag, and he cares nothing for the verdict: he came to watch the power that lives in Grog (Ansu) and to describe it. Table note: Weigh the Power is a secret check, so roll it blind.</p>",
+  "disposition": 0,
+  "level": 6,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 0, "dex": 4, "con": 1, "int": 4, "wis": 5, "cha": 2},
+  "ac": 23,
+  "hp": 95,
+  "perception": 17,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 11, "ref": 14, "will": 18},
+  "speeds": {"land": 20},
+  "skills": {"occultism": 15, "society": 15, "deception": 13, "stealth": 13, "diplomacy": 11},
+  "lores": [
+    {"name": "Accounting Lore", "mod": 13},
+    {"name": "Kragmir Lore", "mod": 13}
+  ],
+  "strikes": [
+    {"name": "starknife", "bonus": 15, "traits": ["agile", "deadly-d6", "finesse", "magical", "thrown-20", "versatile-s"], "damage": [{"dice": "2d4+9", "type": "piercing"}]},
+    {"name": "starknife (thrown)", "bonus": 15, "range": {"increment": 20, "max": null}, "traits": ["agile", "deadly-d6", "magical", "thrown-20"], "damage": [{"dice": "2d4+9", "type": "piercing"}]},
+    {"name": "fist", "bonus": 15, "traits": ["agile", "nonlethal"], "damage": [{"dice": "1d4+7", "type": "bludgeoning"}]}
+  ],
+  "actions": [
+    {"name": "Weigh the Power", "type": "action", "actions": 1, "category": "interaction", "traits": ["concentrate", "secret"], "text": "<p>Кельд studies a creature he can see within 30 feet and attempts an @Check[occultism|defense:will] check against its Will DC. The target is then temporarily immune to Weigh the Power for 1 day.</p><hr /><p><strong>Critical Success</strong> Кельд learns whether the creature carries a spirit, a curse, a possession or a divine bond, roughly how strong it is compared to his own level, and whether it is active right now.</p><p><strong>Success</strong> Кельд learns whether the creature carries such a presence.</p><p><strong>Critical Failure</strong> Кельд draws the opposite conclusion.</p>"},
+    {"name": "Find the Seam", "type": "action", "actions": 1, "category": "offensive", "text": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Кельд watches how one creature within 30 feet shifts its weight and attempts a @Check[perception|defense:reflex] check against its Reflex DC. On a success, the target is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against the next Strike Кельд makes against it before the end of his turn.</p>"},
+    {"name": "Unreadable", "type": "reaction", "category": "defensive", "traits": ["concentrate"], "text": "<p><strong>Trigger</strong> A creature attempts to [[/act sense-motive]]{Sense Motive} against Кельд, or Кельд is targeted by a mental effect that reads his thoughts or emotions</p><hr /><p><strong>Effect</strong> Кельд gains a +2 circumstance bonus to his Deception DC and to his Will save against the triggering check or effect. If the triggering creature fails, it reads only a calm, true and useless thought: a column of figures.</p>"},
+    {"name": "Unshakable Confidence", "type": "passive", "category": "interaction", "text": "<p>All attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Coerce] Кельд have a result one degree worse.</p>"},
+    {"name": "Unremarkable", "type": "passive", "category": "interaction", "text": "<p>Кельд gains a +2 circumstance bonus to Stealth checks to [[/act avoid-notice]]{Avoid Notice} and to Deception checks to [[/act impersonate]]{Impersonate} a minor official among the clerks, guards and crowds of Kragmir.</p>", "rules": [{"key": "RollOption", "domain": "all", "option": "unremarkable", "toggleable": true, "label": "Unremarkable (among Kragmir officials and crowds)"}, {"key": "FlatModifier", "selector": ["stealth", "deception"], "type": "circumstance", "value": 2, "predicate": ["unremarkable"]}]}
+  ],
+  "gear": [
+    {"slug": "clothing-fine", "equip": "worn"},
+    {"slug": "starknife", "equip": "held1", "qty": 3, "runes": {"potency": 1, "striking": 1}},
+    {"slug": "writing-set"},
+    {"slug": "healing-potion-lesser", "qty": 1}
+  ]
+}

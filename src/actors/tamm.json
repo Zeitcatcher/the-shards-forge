@@ -1,0 +1,42 @@
+{
+  "_id": "shardstamm000001",
+  "name": "Тамм",
+  "img": "systems/pf2e/icons/default-icons/npc.svg",
+  "disposition": 0,
+  "notes": "<p>Тамм, the second accuser at Грог's trial in Kragmir (Session 10 arrest). A clanless dwarf in Гвоздь's pay who kept the keys and the count for a port smuggling store. On the night of Session 10 he and Брок posed as undercover guards and tried to hire Грог for a warehouse job. Грог took the money, refused, and when they ran he threw a hand axe into Тамм's back. The wound closed stiff: Тамм can no longer bend or twist, and moves like a dwarf carrying a plank under his coat.</p><p>In court he is the quiet one. He says little, nods at the right moments and backs up every word Брок says. The truth (GM): the pair were opening a smuggling store for Гвоздь in the port, and Тамм does not yet know that Гвоздь's crew died in the warehouse the night before the trial.</p><p>In a fight he was always the lookout: he sees trouble first, shoots from the back with a hand crossbow, and saves the sap for anyone who turns away. He counts as one of Гвоздь's bought men for Bought Men.</p>",
+  "level": 4,
+  "rarity": "unique",
+  "size": "med",
+  "traits": ["dwarf", "humanoid"],
+  "abilities": {"str": 2, "dex": 3, "con": 2, "int": 2, "wis": 3, "cha": 2},
+  "ac": 20,
+  "hp": 58,
+  "perception": 12,
+  "senses": ["darkvision"],
+  "languages": ["common", "dwarven"],
+  "saves": {"fort": 9, "ref": 11, "will": 10},
+  "speeds": {"land": 20},
+  "skills": {"society": 12, "deception": 11, "stealth": 11, "thievery": 11, "athletics": 8},
+  "lores": [{"name": "Underworld Lore", "mod": 10}, {"name": "Mercantile Lore", "mod": 10}],
+  "strikes": [
+    {"name": "crowbar", "bonus": 12, "traits": ["versatile-p"], "damage": [{"dice": "2d6+5", "type": "bludgeoning"}]},
+    {"name": "sap", "bonus": 12, "traits": ["agile", "nonlethal"], "damage": [{"dice": "2d4+4", "type": "bludgeoning"}]},
+    {"name": "hand crossbow", "bonus": 13, "range": {"increment": 60, "max": null}, "traits": ["reload-1"], "damage": [{"dice": "2d6+3", "type": "piercing"}]}
+  ],
+  "actions": [
+    {"name": "Lights Out", "type": "action", "actions": 2, "category": "offensive", "text": "<p>Тамм makes a sap Strike against an @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creature, aiming behind the ear. If the Strike hits, the target must attempt a @Check[fortitude|dc:21] save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p><p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied] 1 until the end of its next turn.</p><p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned] 1.</p><p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned] 2.</p>"},
+    {"name": "Corroborate", "type": "reaction", "category": "interaction", "text": "<p><strong>Trigger</strong> An ally within 30 feet that Тамм can hear attempts a Deception check to [[/act lie]]{Lie} or a Diplomacy check to [[/act make-an-impression]]{Make an Impression}</p><hr /><p><strong>Effect</strong> Тамм nods along and fills in a detail at the right moment. The ally gains a +2 circumstance bonus to the triggering check. If Тамм is @UUID[Compendium.pf2e.conditionitems.Item.Frightened] or anyone has already caught him in a lie this scene, he can't use this reaction.</p>"},
+    {"name": "Wrecked Back", "type": "passive", "category": "defensive", "text": "<p>A thrown hand axe left Тамм's back stiff as a board. He is @UUID[Compendium.pf2e.conditionitems.Item.Clumsy] 1. When a melee Strike critically hits him, the old wound tears and he is also @UUID[Compendium.pf2e.conditionitems.Item.Stunned] 1.</p>",
+      "rules": [{"key": "RollOption", "option": "tamm-wrecked-back", "toggleable": true, "value": true, "label": "Wrecked back"}, {"key": "GrantItem", "inMemoryOnly": true, "predicate": ["tamm-wrecked-back"], "uuid": "Compendium.pf2e.conditionitems.Item.Clumsy"}]},
+    {"name": "Lookout's Eye", "type": "passive", "category": "defensive", "text": "<p>Тамм has kept watch on doors for Гвоздь for years. He gains a +2 circumstance bonus to initiative rolls.</p>",
+      "rules": [{"key": "FlatModifier", "selector": "initiative", "type": "circumstance", "value": 2, "label": "Lookout's Eye"}]}
+  ],
+  "gear": [
+    {"slug": "leather-armor", "equip": "worn"},
+    {"slug": "crowbar", "equip": "worn"},
+    {"slug": "sap", "equip": "worn"},
+    {"slug": "hand-crossbow", "equip": "held1"},
+    {"slug": "bolts", "qty": 10},
+    {"slug": "lantern-hooded", "qty": 1}
+  ]
+}
